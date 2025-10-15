@@ -1,0 +1,75 @@
+ 
+@theme "~/.config/theme/out/rofi.conf"
+
+
+window {
+  border: 1px solid;
+	border-color: @bg3;
+    background-color: @bg0;
+	children: [mainbox];
+}
+
+mainbox {
+padding: 5px;
+spacing: 0;
+    background-color: @bg0;
+  children: [inputbar, listview];
+}
+
+inputbar {
+spacing:0;
+  margin: 0;
+  children: [prompt, entry];
+}
+
+prompt {
+  color: @fg1;
+  background-color: @bg0;
+  expand: false;
+  margin: 0;
+}
+
+
+entry {
+  margin: 0;
+  padding: 0 0 0 1ch;
+    background-color: @bg0;
+	color: @fg1;
+cursor-color: @fg2;
+cursor-width: 1ch;
+blink: false;
+}
+
+listview {
+
+    background-color: @bg0;
+}
+
+element-text {
+    margin: 0;
+    padding: 2px 0px 2px 0px;
+    color: @fg1;
+    text-color: @fg1;
+    background-color: @bg0;
+}
+
+element-text selected.normal {
+	background-color: @fg2;
+	text-color: @bg1;
+}
+
+
+element-text selected {
+	background-color: @fg2;
+	text-color: @bg1;
+}
+
+element-text selected.active {
+	background-color: @fg2;
+	text-color: @bg1;
+}
+
+element-text selected.urgent {
+	background-color: @fg2;
+	text-color: @bg1;
+}

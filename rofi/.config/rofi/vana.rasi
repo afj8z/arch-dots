@@ -1,0 +1,41 @@
+@theme "~/.config/matugen/cache/theme.conf"
+
+
+window {
+	width: 40%;
+	border-color: @bga;
+    background-color: @bga; }
+
+listview {
+  fixed-height: false;
+  lines: 7;
+	columns: 1;
+}
+
+element-text {
+    margin: 0;
+    padding: 2px 0px 2px 0px;
+    color: @fg2;
+    text-color: @fg2;
+}
+
+element-text selected.normal {
+	background-color: @sel-bg;
+	text-color: @bg0;
+}
+
+
+element-text selected {
+	background-color: @sel-bg;
+	text-color: @bga;
+}
+
+element-text selected.active {
+	background-color: @sel-bg;
+	text-color: @bga;
+}
+
+element-text selected.urgent {
+	background-color: @sel-bg;
+	text-color: @bga;
+}

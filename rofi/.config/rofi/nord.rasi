@@ -1,0 +1,146 @@
+/**
+ * Nordic rofi theme
+ * Adapted by undiabler <undiabler@gmail.com>
+ *
+ * Nord Color palette imported from https://www.nordtheme.com/
+ *
+ */
+@theme "~/.config/theme/out/rofi.conf"
+
+
+window {
+  spacing: 0px;
+  padding: 0px 10px 10px 10px;
+	border-color: @bg0;
+    background-color: @bg0;
+	children: [brdframe];
+}
+
+brdframe {
+
+  padding: 0px 0px 7px 0px;
+  spacing: 0px;
+    background-color: @bg1;
+	children: [mprompt,holder];
+}
+holder {
+	 spacing: 0px;
+	 margin: 0px;
+	padding: 0px 7px 0px 7px;
+	background-color: @bg1;
+    children: [entry,listview,bumper];
+    orientation: vertical;
+	expand: false;
+}
+
+
+mprompt {
+  
+padding: 0;
+spacing: 0;
+
+  expand: false;
+  margin: 0px;
+  orientation: horizontal;
+  children: [hackbrd,dummy,prompt,dummyrt,hackbrdrt];
+  }
+
+prompt {
+  color: @fg1;
+	background-color: @bg0;
+	expand: false;
+    margin: 0;
+}
+
+
+hackbrd {
+  border: 10px 0 0 0;
+  border-color: @bg0;
+padding: 0;
+margin: 0px 0px 0px 0px;
+	background-color: @bg1;
+	expand: false;
+content: "";
+width:7px;
+}
+
+hackbrdrt {
+  border: 10px 0 0 0;
+  border-color: @bg0;
+padding: 0;
+margin: 0px 0px 0px 0px;
+	background-color: @bg1;
+	expand: false;
+content: "";
+width:7px;
+}
+dummy {
+spacing: 0;
+	background-color: @bg1;
+  border: 10px 0 10px 0;
+  border-color: @bg0;
+padding: 0;
+margin: 0px 0px 0px 0px;
+  expand: true;
+}
+
+dummyrt {
+spacing: 0;
+	background-color: @bg1;
+  border: 10px 0 10px 0;
+  border-color: @bg0;
+padding: 0;
+margin: 0px 0px 0px 0px;
+  expand: true;
+}
+entry {
+	padding: 7px 7px 0px 7px;
+	expand: false;
+	color: @fg1;
+cursor-color: @fg2;
+cursor-width: 1ch;
+blink: false;
+}
+
+
+listview {
+	padding: 0px 7px 0px 7px;
+margin: 0px;
+dynamic: true;
+	expand: true;
+	children: [element-text];
+}
+
+element-text {
+    margin: 0;
+    padding: 2px 0px 2px 0px;
+    color: @fg1;
+    text-color: @fg1;
+}
+
+element-text selected.normal {
+	background-color: @fg2;
+	text-color: @bg1;
+}
+
+
+element-text selected {
+	background-color: @fg2;
+	text-color: @bg1;
+}
+
+element-text selected.active {
+	background-color: @fg2;
+	text-color: @bg1;
+}
+
+element-text selected.urgent {
+	background-color: @fg2;
+	text-color: @bg1;
+}
+bumper {
+margin: 0px 0px;
+padding: 1px 7px;
+background-color: @bg0;
+expand: false;
+}

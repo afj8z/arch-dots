@@ -1,0 +1,27 @@
+#!/bin/sh
+
+_ps="dwlb hypridle aslstatus dunst kitty"
+for _prs in $_ps; do
+    if [ "$(pidof "${_prs}")" ]; then
+         killall -9 "${_prs}"
+    fi
+ done
+
+
+dunst &
+
+systemd-inhibit --what=handle-lid-switch sleep infinity &
+
+swaybg -i ~/archgruv.png &
+
+wl-paste --type image --watch cliphist store &
+wl-paste --type text --watch cliphist store &
+
+(sleep 0.2; easyeffects --gapplication-service) &
+
+hypridle &
+
+(dwlb -ipc; sleep 0.2) &
+aslstatus -s | dwlb -status-stdin all -scale 1.5 &
+
+exec dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=wlroots

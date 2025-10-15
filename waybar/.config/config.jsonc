@@ -1,0 +1,256 @@
+// -*- mode: jsonc -*-
+[
+	{
+		"output": "eDP-1",
+		"reload_style_on_change": true,
+		"layer": "top", // Waybar at top layer
+		// "position": "bottom", // Waybar position (top|bottom|left|right)
+		"height": 24, // Waybar height (to be removed for auto height)
+		// "width": 1280, // Waybar width
+		"spacing": 5, // Gaps between modules (4px)
+		// Choose the order of the modules
+		"modules-left": [
+			"group/system"
+		],
+		"modules-center": [
+			"group/workspaces"
+		],
+		"modules-right": [
+			"group/hardware"
+		],
+		"custom/split": {
+			"format": "//",
+			"tooltip": false
+		},
+		"group/workspaces": {
+			"orientation": "horizontal",
+			"modules": [
+				"hyprland/workspaces"
+			]
+		},
+		"group/hardware": {
+			"orientation": "horizontal",
+			"modules": [
+				"cpu",
+				"custom/split",
+				"memory",
+				"custom/split",
+				"temperature",
+				"custom/split",
+				"clock"
+			]
+		},
+		"group/system": {
+			"orientation": "horizontal",
+			"modules": [
+				"network",
+				"custom/split",
+				"bluetooth",
+				"custom/split",
+				"backlight",
+				"custom/split",
+				"battery"
+			]
+		},
+		// Modules configuration
+		"hyprland/workspaces": {
+			"all-outputs": true,
+			"warp-on-scroll": false,
+			"enable-bar-scroll": true,
+			"disable-scroll-wraparound": true,
+			"active-only": false,
+			"format": "{icon}",
+			"persistent-workspaces": {
+				"*": 5
+			},
+			"persistent-only": true
+		},
+		// "hyprland/workspaces": {
+		// 	// "workspace-taskbar": {
+		// 	// 	"enable": true
+		// 	// },
+		// 	"format": "<span color='#262424'>{id}</span> {windows}",
+		// 	"format-window-separator": " ",
+		// 	"window-rewrite-default": "",
+		// 	"window-rewrite-empty": "",
+		// 	"window-rewrite": {
+		// 		"title<.*youtube.*>": "",
+		// 		"class<firefox>": "󰖟",
+		// 		"class<kitty>": "󰄛",
+		// 		"class<firefox> title<.*github.*>": "",
+		// 		"foot": "",
+		// 		"code": "󰨞",
+		// 		"gimp": "",
+		// 		"zathura": "",
+		// 		"title<.*.pdf.*>": ""
+		// 	}
+		// "persistent-workspaces": {
+		// 	"*": 5
+		// },
+		// "persistent-only": true
+		"hyprland/window": {
+			"format": "{}",
+			"rewrite": {
+				// "(.*) - (.*) — Mozilla Firefox": "web $2",
+				// "(.*) — Mozilla Firefox": "web $1",  
+				"(?=.{26,})(.{15}).*\\s(\\S+\\s+\\S+)$": "$1… $2"
+			},
+			"separate-outputs": true
+		},
+		"clock": {
+			"format": "{:%H:%M}"
+		},
+		"cpu": {
+			"format": "C:{usage}%",
+			"tooltip": false
+		},
+		"memory": {
+			"format": "M:{}%",
+			"tooltip": false
+		},
+		"temperature": {
+			// "thermal-zone": 2,
+			// "hwmon-path": "/sys/class/hwmon/hwmon2/temp1_input",
+			"critical-threshold": 70,
+			// "format-critical": "{temperatureC}°C {icon}",
+			"format": "T:{temperatureC}°C"
+		},
+		"backlight": {
+			// "device": "acpi_video1",
+			"format": "<span size='11pt'>{icon}</span>",
+			"format-icons": [
+				"",
+				"",
+				"",
+				"",
+				"",
+				"",
+				"",
+				"",
+				""
+			],
+			"tooltip": false
+		},
+		"battery": {
+			"states": {
+				"good": 95,
+				"warning": 40,
+				"critical": 20
+			},
+			"format": "<span size='11pt'>{icon}</span> {capacity}%",
+			"format-full": "<span size='11pt'>󱟢</span> {capacity}%",
+			"format-charging": "<span size='11pt'>󱐋</span> {capacity}%",
+			"format-plugged": "<span size='11pt'></span> {capacity}%",
+			// "format-good": "", // An empty format will hide the module
+			"format-icons": [
+				"󰁺",
+				"󰁼",
+				"󰁾",
+				"󰂀",
+				"󰁹"
+			]
+		},
+		"bluetooth": {
+			"format": "<span size='11pt'>󰂯</span>",
+			"format-disabled": "<span size='11pt'>󰂲</span>",
+			"format-connected": "<span size='11pt'>󰂯</span>",
+			"format-connected-battery": "<span size='11pt'>󰂯</span>",
+			"on-click": "kitty --class sys-dropdown -e bluetui"
+		},
+		"network": {
+			"format-wifi": "<span size='11pt'>{icon}</span>",
+			"format-ethernet": "<span size='11pt'>󰈀</span> LAN",
+			"format-disconnected": "<span size='11pt'>󰖪</span>",
+			"tooltip-format": "{ipaddr}\n{ssid} ({signalStrength}%)",
+			"on-click": "kitty --class sys-dropdown -e nmtui",
+			"format-icons": [
+				"󰤯",
+				"󰤟",
+				"󰤢",
+				"󰤥",
+				"󰤨"
+			]
+		},
+		"pulseaudio": {
+			// "scroll-step": 1, // %, can be a float
+			"format": "{volume}% {icon}",
+			"format-bluetooth": "{volume}% {icon}",
+			"format-bluetooth-muted": "{icon}󰂯",
+			"format-muted": "mute",
+			"format-source": "{volume}% ",
+			"format-source-muted": "",
+			"format-icons": {
+				"headphone": "",
+				"hands-free": "",
+				"headset": "",
+				"phone": "",
+				"portable": "",
+				"car": "",
+				"default": [
+					"",
+					"",
+					""
+				]
+			},
+			"on-click": "pavucontrol"
+		},
+		"custom/media": {
+			"format": "{icon} {text}",
+			"return-type": "json",
+			"max-length": 40,
+			"format-icons": {
+				"spotify": "",
+				"default": "🎜"
+			},
+			"escape": true,
+			"exec": "~/.config/waybar/mediaplayer.py 2> /dev/null" // Script in resources folder
+			// "exec": "$HOME/.config/waybar/mediaplayer.py --player spotify 2> /dev/null" // Filter player based on name
+		},
+		"custom/power": {
+			"format": "⏻ ",
+			"tooltip": false,
+			"menu": "on-click",
+			"menu-file": "$HOME/.config/waybar/power_menu.xml", // Menu file in resources folder
+			"menu-actions": {
+				"shutdown": "shutdown",
+				"reboot": "reboot",
+				"suspend": "systemctl suspend",
+				"hibernate": "systemctl hibernate"
+			}
+		}
+	},
+	{
+		"output": "HDMI-A-2",
+		"reload_style_on_change": true,
+		"height": 22, // Waybar height (to be removed for auto height)
+		"spacing": 5, // Gaps between modules (4px)
+		"modules-left": [],
+		"modules-center": [
+			"group/workspaces"
+		],
+		"modules-right": [],
+		"custom/split": {
+			"format": "//",
+			"tooltip": false
+		},
+		"group/workspaces": {
+			"orientation": "horizontal",
+			"modules": [
+				"hyprland/workspaces"
+			]
+		},
+		// Modules configuration
+		"hyprland/workspaces": {
+			"all-outputs": true,
+			"warp-on-scroll": false,
+			"enable-bar-scroll": true,
+			"disable-scroll-wraparound": true,
+			"active-only": false,
+			"format": "{icon}",
+			"persistent-workspaces": {
+				"*": 5
+			},
+			"persistent-only": true
+		}
+	}
+]

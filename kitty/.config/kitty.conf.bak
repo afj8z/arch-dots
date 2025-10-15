@@ -1,0 +1,47 @@
+# vim:fileencoding=utf-8:foldmethod=marker
+include ~/.config/theme/out/kitty.conf
+
+# BEGIN_KITTY_FONTS
+font_family      family="Terminus (TTF)"
+bold_font        auto
+italic_font      auto
+bold_italic_font auto
+# END_KITTY_FONTS
+font_size 16.0
+shell_integration no-cursor
+
+sync_to_monitor no
+
+dynamic_background_opacity yes
+map kitty_mod+i           set_background_opacity 1
+
+map kitty_mod+o           set_background_opacity 0.7
+hide_window_decorations yes
+window_padding_width 0
+window_padding_height 0
+placement_strategy top
+
+cursor none
+cursor_trail 3
+cursor_trail_start_threshold 1
+shell_integration no-cursor
+cursor_trail_decay 0.05 0.10
+cursor_shape block
+cursor_blink_interval 0
+#: Font size (in pts).
+
+tab_bar_edge                      bottom
+tab_bar_margin_width 0
+tab_bar_align center
+tab_title_max_length          27
+tab_bar_background none
+tab_bar_style separator
+tab_separator " :: "
+tab_title_template              "{index}:{title[title.rfind('/')+1:]}"
+active_tab_title_template  "{fmt.fg.color1}{index}:{title[title.rfind('/')+1:]}"
+active_tab_background   #000
+active_tab_font_style   bold
+inactive_tab_background #000
+# force_ltr no
+
+

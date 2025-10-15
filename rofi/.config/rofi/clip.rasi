@@ -1,0 +1,100 @@
+@theme "~/.config/matugen/cache/theme.conf"
+
+configuration {
+	modi:                       "drun,run";
+	fixed-num-lines: true;
+  timeout {
+      action: "kb-cancel";
+      delay:  0;
+  }
+  filebrowser {
+      directories-first: true;
+      sorting-method:    "name";
+  }
+}
+
+
+
+listview {
+  fixed-height: true;
+  lines: 5;
+	columns: 1;
+}
+
+window {
+
+    location:                    south;
+    anchor:                      north;
+    x-offset:                    0px;
+    y-offset:                    0px;
+	width: 100%;
+	border-color: @bga;
+    background-color: @bga;
+    orientation: horizontal;
+  	children: [inputbar, list];
+}
+
+
+inputbar {
+spacing:0;
+  margin: 0;
+  orientation: vertical;
+  children: [prompt, dummy];
+}
+
+prompt {
+
+  padding: 0 1ch 0 1ch;
+  color: @bg0;
+	background-color: @sel-bg;
+  expand: false;
+  margin: 0;
+}
+
+dummy {
+	expand: true;
+}
+list {
+	orientation: vertical;
+	children: [entry, listview];
+}
+
+entry {
+  margin: 0;
+  padding: 0 0 0 0ch;
+	color: @fg1;
+cursor-color: @fg2;
+cursor-width: 1ch;
+
+  expand: false;
+blink: false;
+}
+
+
+element-text {
+    margin: 0;
+    padding: 2px 0px 2px 0px;
+    color: @fg2;
+    text-color: @fg2;
+}
+
+element-text selected.normal {
+	background-color: @sel-bg;
+	text-color: @bg0;
+}
+
+
+element-text selected {
+	background-color: @fg2;
+	text-color: @bga;
+}
+
+element-text selected.active {
+	background-color: @fg2;
+	text-color: @bga;
+}
+
+element-text selected.urgent {
+	background-color: @fg2;
+	text-color: @bga;
+}
