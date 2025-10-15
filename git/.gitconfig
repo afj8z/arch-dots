@@ -1,0 +1,13 @@
+[core]
+	autocrlf = input
+	filemode = false
+[user]
+	emal = aidflem@gmail.com
+	name = afj8z
+	email = aidflem@gmail.com
+[credential "https://github.com"]
+	helper = 
+	helper = !/usr/bin/gh auth git-credential
+[credential "https://gist.github.com"]
+	helper = 
+	helper = !/usr/bin/gh auth git-credential

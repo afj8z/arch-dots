@@ -1,0 +1,9 @@
+[Unit]
+Description=Scan project directories and update the master TODO list
+
+[Service]
+Type=oneshot
+ExecStart=update-todo
+
+[Install]
+WantedBy=default.target

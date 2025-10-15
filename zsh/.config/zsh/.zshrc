@@ -110,6 +110,7 @@ alias la='ls -lha --color=auto --group-directories-first'
 alias grep='grep --color=auto'
 alias fk="sudo !!"
 alias rm="rm -Iv"
+alias rmrf="rm -Ivrf"
 alias mv="mv -i"
 alias df="df -h" 
 alias du="du -h -d 1" 

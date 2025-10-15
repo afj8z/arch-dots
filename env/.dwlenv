@@ -1,0 +1,27 @@
+export GDK_SCALE=1.5
+export QT_QPA_PLATFORM=wayland
+export QT_STYLE_OVERRIDE=kvantum
+export SDL_VIDEODRIVER=wayland
+export MOZ_ENABLE_WAYLAND=1
+export ELECTRON_OZONE_PLATFORM_HINT=wayland
+export OZONE_PLATFORM=wayland
+
+export XDG_CURRENT_DESKTOP=wlroots
+export XDG_SESSION_TYPE=wayland
+export XDG_SESSION_DESKTOP=wlroots
+export BEMENU_OPTS="--tb '#45707a'\
+ --tf '#CFD1B6'\
+ --fb '#101610'\
+ --ff '#CFD1B6'\
+ --nb '#101610'\
+ --nf '#45707a'\
+ --hb '#45707a'\
+ --hf '#CFD1B6'\
+ --sb '#45707a'\
+ --sf '#CFD1B6'\
+ --scb '#101610'\
+ --scf '#45707a'\
+ --bdr '#45707a'\
+ --fn 'Lilex Nerd Font Mono 16'\
+ -i --hp 5\
+ -B 2"
