@@ -179,6 +179,17 @@ mvd() {
   echo "Bound MVD to: $MVD"
 }
 
+mvdot() {
+	dotpath="$HOME/dotfiles/$1"
+	newdots="$(echo $PWD/$1 | sed "s|^$HOME/||")"
+	fullpath="$dotpath/$newdots"
+	mkdir -p $fullpath
+	mv $1 $fullpath
+	(cd $HOME/dotfiles;/usr/bin/stow $1)
+	echo "$1 moved to dotfiles in $fullpath \n\
+		linked back to $PWD/$1 with stow."
+}
+
 cdr() {
   local dir=$(tmux run "echo '#{session_path}'")
   builtin cd "$dir"

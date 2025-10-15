@@ -1,0 +1,10 @@
+#!/bin/sh
+
+TMUXARGS=("tmux" "a")
+if   pidof -x tmux 2> /dev/null;  then
+    tmcmd="${TMUXARGS[@]:0:2}"
+else
+    tmcmd="${TMUXARGS[1]}"
+fi
+
+echo $tmcmd

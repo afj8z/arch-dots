@@ -1,0 +1,12 @@
+let mapleader = ' '
+
+map <leader>w :write<cr>
+map <leader>q :quit<cr>
+
+
+set relativenumber
+set laststatus=2
+
+syntax on
+
+set viminfo+=n~/.vim/viminfo

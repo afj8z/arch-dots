@@ -1,0 +1,65 @@
+-- This file is automatically sourced *after* the default markdown syntax file,
+-- ensuring that our custom rules take precedence.
+
+-- === Custom Highlight Groups ===
+-- First, link to standard groups as a fallback for GUI or unconfigured terminals.
+vim.cmd("highlight link MarkdownH1 Title")
+vim.cmd("highlight link MarkdownH2 Title")
+vim.cmd("highlight link MarkdownH3 Identifier")
+vim.cmd("highlight link MarkdownTodo Todo")
+vim.cmd("highlight link MarkdownDone String")
+vim.cmd("highlight link MarkdownTaskGroup Delimiter")
+vim.cmd("highlight link MarkdownSpecialWord Error")
+
+-- Now, define explicit terminal colors (cterm) to ensure consistent appearance.
+-- These settings will override the links above in compatible terminals.
+vim.cmd("highlight MarkdownH1 ctermbg=Red cterm=bold")
+vim.cmd("highlight MarkdownH2 ctermbg=Cyan cterm=bold")
+vim.cmd("highlight MarkdownH3 ctermbg=LightBlue cterm=bold")
+vim.cmd("highlight MarkdownSpecialWord ctermfg=White ctermbg=Red")
+
+-- Make the Conceal group's foreground transparent. This allows the custom colors
+-- defined above (e.g., for MarkdownTodo) to be applied to the concealed character.
+-- vim.cmd("highlight Conceal ctermfg=None")
+
+-- === Syntax Rules ===
+-- Define the syntax rules for headings.
+vim.cmd("syntax match MarkdownH1 /^# .*$/")
+vim.cmd("syntax match MarkdownH2 /^## .*$/")
+vim.cmd("syntax match MarkdownH3 /^### .*$/")
+
+-- Define a match for the test word.
+vim.cmd("syntax keyword MarkdownSpecialWord SPECIALWORD")
+
+-- === Advanced Task List Highlighting ===
+-- Defines separate regions for top-level tasks, sub-tasks, and group titles.
+
+-- 1. Define the components (the "contained" parts).
+--    We use 'cchar' to specify the character to display when concealed.
+--    NOTE: The symbols used here are chosen for broad font compatibility.
+--    For more elaborate symbols (e.g., proper checkboxes), you would need to
+--    install and use a font that includes them, such as a "Nerd Font".
+vim.cmd([[syntax match MarkdownTodo "\[ \]" contained]])
+vim.cmd([[syntax match MarkdownDone "\[[xX]\]" contained]])
+vim.cmd([[syntax match MarkdownTaskGroup "\[>\]" contained]])
+vim.cmd([[syntax match MarkdownSubtaskMarker "^\s*[-*+]\s\+" contained]])
+
+vim.cmd("highlight MarkdownTodo ctermfg=Yellow cterm=bold")
+vim.cmd("highlight MarkdownDone ctermfg=Green")
+vim.cmd("highlight MarkdownTaskGroup ctermfg=Magenta cterm=bold")
+-- 2. Define the line-level regions that will contain the components.
+--    Each region is transparent so only the contained components are highlighted.
+vim.cmd([[syntax region markdownTopLevelTask start="^\s*\[[ xX]\]" end="$" contains=MarkdownTodo,MarkdownDone]])
+vim.cmd(
+	[[syntax region markdownSubTask start="^\s*[-*+]\s\+\[" end="$" contains=MarkdownSubtaskMarker,MarkdownTodo,MarkdownDone]]
+)
+vim.cmd([[syntax region markdownTaskGroupLine start="^\s*\[>\]" end="$" contains=MarkdownTaskGroup]])
+--
+-- -- 3. Add all our new line regions to the 'markdownTop' cluster for priority.
+vim.cmd([[syntax cluster markdownTop add=markdownTopLevelTask,markdownSubTask,markdownTaskGroupLine]])
+--
+vim.cmd(
+	[[nnoremap <f10> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<'. synIDattr(synID(line("."),col("."),0),"name") . "> lo<" . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<cr>]]
+)
+
+vim.opt.concealcursor = "n"

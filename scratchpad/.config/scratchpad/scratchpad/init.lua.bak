@@ -1,0 +1,76 @@
+vim.api.nvim_create_autocmd("FileType", {
+	pattern = "markdown",
+	callback = function()
+		vim.opt_local.wrap = true -- Enable soft line wrapping for easier reading.
+		vim.opt_local.spell = true -- Enable spell checking.
+		vim.opt_local.shiftwidth = 2 -- Set indentation to 2 spaces for lists.
+		vim.opt_local.tabstop = 2
+
+		-- --- Custom Markdown Highlighting ---
+		-- Link our custom groups to standard, theme-aware highlight groups.
+		vim.cmd("highlight link MarkdownH1 Title")
+		vim.cmd("highlight link MarkdownH2 Title")
+		vim.cmd("highlight link MarkdownH3 Identifier")
+		vim.cmd("highlight link MarkdownTodo Todo")
+		vim.cmd("highlight link MarkdownDone String")
+
+		-- Define the syntax rules for headings.
+		vim.cmd("syntax match MarkdownH1 /^# .*$/")
+		vim.cmd("syntax match MarkdownH2 /^## .*$/")
+		vim.cmd("syntax match MarkdownH3 /^### .*$/")
+
+		-- === Task List Highlighting (Final Corrected Version) ===
+		-- This method creates a new, high-priority syntax region for the entire
+		-- task list line, which prevents conflicts with default list highlighting.
+
+		-- 1. Define a match for a test word. This is a simple test case.
+		vim.cmd("syntax keyword MarkdownSpecialWord SPECIALWORD")
+		vim.cmd("highlight link MarkdownSpecialWord Error")
+
+		-- 2. Define the parts that will be *contained* within our task list line.
+		--    This includes the checkboxes and the list marker we want to conceal.
+		vim.cmd([[syntax match MarkdownTodo "\[ \]" contained]])
+		vim.cmd([[syntax match MarkdownDone "\[[xX]\]" contained]])
+		vim.cmd([[syntax match MarkdownMarkerConceal "^\s*[-*+]\s\+" contained conceal]])
+
+		-- 3. Define the entire line as a 'region'. It starts with the pattern of a
+		--    task list item and ends at the end of the line ($). Crucially, it
+		--    'contains' the parts we defined above.
+		vim.cmd(
+			[[syntax region markdownTaskLine start="^\s*[-*+]\s\+\[" end="$" keepend contains=MarkdownMarkerConceal,MarkdownTodo,MarkdownDone]]
+		)
+
+		-- 4. Give our new region top priority by adding it to the 'markdownTop' cluster.
+		--    This tells Neovim to check for our task list rule *before* its default rules.
+		vim.cmd([[syntax cluster markdownTop add=markdownTaskLine]])
+	end,
+	desc = "Apply specific settings for markdown files.",
+})
+
+-- --- General Settings ---
+vim.opt.shortmess:append("sI") -- Hide search count messages.
+vim.opt.conceallevel = 1 -- Hide concealable markers completely.
+vim.opt.concealcursor = "n" -- Only show conceal markers on the current line in normal mode.
+vim.opt.syntax = "on" -- Enable syntax highlighting.
+vim.opt.termguicolors = false -- Use terminal's full color capabilities.
+vim.opt.number = true -- Show line numbers.
+vim.opt.expandtab = true -- Use spaces instead of tabs.
+vim.opt.shiftwidth = 2
+vim.opt.tabstop = 2
+vim.opt.statusline = '%{expand("%:t:r")} | %l' -- Filename (no extension) and line number.
+vim.g.mapleader = " " -- Set the leader key to Space.
+
+-- --- Autocommands ---
+-- Autosave on text change, leaving insert mode, or switching buffer.
+vim.api.nvim_create_autocmd({ "TextChanged", "InsertLeave", "BufLeave" }, {
+	pattern = "*",
+	command = "silent! update",
+	desc = "Autosave the file on changes.",
+})
+
+-- Start in insert mode by default for a scratchpad-like feel.
+vim.api.nvim_create_autocmd("VimEnter", {
+	pattern = "*",
+	command = "startinsert",
+	desc = "Start in insert mode.",
+})

@@ -7,6 +7,13 @@ for _prs in $_ps; do
     fi
  done
 
+TMUXNEW=("tmux" "new" "-s" "home" "-c" "~")
+TMUXARGS=("tmux" "a")
+if   pidof -x tmux 2> /dev/null;  then
+    tmcmd="${TMUXARGS[@]:0:2}"
+else
+    tmcmd="${TMUXNEW[@]:0:6}"
+fi
 
 dunst &
 
@@ -23,5 +30,7 @@ hypridle &
 
 (dwlb -ipc; sleep 0.2) &
 aslstatus -s | dwlb -status-stdin all -scale 1.5 &
+
+kitty -e $tmcmd
 
 exec dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=wlroots
