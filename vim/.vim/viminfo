@@ -28,122 +28,262 @@
 "0	LINE	0
 	map <leader>w :write<cr>
 |3,0,0,1,1,0,1760517066,"map <leader>w :write<cr>"
-"1	LINE	0
+""1	LINE	0
+	require("lsp")
+|3,1,1,1,1,0,1760534000,"require(\"lsp\")"
+"2	LINE	0
+	-- cache the settings table
+	require("utils").set_settings(settings)
+|3,0,2,1,2,0,1760533961,"-- cache the settings table","require(\"utils\").set_settings(settings)"
+"3	LINE	0
+	require("extra")
+|3,0,3,1,1,0,1760532460,"require(\"extra\")"
+"4	LINE	0
 	syntax on
-|3,0,1,1,1,0,1760517055,"syntax on"
+|3,0,4,1,1,0,1760517055,"syntax on"
 "-	CHAR	0
-	write
-|3,0,36,0,1,0,1760517074,"write"
+	 
+|3,0,36,0,1,0,1760533990," "
 
 # File marks:
-'0  1  2  ~/.bookmarks.txt
-|4,48,1,2,1760521960,"~/.bookmarks.txt"
-'1  1  0  ~/dotfiles/vim/.vim/vimrc
-|4,49,1,0,1760517115,"~/dotfiles/vim/.vim/vimrc"
-'2  1  0  ~/dotfiles/vim/.vim/vimrc
-|4,50,1,0,1760517086,"~/dotfiles/vim/.vim/vimrc"
-'3  1  0  ~/dotfiles/vim/.vim/vimrc
-|4,51,1,0,1760517083,"~/dotfiles/vim/.vim/vimrc"
-'4  1  0  ~/dotfiles/vim/.vim/vimrc
-|4,52,1,0,1760517083,"~/dotfiles/vim/.vim/vimrc"
-'5  4  18  ~/dotfiles/vim/.vim/vimrc
-|4,53,4,18,1760517080,"~/dotfiles/vim/.vim/vimrc"
-'6  4  18  ~/dotfiles/vim/.vim/vimrc
-|4,54,4,18,1760517080,"~/dotfiles/vim/.vim/vimrc"
-'7  4  18  ~/dotfiles/vim/.vim/vimrc
-|4,55,4,18,1760517080,"~/dotfiles/vim/.vim/vimrc"
-'8  4  18  ~/dotfiles/vim/.vim/vimrc
-|4,56,4,18,1760517080,"~/dotfiles/vim/.vim/vimrc"
-'9  4  18  ~/dotfiles/vim/.vim/vimrc
-|4,57,4,18,1760517080,"~/dotfiles/vim/.vim/vimrc"
+'0  12  0  ~/dotfiles/nvim/.config/nvim/init.lua
+|4,48,12,0,1760534003,"~/dotfiles/nvim/.config/nvim/init.lua"
+'1  15  2  ~/dotfiles/nvim/.config/nvim/init.lua
+|4,49,15,2,1760533976,"~/dotfiles/nvim/.config/nvim/init.lua"
+'2  14  2  ~/dotfiles/nvim/.config/nvim/init.lua
+|4,50,14,2,1760533976,"~/dotfiles/nvim/.config/nvim/init.lua"
+'3  19  0  ~/dotfiles/nvim/.config/nvim/init.lua
+|4,51,19,0,1760533938,"~/dotfiles/nvim/.config/nvim/init.lua"
+'4  19  0  ~/dotfiles/nvim/.config/nvim/init.lua
+|4,52,19,0,1760533938,"~/dotfiles/nvim/.config/nvim/init.lua"
+'5  18  0  ~/dotfiles/nvim/.config/nvim/init.lua
+|4,53,18,0,1760533938,"~/dotfiles/nvim/.config/nvim/init.lua"
+'6  18  0  ~/dotfiles/nvim/.config/nvim/init.lua
+|4,54,18,0,1760533938,"~/dotfiles/nvim/.config/nvim/init.lua"
+'7  17  0  ~/dotfiles/nvim/.config/nvim/init.lua
+|4,55,17,0,1760532461,"~/dotfiles/nvim/.config/nvim/init.lua"
+'8  17  0  ~/dotfiles/nvim/.config/nvim/init.lua
+|4,56,17,0,1760532461,"~/dotfiles/nvim/.config/nvim/init.lua"
+'9  17  0  ~/dotfiles/nvim/.config/nvim/init.lua
+|4,57,17,0,1760532461,"~/dotfiles/nvim/.config/nvim/init.lua"
 
 # Jumplist (newest first):
+-'  12  0  ~/dotfiles/nvim/.config/nvim/init.lua
+|4,39,12,0,1760534003,"~/dotfiles/nvim/.config/nvim/init.lua"
+-'  16  0  ~/dotfiles/nvim/.config/nvim/init.lua
+|4,39,16,0,1760533986,"~/dotfiles/nvim/.config/nvim/init.lua"
+-'  1  0  ~/dotfiles/nvim/.config/nvim/init.lua
+|4,39,1,0,1760533983,"~/dotfiles/nvim/.config/nvim/init.lua"
+-'  15  2  ~/dotfiles/nvim/.config/nvim/init.lua
+|4,39,15,2,1760533976,"~/dotfiles/nvim/.config/nvim/init.lua"
+-'  14  2  ~/dotfiles/nvim/.config/nvim/init.lua
+|4,39,14,2,1760533976,"~/dotfiles/nvim/.config/nvim/init.lua"
+-'  1  0  ~/dotfiles/nvim/.config/nvim/init.lua
+|4,39,1,0,1760533952,"~/dotfiles/nvim/.config/nvim/init.lua"
+-'  19  0  ~/dotfiles/nvim/.config/nvim/init.lua
+|4,39,19,0,1760533938,"~/dotfiles/nvim/.config/nvim/init.lua"
+-'  18  0  ~/dotfiles/nvim/.config/nvim/init.lua
+|4,39,18,0,1760533938,"~/dotfiles/nvim/.config/nvim/init.lua"
+-'  18  0  ~/dotfiles/nvim/.config/nvim/init.lua
+|4,39,18,0,1760533938,"~/dotfiles/nvim/.config/nvim/init.lua"
+-'  1  0  ~/dotfiles/nvim/.config/nvim/init.lua
+|4,39,1,0,1760533934,"~/dotfiles/nvim/.config/nvim/init.lua"
+-'  17  0  ~/dotfiles/nvim/.config/nvim/init.lua
+|4,39,17,0,1760532461,"~/dotfiles/nvim/.config/nvim/init.lua"
+-'  16  0  ~/dotfiles/nvim/.config/nvim/init.lua
+|4,39,16,0,1760532461,"~/dotfiles/nvim/.config/nvim/init.lua"
+-'  16  0  ~/dotfiles/nvim/.config/nvim/init.lua
+|4,39,16,0,1760532461,"~/dotfiles/nvim/.config/nvim/init.lua"
+-'  16  0  ~/dotfiles/nvim/.config/nvim/init.lua
+|4,39,16,0,1760532461,"~/dotfiles/nvim/.config/nvim/init.lua"
+-'  16  0  ~/dotfiles/nvim/.config/nvim/init.lua
+|4,39,16,0,1760532461,"~/dotfiles/nvim/.config/nvim/init.lua"
+-'  1  0  ~/dotfiles/nvim/.config/nvim/init.lua
+|4,39,1,0,1760532455,"~/dotfiles/nvim/.config/nvim/init.lua"
+-'  1  0  ~/dotfiles/nvim/.config/nvim/init.lua
+|4,39,1,0,1760532455,"~/dotfiles/nvim/.config/nvim/init.lua"
+-'  1  2  ~/.bookmarks.txt
+|4,39,1,2,1760521960,"~/.bookmarks.txt"
+-'  1  2  ~/.bookmarks.txt
+|4,39,1,2,1760521960,"~/.bookmarks.txt"
+-'  1  2  ~/.bookmarks.txt
+|4,39,1,2,1760521960,"~/.bookmarks.txt"
+-'  1  2  ~/.bookmarks.txt
+|4,39,1,2,1760521960,"~/.bookmarks.txt"
+-'  1  2  ~/.bookmarks.txt
+|4,39,1,2,1760521960,"~/.bookmarks.txt"
+-'  1  2  ~/.bookmarks.txt
+|4,39,1,2,1760521960,"~/.bookmarks.txt"
+-'  1  2  ~/.bookmarks.txt
+|4,39,1,2,1760521960,"~/.bookmarks.txt"
+-'  1  2  ~/.bookmarks.txt
+|4,39,1,2,1760521960,"~/.bookmarks.txt"
+-'  1  2  ~/.bookmarks.txt
+|4,39,1,2,1760521960,"~/.bookmarks.txt"
+-'  1  2  ~/.bookmarks.txt
+|4,39,1,2,1760521960,"~/.bookmarks.txt"
+-'  1  2  ~/.bookmarks.txt
+|4,39,1,2,1760521960,"~/.bookmarks.txt"
+-'  1  2  ~/.bookmarks.txt
+|4,39,1,2,1760521960,"~/.bookmarks.txt"
+-'  1  2  ~/.bookmarks.txt
+|4,39,1,2,1760521960,"~/.bookmarks.txt"
+-'  1  2  ~/.bookmarks.txt
+|4,39,1,2,1760521960,"~/.bookmarks.txt"
+-'  1  2  ~/.bookmarks.txt
+|4,39,1,2,1760521960,"~/.bookmarks.txt"
+-'  1  2  ~/.bookmarks.txt
+|4,39,1,2,1760521960,"~/.bookmarks.txt"
+-'  1  2  ~/.bookmarks.txt
+|4,39,1,2,1760521960,"~/.bookmarks.txt"
+-'  1  2  ~/.bookmarks.txt
+|4,39,1,2,1760521960,"~/.bookmarks.txt"
+-'  1  2  ~/.bookmarks.txt
+|4,39,1,2,1760521960,"~/.bookmarks.txt"
+-'  1  2  ~/.bookmarks.txt
+|4,39,1,2,1760521960,"~/.bookmarks.txt"
+-'  1  2  ~/.bookmarks.txt
+|4,39,1,2,1760521960,"~/.bookmarks.txt"
+-'  1  2  ~/.bookmarks.txt
+|4,39,1,2,1760521960,"~/.bookmarks.txt"
+-'  1  2  ~/.bookmarks.txt
+|4,39,1,2,1760521960,"~/.bookmarks.txt"
+-'  1  2  ~/.bookmarks.txt
+|4,39,1,2,1760521960,"~/.bookmarks.txt"
+-'  1  2  ~/.bookmarks.txt
+|4,39,1,2,1760521960,"~/.bookmarks.txt"
+-'  1  2  ~/.bookmarks.txt
+|4,39,1,2,1760521960,"~/.bookmarks.txt"
+-'  1  2  ~/.bookmarks.txt
+|4,39,1,2,1760521960,"~/.bookmarks.txt"
+-'  1  2  ~/.bookmarks.txt
+|4,39,1,2,1760521960,"~/.bookmarks.txt"
+-'  1  2  ~/.bookmarks.txt
+|4,39,1,2,1760521960,"~/.bookmarks.txt"
+-'  1  2  ~/.bookmarks.txt
+|4,39,1,2,1760521960,"~/.bookmarks.txt"
+-'  1  2  ~/.bookmarks.txt
+|4,39,1,2,1760521960,"~/.bookmarks.txt"
 -'  1  2  ~/.bookmarks.txt
 |4,39,1,2,1760521960,"~/.bookmarks.txt"
 -'  1  0  ~/dotfiles/vim/.vim/vimrc
 |4,39,1,0,1760517115,"~/dotfiles/vim/.vim/vimrc"
 -'  1  0  ~/dotfiles/vim/.vim/vimrc
+|4,39,1,0,1760517115,"~/dotfiles/vim/.vim/vimrc"
+-'  1  0  ~/dotfiles/vim/.vim/vimrc
+|4,39,1,0,1760517115,"~/dotfiles/vim/.vim/vimrc"
+-'  1  0  ~/dotfiles/vim/.vim/vimrc
+|4,39,1,0,1760517115,"~/dotfiles/vim/.vim/vimrc"
+-'  1  0  ~/dotfiles/vim/.vim/vimrc
+|4,39,1,0,1760517115,"~/dotfiles/vim/.vim/vimrc"
+-'  1  0  ~/dotfiles/vim/.vim/vimrc
+|4,39,1,0,1760517115,"~/dotfiles/vim/.vim/vimrc"
+-'  1  0  ~/dotfiles/vim/.vim/vimrc
+|4,39,1,0,1760517115,"~/dotfiles/vim/.vim/vimrc"
+-'  1  0  ~/dotfiles/vim/.vim/vimrc
+|4,39,1,0,1760517115,"~/dotfiles/vim/.vim/vimrc"
+-'  1  0  ~/dotfiles/vim/.vim/vimrc
+|4,39,1,0,1760517115,"~/dotfiles/vim/.vim/vimrc"
+-'  1  0  ~/dotfiles/vim/.vim/vimrc
+|4,39,1,0,1760517115,"~/dotfiles/vim/.vim/vimrc"
+-'  1  0  ~/dotfiles/vim/.vim/vimrc
+|4,39,1,0,1760517115,"~/dotfiles/vim/.vim/vimrc"
+-'  1  0  ~/dotfiles/vim/.vim/vimrc
+|4,39,1,0,1760517115,"~/dotfiles/vim/.vim/vimrc"
+-'  1  0  ~/dotfiles/vim/.vim/vimrc
+|4,39,1,0,1760517115,"~/dotfiles/vim/.vim/vimrc"
+-'  1  0  ~/dotfiles/vim/.vim/vimrc
+|4,39,1,0,1760517115,"~/dotfiles/vim/.vim/vimrc"
+-'  1  0  ~/dotfiles/vim/.vim/vimrc
+|4,39,1,0,1760517115,"~/dotfiles/vim/.vim/vimrc"
+-'  1  0  ~/dotfiles/vim/.vim/vimrc
+|4,39,1,0,1760517115,"~/dotfiles/vim/.vim/vimrc"
+-'  1  0  ~/dotfiles/vim/.vim/vimrc
+|4,39,1,0,1760517115,"~/dotfiles/vim/.vim/vimrc"
+-'  1  0  ~/dotfiles/vim/.vim/vimrc
+|4,39,1,0,1760517115,"~/dotfiles/vim/.vim/vimrc"
+-'  1  0  ~/dotfiles/vim/.vim/vimrc
+|4,39,1,0,1760517115,"~/dotfiles/vim/.vim/vimrc"
+-'  1  0  ~/dotfiles/vim/.vim/vimrc
+|4,39,1,0,1760517115,"~/dotfiles/vim/.vim/vimrc"
+-'  1  0  ~/dotfiles/vim/.vim/vimrc
+|4,39,1,0,1760517115,"~/dotfiles/vim/.vim/vimrc"
+-'  1  0  ~/dotfiles/vim/.vim/vimrc
+|4,39,1,0,1760517115,"~/dotfiles/vim/.vim/vimrc"
+-'  1  0  ~/dotfiles/vim/.vim/vimrc
+|4,39,1,0,1760517115,"~/dotfiles/vim/.vim/vimrc"
+-'  1  0  ~/dotfiles/vim/.vim/vimrc
+|4,39,1,0,1760517115,"~/dotfiles/vim/.vim/vimrc"
+-'  1  0  ~/dotfiles/vim/.vim/vimrc
+|4,39,1,0,1760517115,"~/dotfiles/vim/.vim/vimrc"
+-'  1  0  ~/dotfiles/vim/.vim/vimrc
+|4,39,1,0,1760517115,"~/dotfiles/vim/.vim/vimrc"
+-'  1  0  ~/dotfiles/vim/.vim/vimrc
+|4,39,1,0,1760517115,"~/dotfiles/vim/.vim/vimrc"
+-'  1  0  ~/dotfiles/vim/.vim/vimrc
+|4,39,1,0,1760517115,"~/dotfiles/vim/.vim/vimrc"
+-'  1  0  ~/dotfiles/vim/.vim/vimrc
+|4,39,1,0,1760517115,"~/dotfiles/vim/.vim/vimrc"
+-'  1  0  ~/dotfiles/vim/.vim/vimrc
+|4,39,1,0,1760517115,"~/dotfiles/vim/.vim/vimrc"
+-'  1  0  ~/dotfiles/vim/.vim/vimrc
+|4,39,1,0,1760517115,"~/dotfiles/vim/.vim/vimrc"
+-'  1  0  ~/dotfiles/vim/.vim/vimrc
+|4,39,1,0,1760517115,"~/dotfiles/vim/.vim/vimrc"
+-'  1  0  ~/dotfiles/vim/.vim/vimrc
 |4,39,1,0,1760517086,"~/dotfiles/vim/.vim/vimrc"
 -'  1  0  ~/dotfiles/vim/.vim/vimrc
-|4,39,1,0,1760517083,"~/dotfiles/vim/.vim/vimrc"
--'  4  18  ~/dotfiles/vim/.vim/vimrc
-|4,39,4,18,1760517080,"~/dotfiles/vim/.vim/vimrc"
--'  4  18  ~/dotfiles/vim/.vim/vimrc
-|4,39,4,18,1760517080,"~/dotfiles/vim/.vim/vimrc"
--'  4  18  ~/dotfiles/vim/.vim/vimrc
-|4,39,4,18,1760517080,"~/dotfiles/vim/.vim/vimrc"
--'  4  18  ~/dotfiles/vim/.vim/vimrc
-|4,39,4,18,1760517080,"~/dotfiles/vim/.vim/vimrc"
+|4,39,1,0,1760517086,"~/dotfiles/vim/.vim/vimrc"
 -'  1  0  ~/dotfiles/vim/.vim/vimrc
-|4,39,1,0,1760517043,"~/dotfiles/vim/.vim/vimrc"
--'  4  0  ~/.bookmarks.txt
-|4,39,4,0,1760517021,"~/.bookmarks.txt"
--'  4  0  ~/.bookmarks.txt
-|4,39,4,0,1760517021,"~/.bookmarks.txt"
--'  4  0  ~/.bookmarks.txt
-|4,39,4,0,1760517021,"~/.bookmarks.txt"
--'  4  0  ~/.bookmarks.txt
-|4,39,4,0,1760517021,"~/.bookmarks.txt"
--'  4  0  ~/.bookmarks.txt
-|4,39,4,0,1760517021,"~/.bookmarks.txt"
--'  4  0  ~/.bookmarks.txt
-|4,39,4,0,1760517021,"~/.bookmarks.txt"
--'  4  0  ~/.bookmarks.txt
-|4,39,4,0,1760517021,"~/.bookmarks.txt"
--'  4  0  ~/.bookmarks.txt
-|4,39,4,0,1760517021,"~/.bookmarks.txt"
--'  4  0  ~/.bookmarks.txt
-|4,39,4,0,1760517021,"~/.bookmarks.txt"
--'  4  0  ~/.bookmarks.txt
-|4,39,4,0,1760517021,"~/.bookmarks.txt"
--'  4  0  ~/.bookmarks.txt
-|4,39,4,0,1760517021,"~/.bookmarks.txt"
--'  4  0  ~/.bookmarks.txt
-|4,39,4,0,1760517021,"~/.bookmarks.txt"
--'  4  0  ~/.bookmarks.txt
-|4,39,4,0,1760517021,"~/.bookmarks.txt"
--'  4  0  ~/.bookmarks.txt
-|4,39,4,0,1760517021,"~/.bookmarks.txt"
--'  4  0  ~/.bookmarks.txt
-|4,39,4,0,1760517021,"~/.bookmarks.txt"
--'  4  0  ~/.bookmarks.txt
-|4,39,4,0,1760517021,"~/.bookmarks.txt"
--'  4  0  ~/.bookmarks.txt
-|4,39,4,0,1760517021,"~/.bookmarks.txt"
--'  1  0  ~/.bookmarks.txt
-|4,39,1,0,1760517018,"~/.bookmarks.txt"
--'  1  0  ~/.bookmarks.txt
-|4,39,1,0,1760517018,"~/.bookmarks.txt"
--'  1  0  ~/.bookmarks.txt
-|4,39,1,0,1760517018,"~/.bookmarks.txt"
--'  1  0  ~/.bookmarks.txt
-|4,39,1,0,1760517018,"~/.bookmarks.txt"
--'  1  0  ~/.bookmarks.txt
-|4,39,1,0,1760517018,"~/.bookmarks.txt"
--'  1  0  ~/.bookmarks.txt
-|4,39,1,0,1760517018,"~/.bookmarks.txt"
--'  1  0  ~/.bookmarks.txt
-|4,39,1,0,1760517018,"~/.bookmarks.txt"
--'  1  0  ~/.bookmarks.txt
-|4,39,1,0,1760517018,"~/.bookmarks.txt"
--'  1  0  ~/.bookmarks.txt
-|4,39,1,0,1760517018,"~/.bookmarks.txt"
--'  1  0  ~/.bookmarks.txt
-|4,39,1,0,1760517018,"~/.bookmarks.txt"
--'  1  0  ~/.bookmarks.txt
-|4,39,1,0,1760517018,"~/.bookmarks.txt"
--'  1  0  ~/.bookmarks.txt
-|4,39,1,0,1760517018,"~/.bookmarks.txt"
--'  1  0  ~/.bookmarks.txt
-|4,39,1,0,1760517018,"~/.bookmarks.txt"
--'  1  0  ~/.bookmarks.txt
-|4,39,1,0,1760517018,"~/.bookmarks.txt"
--'  1  0  ~/.bookmarks.txt
-|4,39,1,0,1760517018,"~/.bookmarks.txt"
--'  1  0  ~/.bookmarks.txt
-|4,39,1,0,1760517018,"~/.bookmarks.txt"
+|4,39,1,0,1760517086,"~/dotfiles/vim/.vim/vimrc"
+-'  1  0  ~/dotfiles/vim/.vim/vimrc
+|4,39,1,0,1760517086,"~/dotfiles/vim/.vim/vimrc"
+-'  1  0  ~/dotfiles/vim/.vim/vimrc
+|4,39,1,0,1760517086,"~/dotfiles/vim/.vim/vimrc"
+-'  1  0  ~/dotfiles/vim/.vim/vimrc
+|4,39,1,0,1760517086,"~/dotfiles/vim/.vim/vimrc"
+-'  1  0  ~/dotfiles/vim/.vim/vimrc
+|4,39,1,0,1760517086,"~/dotfiles/vim/.vim/vimrc"
+-'  1  0  ~/dotfiles/vim/.vim/vimrc
+|4,39,1,0,1760517086,"~/dotfiles/vim/.vim/vimrc"
+-'  1  0  ~/dotfiles/vim/.vim/vimrc
+|4,39,1,0,1760517086,"~/dotfiles/vim/.vim/vimrc"
+-'  1  0  ~/dotfiles/vim/.vim/vimrc
+|4,39,1,0,1760517086,"~/dotfiles/vim/.vim/vimrc"
+-'  1  0  ~/dotfiles/vim/.vim/vimrc
+|4,39,1,0,1760517086,"~/dotfiles/vim/.vim/vimrc"
+-'  1  0  ~/dotfiles/vim/.vim/vimrc
+|4,39,1,0,1760517086,"~/dotfiles/vim/.vim/vimrc"
+-'  1  0  ~/dotfiles/vim/.vim/vimrc
+|4,39,1,0,1760517086,"~/dotfiles/vim/.vim/vimrc"
+-'  1  0  ~/dotfiles/vim/.vim/vimrc
+|4,39,1,0,1760517086,"~/dotfiles/vim/.vim/vimrc"
+-'  1  0  ~/dotfiles/vim/.vim/vimrc
+|4,39,1,0,1760517086,"~/dotfiles/vim/.vim/vimrc"
+-'  1  0  ~/dotfiles/vim/.vim/vimrc
+|4,39,1,0,1760517086,"~/dotfiles/vim/.vim/vimrc"
+-'  1  0  ~/dotfiles/vim/.vim/vimrc
+|4,39,1,0,1760517086,"~/dotfiles/vim/.vim/vimrc"
+-'  1  0  ~/dotfiles/vim/.vim/vimrc
+|4,39,1,0,1760517086,"~/dotfiles/vim/.vim/vimrc"
+-'  1  0  ~/dotfiles/vim/.vim/vimrc
+|4,39,1,0,1760517086,"~/dotfiles/vim/.vim/vimrc"
 
 # History of marks within files (newest to oldest):
+
+> ~/dotfiles/nvim/.config/nvim/init.lua
+	*	1760534003	0
+	"	12	0
+	^	15	3
+	.	12	0
+	+	17	0
+	+	13	0
+	+	14	0
+	+	15	2
+	+	16	0
+	+	15	0
+	+	19	0
+	+	12	0
 
 > ~/.bookmarks.txt
 	*	1760521959	0
