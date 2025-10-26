@@ -1,13 +1,15 @@
 #!/bin/sh
 
-_ps="dwlb hypridle aslstatus dunst kitty"
+_ps="dwlb swww-daemon hypridle aslstatus dunst kitty"
 for _prs in $_ps; do
     if [ "$(pidof "${_prs}")" ]; then
          killall -9 "${_prs}"
     fi
  done
 
-TMUXNEW=("tmux" "new" "-s" "home" "-c" "~")
+systemctl --user stop move-pdf.path &
+
+TMUXNEW=("tmux" "new" "-s" "_home" "-c" "~")
 TMUXARGS=("tmux" "a")
 if   pidof -x tmux 2> /dev/null;  then
     tmcmd="${TMUXARGS[@]:0:2}"
@@ -19,7 +21,9 @@ dunst &
 
 systemd-inhibit --what=handle-lid-switch sleep infinity &
 
-swaybg -i ~/archgruv.png &
+systemctl --user start move-pdf.path &
+
+swww-daemon &
 
 wl-paste --type image --watch cliphist store &
 wl-paste --type text --watch cliphist store &

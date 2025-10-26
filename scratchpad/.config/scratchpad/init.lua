@@ -107,7 +107,7 @@ vim.g.mapleader = " "
 vim.keymap.set("n", "<leader>n", toggle_notes, { desc = "Toggle notes" })
 
 vim.cmd("syntax on")
-vim.opt.termguicolors = true
+vim.opt.termguicolors = false
 vim.opt.number = false
 vim.opt.expandtab = true
 vim.opt.shiftwidth = 2
@@ -172,7 +172,7 @@ vim.api.nvim_create_autocmd({ "TextChanged", "InsertLeave", "BufLeave" }, {
 	desc = "Autosave the file on changes.",
 })
 
-require("nvim-treesitter.configs").setup({
-
-	highlight = { enable = true },
-})
+-- require("nvim-treesitter.configs").setup({
+--
+-- 	highlight = { enable = true },
+-- })

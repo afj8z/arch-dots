@@ -1,0 +1,45 @@
+(defcfg
+		log-layer-changes yes
+	  	danger-enable-cmd yes
+)
+
+(defsrc)
+
+(deflayermap (base-layer)
+esc caps
+caps esc
+lalt (multi (layer-while-held shifted) lsft)
+lsft lalt
+lmet (multi (layer-while-held super) lmet)
+ralt (layer-while-held symlayer)
+; S-;
+)
+
+(deflayermap (shifted)
+; (unmod ;) 
+)
+
+
+(deflayermap (super)
+1 (multi (cmd bash -c "/home/aidanfleming/.local/scripts/util/wallpaper-switcher.sh 1") 1)
+2 (multi (cmd bash -c "/home/aidanfleming/.local/scripts/util/wallpaper-switcher.sh 2") 2)
+3 (multi (cmd bash -c "/home/aidanfleming/.local/scripts/util/wallpaper-switcher.sh 3") 3)
+4 (multi (cmd bash -c "/home/aidanfleming/.local/scripts/util/wallpaper-switcher.sh 4") 4)
+5 (multi (cmd bash -c "/home/aidanfleming/.local/scripts/util/wallpaper-switcher.sh 5") 5)
+)
+
+(deflayermap (symlayer)
+p S-=
+e =
+m -
+f /
+s S-'
+t S-,
+y S-.
+b S-[
+n S-]
+h [
+j ]
+k S-9
+l S-0
+)

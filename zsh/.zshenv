@@ -5,6 +5,7 @@ export PAGER="/bin/less"
 
 export LESSHISTFILE="$XDG_CACHE_HOME/less_history"
 export PYTHON_HISTORY="$XDG_DATA_HOME/python/history"
+export DIRENV_SCREENSHOT_DIR="$HOME/.local/scripts/rules/cwd-screenshots"
 
 export NEWT_COLORS_FILE=~/.config/newt-theme.txt
 export MYVIMRC="~/.config/nvim/"

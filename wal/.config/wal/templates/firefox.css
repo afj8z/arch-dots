@@ -1,0 +1,7 @@
+:root {{
+	--bg0: {{{{colors.surface_container_lowest.default.hex | set_lightness: 5.0}}}};
+	--bg1: {{{{colors.surface.default.hex | set_lightness: 5.0}}}};
+	--bg2: {{{{colors.surface_container_high.default.hex | set_lightness: 5.0}}}};
+	--fg: {{{{colors.on_surface_variant.default.hex}}}};
+	--acc: {color4}:
+}}

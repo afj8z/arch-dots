@@ -1,0 +1,28 @@
+{
+	"checksum": "20e2716859c22c1440d1e02f947697e3",
+	"wallpaper": "/home/aidanfleming/pictures/col/new/autumn.jpg",
+	"alpha": "100",
+	"special": {
+		"background": "#171012",
+		"foreground": "#c5c3c3",
+		"cursor": "#c5c3c3"
+	},
+	"colors": {
+		"color0": "#171012",
+		"color1": "#73413d",
+		"color2": "#aa987c",
+		"color3": "#e06a34",
+		"color4": "#8072cc",
+		"color5": "#c8646e",
+		"color6": "#5d6d55",
+		"color7": "#f8d089",
+		"color8": "#6f5b5f",
+		"color9": "#ae4622",
+		"color10": "#526450",
+		"color11": "#ee9857",
+		"color12": "#7964ce",
+		"color13": "#aa525f",
+		"color14": "#efcfa2",
+		"color15": "#F7DFBB"
+	}
+}
