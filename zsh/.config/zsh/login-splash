@@ -1,6 +1,6 @@
 #!/bin/env bash
 
-random_quote=$("$HOME/.local/scripts/random_quote.sh")
+random_quote=$(random_quote.sh)
 
 anims=(
 	"slide --merge"
@@ -36,7 +36,7 @@ if [ -n "$random_quote" ]; then
 
         printf '│%*s│\n' "$((max_width + 2))" ''
 
-        printf "│ %*s  │\n" "$max_width" "$author_line"
+        printf "│ %*s │\n" "$((max_width + 2))" "$author_line"
 
         printf '╰%*s╯\n' "$((max_width + 2))" '' | tr ' ' '-'
         

@@ -1,0 +1,43 @@
+{
+	"checksum": "",
+	"wallpaper": "",
+	"alpha": "100",
+	"special": {
+		"background": "#101610",
+		"foreground": "#DED9CA",
+		"cursor": "#DED9CA",
+		"myblack": "#1D2121",
+		"mysurface": "#262929",
+		"mysurfacedim": "#353538",
+		"mysurfaceacc": "#4A4641",
+		"mytextdim": "#575451",
+		"mytextmid": "#666361",
+		"mytext": "#807C79",
+		"mytextacc": "#A5A69A",
+		"myfrontacc": "#D0D1BC",
+		"myfront": "#DED9CA",
+		"myvisual": "#384242",
+		"myselect": "#435252",
+		"myaccent": "#458A82",
+		"myaccentdim": "#3c8992",
+		"myerror": "#913B34"
+	},
+	"colors": {
+		"color0": "#101610",
+		"color1": "#AB554F",
+		"color2": "#82854D",
+		"color3": "#B89735",
+		"color4": "#3D7780",
+		"color5": "#8F5067",
+		"color6": "#458A82",
+		"color7": "#A5A69A",
+		"color8": "#4b7e4b",
+		"color9": "#913B34",
+		"color10": "#AFBA5B",
+		"color11": "#dbae2f",
+		"color12": "#3c8992",
+		"color13": "#B86E8A",
+		"color14": "#56A69E",
+		"color15": "#c4c4c4"
+	}
+}

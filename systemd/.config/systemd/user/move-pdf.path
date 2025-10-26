@@ -1,0 +1,8 @@
+[Unit]
+Description=Systemd unit to watch download folder for any new pdfs and move them into folder
+
+[Path]
+PathChanged=/home/aidanfleming/downloads/
+
+[Install]
+WantedBy=multi-user.target

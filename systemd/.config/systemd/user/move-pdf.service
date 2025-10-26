@@ -1,0 +1,6 @@
+[Unit]
+Description=Systemd service to watch download folder for any new pdfs and move them into folder
+
+[Service]
+Type=oneshot
+ExecStart=/home/aidanfleming/.local/scripts/fileutil/movedownloads.sh

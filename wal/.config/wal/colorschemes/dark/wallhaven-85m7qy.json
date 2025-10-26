@@ -1,0 +1,28 @@
+{
+    "checksum": "61ce62993fe89aea6439d3f8a92c964a",
+    "wallpaper": "/home/aidanfleming/pictures/col/new/wallhaven-85m7qy.jpg",
+    "alpha": "100",
+    "special": {
+        "background": "#201015",
+        "foreground": "#c7c3c4",
+        "cursor": "#c7c3c4"
+    },
+    "colors": {
+        "color0": "#201015",
+        "color1": "#924445",
+        "color2": "#857159",
+        "color3": "#ae8939",
+        "color4": "#ab7d4d",
+        "color5": "#b69341",
+        "color6": "#5d4b61",
+        "color7": "#9b9194",
+        "color8": "#725e63",
+        "color9": "#C35B5D",
+        "color10": "#B29777",
+        "color11": "#E8B74C",
+        "color12": "#E4A767",
+        "color13": "#F3C557",
+        "color14": "#7C6582",
+        "color15": "#c7c3c4"
+    }
+}

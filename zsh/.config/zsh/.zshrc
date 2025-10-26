@@ -18,7 +18,7 @@ CONFIGDIR="$HOME/.config"
 DEVDIR="$HOME/dev"
 
 # Path
-export PATH="$HOME/.local/bin:$HOME/bin/nvim/bin:$PATH"
+export PATH="$HOME/.local/bin:$HOME/bin/nvim/bin:$HOME/.cargo/bin/:$PATH"
 
 # History
 HISTFILE="$CACHE/.zsh_history"

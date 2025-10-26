@@ -1,0 +1,78 @@
+[config]
+[config.custom_keywords]
+monofont = "Lilex Nerd Font Mono"
+color0 = "{color0}"
+color8 = "{color8}"
+color1 = "{color1}"
+color9 = "{color9}"
+color2 = "{color2}"
+color10 = "{color10}"
+color3 = "{color3}"
+color11 = "{color11}"
+color4 = "{color4}"
+color12 = "{color12}"
+color5 = "{color5}"
+color13 = "{color13}"
+color6 = "{color6}"
+color14 = "{color14}"
+color7 = "{color7}"
+color15 = "{color15}"
+background = "{background}"
+foreground = "{foreground}"
+cursor = "{cursor}"
+myblack = "{myblack}"
+myblacktrans = "{myblacktrans}"
+mysurface = "{mysurface}"
+mysurfacedim = "{mysurfacedim}"
+mysurfaceacc = "{mysurfaceacc}"
+mytextdim = "{mytextdim}"
+mytextmid = "{mytextmid}"
+mytext = "{mytext}"
+mytextacc = "{mytextacc}"
+myfrontacc = "{myfrontacc}"
+myfront = "{myfront}"
+myvisual = "{myvisual}"
+myselect = "{myselect}"
+myaccent = "{myaccent}"
+myaccentdim = "{myaccentdim}"
+myerror = "{myerror}"
+
+[templates.theme]
+input_path = "~/.config/matugen/templates/colors.css"
+output_path = "~/.config/matugen/cache/colors.css"
+
+[templates.kitty]
+input_path = "~/.cache/wal/kitty-colors.conf"
+output_path = "~/.config/matugen/cache/kitty-colors.conf"
+
+[templates.rofi]
+input_path = "~/.cache/wal/rofi.conf"
+output_path = "~/.config/matugen/cache/theme.conf"
+
+[templates.dunst]
+input_path = "~/.config/matugen/templates/dunstrc"
+output_path = "~/.config/dunst/dunstrc"
+
+[templates.gtk]
+input_path = "~/.cache/wal/rootgtk.css"
+output_path = "~/.config/matugen/cache/root.gtk.css"
+
+[templates.css]
+input_path = "~/.cache/wal/base"
+output_path = "~/.config/matugen/cache/root.css"
+
+[templates.hypr]
+input_path = "~/.config/matugen/templates/hypr.conf"
+output_path = "~/.config/matugen/cache/hypr.conf"
+
+[templates.vi]
+input_path = "~/.cache/wal/shades.lua"
+output_path = "~/dev/nvim-tundra/lua/nvim-tundra/palette/custom.lua"
+
+[templates.lock]
+input_path = "~/.cache/wal/hyprlock.conf"
+output_path = "~/.config/hypr/hyprlock.conf"
+
+[templates.firefox]
+input_path = "~/.cache/wal/firefox.css"
+output_path = "~/.mozilla/firefox/f1jryfvt.default-release/chrome/root.css"

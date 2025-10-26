@@ -1,0 +1,28 @@
+{
+    "checksum": "825cfdeaf24284f71d1195d383b071e5",
+    "wallpaper": "/home/aidanfleming/pictures/set_one/six.png",
+    "alpha": "100",
+    "special": {
+        "background": "#0c181e",
+        "foreground": "#c2c5c6",
+        "cursor": "#c2c5c6"
+    },
+    "colors": {
+        "color0": "#0c181e",
+        "color1": "#333f3c",
+        "color2": "#514838",
+        "color3": "#7c3c24",
+        "color4": "#75573b",
+        "color5": "#787551",
+        "color6": "#866d48",
+        "color7": "#8f979a",
+        "color8": "#5c6970",
+        "color9": "#445551",
+        "color10": "#6D614B",
+        "color11": "#A65130",
+        "color12": "#9C744F",
+        "color13": "#A19D6D",
+        "color14": "#B39261",
+        "color15": "#c2c5c6"
+    }
+}
