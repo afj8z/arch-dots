@@ -1,18 +1,30 @@
 (defcfg
 		log-layer-changes yes
 	  	danger-enable-cmd yes
+		concurrent-tap-hold yes
 )
 
 (defsrc)
 
+(defvar
+ tap-higher 400
+ tap-time 200
+ hold-time 200
+ chord-time 60
+ subl-time 200
+ tmux-delay 40
+)
+
 (deflayermap (base-layer)
 esc caps
-caps esc
+caps (tap-hold $tap-time $hold-time esc lctl)
 lalt (multi (layer-while-held shifted) lsft)
 lsft lalt
 lmet (multi (layer-while-held super) lmet)
 ralt (layer-while-held symlayer)
 ; S-;
+brup (cmd bash -c "/home/aidanfleming/.local/scripts/system/notify-med bright_up")
+brdown (cmd bash -c "/home/aidanfleming/.local/scripts/system/notify-med bright_down")
 )
 
 (deflayermap (shifted)
@@ -30,7 +42,7 @@ ralt (layer-while-held symlayer)
 
 (deflayermap (symlayer)
 p S-=
-e =
+q =
 m -
 f /
 s S-'
@@ -42,4 +54,5 @@ h [
 j ]
 k S-9
 l S-0
+e comp
 )

@@ -33,7 +33,8 @@ wl-paste --type text --watch cliphist store &
 hypridle &
 
 (dwlb -ipc; sleep 0.2) &
-aslstatus -s | dwlb -status-stdin all -scale 1.5 &
+
+aslstatus -s | dwlb -status-stdin all  &
 
 kitty -e $tmcmd
 

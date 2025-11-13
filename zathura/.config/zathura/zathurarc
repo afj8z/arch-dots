@@ -21,40 +21,40 @@ map R rotate
 
 #zoom settings
 set zoom-min 10
-set guioptions ""
+set guioptions "c"
 
 # zathurarc-dark
-set font "Libertinus Serif 15"
-set default-bg "#000000" #00
-set default-fg "#F7F7F6" #01
+set font "Lilex Nerd Font Mono 19"
+set default-bg "#111012" #00
+set default-fg "#DBD0C6" #01
 
-set statusbar-fg "#B0B0B0" #04
-set statusbar-bg "#202020" #01
+set statusbar-fg "#DBD0C6" #04
+set statusbar-bg "#25212B" #01
 
-set inputbar-bg "#151515" #00 currently not used
-set inputbar-fg "#FFFFFF" #02
+set inputbar-bg "#25212B" #00 currently not used
+set inputbar-fg "#DBD0C6" #02
 
-set notification-error-bg "#AC4142" #08
-set notification-error-fg "#151515" #00
+set notification-error-bg "#99453D" #08
+set notification-error-fg "#111012" #00
 
-set notification-warning-bg "#AC4142" #08
-set notification-warning-fg "#151515" #00
+set notification-warning-bg "#99453D" #08
+set notification-warning-fg "#111012" #00
 
-set highlight-color "#F4BF75" #0A
-set highlight-active-color "#6A9FB5" #0D
+set highlight-color "#8A7FA3" #0A
+set highlight-active-color "#b4d4cf" #0D
 
-set completion-highlight-fg "#000000" #02
+set completion-highlight-fg "#111012" #02
 set completion-highlight-bg "#00BCD4B3" #0C
 
 set completion-bg "#30303003" #02
 set completion-fg "#FFC107C4" #0C
 
-set notification-bg "#90A959" #0B
-set notification-fg "#151515" #00
+set notification-bg "#8A7FA3" #0B
+set notification-fg "#111012" #00
 
 set recolor "true"
-set recolor-lightcolor "#000000" #00
-set recolor-darkcolor "#E0E0E0" #06
+set recolor-lightcolor "#111012" #00
+set recolor-darkcolor "#DBD0C6" #06
 set recolor-reverse-video "true"
 set recolor-keephue "true"
 

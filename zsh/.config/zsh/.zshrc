@@ -112,10 +112,15 @@ alias fk="sudo !!"
 alias rm="rm -Iv"
 alias rmrf="rm -Ivrf"
 alias mv="mv -i"
+alias md="mkdir -p"
 alias df="df -h" 
 alias du="du -h -d 1" 
 alias fp="ps aux | grep $1"
 alias freem="free -h | bat -l cpuinfo -p"
+
+alias ppp="powerprofilesctl set performance"
+alias pps="powerprofilesctl set power-saver"
+alias ppls="powerprofilesctl list"
 
 # Functions
 # Enter a directory and list its contents
@@ -161,7 +166,7 @@ zle -N finder
 bindkey '^e' finder
 
 # mkdir and cd into it
-mkcd() {
+mcd() {
     local dir="$*";
     mkdir -p "$dir" && builtin cd "$dir";
 }

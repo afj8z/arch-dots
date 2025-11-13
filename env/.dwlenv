@@ -9,19 +9,19 @@ export OZONE_PLATFORM=wayland
 export XDG_CURRENT_DESKTOP=wlroots
 export XDG_SESSION_TYPE=wayland
 export XDG_SESSION_DESKTOP=wlroots
-export BEMENU_OPTS="--tb '#45707a'\
- --tf '#CFD1B6'\
- --fb '#101610'\
- --ff '#CFD1B6'\
- --nb '#101610'\
- --nf '#45707a'\
- --hb '#45707a'\
- --hf '#CFD1B6'\
- --sb '#45707a'\
- --sf '#CFD1B6'\
- --scb '#101610'\
- --scf '#45707a'\
- --bdr '#45707a'\
- --fn 'Lilex Nerd Font Mono 16'\
+export BEMENU_OPTS="--tb '#8A7FA3'\
+ --tf '#DBD0C6'\
+ --fb '#111012'\
+ --ff '#DBD0C6'\
+ --nb '#111012'\
+ --nf '#8A7FA3'\
+ --hb '#8A7FA3'\
+ --hf '#DBD0C6'\
+ --sb '#8A7FA3'\
+ --sf '#DBD0C6'\
+ --scb '#111012'\
+ --scf '#8A7FA3'\
+ --bdr '#8A7FA3'\
+ --fn 'FiraMono Nerd Font Mono 19'\
  -i --hp 5\
- -B 2"
+ -B 1"
