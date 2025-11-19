@@ -33,11 +33,29 @@ brdown (cmd bash -c "/home/aidanfleming/.local/scripts/system/notify-med bright_
 
 
 (deflayermap (super)
-1 (multi (cmd bash -c "/home/aidanfleming/.local/scripts/util/wallpaper-switcher.sh 1") 1)
-2 (multi (cmd bash -c "/home/aidanfleming/.local/scripts/util/wallpaper-switcher.sh 2") 2)
-3 (multi (cmd bash -c "/home/aidanfleming/.local/scripts/util/wallpaper-switcher.sh 3") 3)
-4 (multi (cmd bash -c "/home/aidanfleming/.local/scripts/util/wallpaper-switcher.sh 4") 4)
-5 (multi (cmd bash -c "/home/aidanfleming/.local/scripts/util/wallpaper-switcher.sh 5") 5)
+1 (cmd bash -c "/home/aidanfleming/.local/scripts/util/dwl_tags.sh 1")
+2 (cmd bash -c "/home/aidanfleming/.local/scripts/util/dwl_tags.sh 2")
+3 (cmd bash -c "/home/aidanfleming/.local/scripts/util/dwl_tags.sh 3")
+4 (cmd bash -c "/home/aidanfleming/.local/scripts/util/dwl_tags.sh 4")
+5 (cmd bash -c "/home/aidanfleming/.local/scripts/util/dwl_tags.sh 5")
+6 (cmd bash -c "/home/aidanfleming/.local/scripts/util/dwl_tags.sh 6")
+7 (cmd bash -c "/home/aidanfleming/.local/scripts/util/dwl_tags.sh 7")
+8 (cmd bash -c "/home/aidanfleming/.local/scripts/util/dwl_tags.sh 8")
+9 (cmd bash -c "/home/aidanfleming/.local/scripts/util/dwl_tags.sh 9")
+sft (multi (layer-while-held sups) sft)
+ctl (multi (layer-while-held sups) ctl)
+)
+
+(deflayermap (sups)
+1 1
+2 2
+3 3
+4 4
+5 5
+6 6
+7 7
+8 8 
+9 9
 )
 
 (deflayermap (symlayer)
