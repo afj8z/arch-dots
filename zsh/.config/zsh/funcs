@@ -1,0 +1,114 @@
+# Functions
+# Enter a directory and list its contents
+cdl() {
+  if [[ -d "$1" ]]; then
+    builtin cd "$1" && ls -a --group-directories-first --color=auto
+  else
+    echo "Usage: cd <directory>"
+  fi
+}
+
+# git push all with optional commit message
+gpa() {
+  git add .
+  git commit -m "${1:-NoMsg}"
+  git push
+}
+
+#help function
+alias bathelp='bat --plain --language=help'
+help() {
+    "$@" --help 2>&1 | bathelp
+}
+
+# Open current dir in yazi
+finder() {
+    yazi .
+}
+
+zle -N finder
+bindkey '^e' finder
+
+# mkdir and cd into it
+mcd() {
+    local dir="$*";
+    mkdir -p "$dir" && builtin cd "$dir";
+}
+
+# Append $1 to file $2
+cap() {
+	echo "$1" >> "$2"
+}
+
+# Bind PWD to $MVD
+# .zshrc
+
+mvd() {
+  echo "$PWD" > "$ZDOTDIR/.bound_dir"
+  export MVD="$PWD"
+  echo "Bound MVD to: $MVD"
+}
+
+mvdot() {
+	dotpath="$HOME/dotfiles/$1"
+	newdots="$(echo $PWD/$1 | sed "s|^$HOME/||")"
+	fullpath="$dotpath/$newdots"
+	mkdir -p $fullpath
+	mv $1 $fullpath
+	(cd $HOME/dotfiles;/usr/bin/stow $1)
+	echo "$1 moved to dotfiles in $fullpath \n\
+		linked back to $PWD/$1 with stow."
+}
+
+cdr() {
+  local dir=$(tmux run "echo '#{session_path}'")
+  builtin cd "$dir"
+}
+
+lnpath() {
+  if [ -z "$1" ]; then
+    echo "Usage: lnpath <file>"
+    echo "Creates a symlink for the given file in ~/.local/bin/"
+    return 1
+  fi
+
+  local source_file="$1"
+  local target_dir="$HOME/.local/bin"
+  local filename=$(basename "$source_file")
+  local target_path="$target_dir/$filename"
+
+  mkdir -p "$target_dir"
+
+  if [ -e "$target_path" ]; then
+    echo "Warning: '$filename' already exists in $target_dir."
+    read -q "REPLY?Do you want to overwrite it? (y/n) "
+    echo
+
+    if [[ ! "$REPLY" =~ ^[Yy]$ ]]; then
+      echo "Operation cancelled."
+      return 0
+    fi
+  fi
+
+  local source_abspath
+  source_abspath=$(realpath "$source_file")
+  
+  if [ ! -e "$source_abspath" ]; then
+      echo "Error: Source file '$source_file' not found."
+      return 1
+  fi
+
+  if [ ! -x "$source_abspath" ]; then
+    chmod u+x "$source_abspath"
+    echo "Applied chmod u+x to '$filename'."
+  fi
+
+  ln -sf "$source_abspath" "$target_path"
+
+  echo "Success! Symlink created:"
+  echo "$target_path -> $source_abspath"
+}
+
+mkwall() {
+	gowall convert --dir ~/pictures/adjustee -t "${1:-mydark}" --output ~/pictures/wallpapers
+}

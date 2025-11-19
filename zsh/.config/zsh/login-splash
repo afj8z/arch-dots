@@ -51,5 +51,5 @@ if [ -n "$random_quote" ]; then
         echo "     \\___)=(___/ "
     })
     # --- Pipe the captured output to tte for animation ---
-    echo "$art_output" | tte "$selectedanim" --frame-rate 360 
+    echo "$art_output" | tte  --frame-rate 480 "$selectedanim"
 fi

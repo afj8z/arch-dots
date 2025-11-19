@@ -1,0 +1,32 @@
+# Aliases
+alias q='exit'
+alias zv="nvim $ZDOTDIR/.zshrc"
+alias y="yazi"
+alias zayi="echo learn to spell && sleep 3"
+alias gs="git status"
+alias gpl='git pull'
+alias zrl='source $ZDOTDIR/.zshrc'
+alias vi='nvim'
+alias v='nvim'
+alias ve='nvim .'
+alias ll='ls -a --color=auto'
+alias glry='feh -g 640x480 -d --scale-down -S filename'
+alias poet='$(poetry env activate)'
+alias gg="bg kys"
+alias fz='fzf  --preview "bat --color=always {}" --preview-window "~3"'
+alias la='ls -lha --color=auto --group-directories-first'
+alias grep='grep --color=auto'
+alias fk="sudo !!"
+alias rm="rm -Iv"
+alias rmrf="rm -Ivrf"
+alias mv="mv -i"
+alias md="mkdir -p"
+alias df="df -h" 
+alias du="du -h -d 1" 
+alias fp="ps aux | grep $1"
+alias freem="free -h | bat -l cpuinfo -p"
+
+alias ppp="powerprofilesctl set performance"
+alias pps="powerprofilesctl set power-saver"
+alias ppls="powerprofilesctl list"
+
