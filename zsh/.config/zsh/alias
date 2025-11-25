@@ -1,32 +1,45 @@
-# Aliases
-alias q='exit'
-alias zv="nvim $ZDOTDIR/.zshrc"
-alias y="yazi"
-alias zayi="echo learn to spell && sleep 3"
-alias gs="git status"
-alias gpl='git pull'
-alias zrl='source $ZDOTDIR/.zshrc'
-alias vi='nvim'
-alias v='nvim'
-alias ve='nvim .'
-alias ll='ls -a --color=auto'
-alias glry='feh -g 640x480 -d --scale-down -S filename'
-alias poet='$(poetry env activate)'
-alias gg="bg kys"
-alias fz='fzf  --preview "bat --color=always {}" --preview-window "~3"'
-alias la='ls -lha --color=auto --group-directories-first'
-alias grep='grep --color=auto'
-alias fk="sudo !!"
-alias rm="rm -Iv"
-alias rmrf="rm -Ivrf"
-alias mv="mv -i"
-alias md="mkdir -p"
-alias df="df -h" 
-alias du="du -h -d 1" 
-alias fp="ps aux | grep $1"
-alias freem="free -h | bat -l cpuinfo -p"
+# seperate
+typeset -A _core_aliases _git_aliases _app_aliases
 
-alias ppp="powerprofilesctl set performance"
-alias pps="powerprofilesctl set power-saver"
-alias ppls="powerprofilesctl list"
+_core_aliases=(
+    q       'exit'
+    zrl     'source $ZDOTDIR/.zshrc'
+    ll      'ls -a --color=auto'
+    la      'ls -lha --color=auto --group-directories-first'
+    grep    'grep --color=auto'
+    fk      "sudo !!"
+    rm      "rm -Iv"
+    rmrf    "rm -Ivrf"
+    mv      "mv -i"
+    md      "mkdir -p"
+    df      "df -h" 
+    du      "du -h -d 1" 
+)
 
+_git_aliases=(
+    g       "git"
+	ga 		"git add"
+    gs      "git status"
+    gpl     "git pull"
+)
+
+_app_aliases=(
+    zv      "nvim $ZDOTDIR/.zshrc"
+    vi      'nvim'
+    v       'nvim'
+    ve      'nvim .'
+    y       "yazi"
+    gg      "bg kys"
+    glry    'feh -g 640x480 -d --scale-down -S filename'
+    fz      'fzf  --preview "bat --color=always {}" --preview-window "~3"'
+    freem   "free -h | bat -l cpuinfo -p"
+    poet    '$(poetry env activate)' 
+)
+
+# "${(@kv)VAR}" expands the Key and Value of the array.
+for key val in "${(@kv)_core_aliases}" "${(@kv)_git_aliases}" "${(@kv)_app_aliases}"; do
+    alias "$key=$val"
+done
+
+# Cleanup
+unset _core_aliases _git_aliases _app_aliases key val

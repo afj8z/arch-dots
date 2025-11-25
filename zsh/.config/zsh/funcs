@@ -112,3 +112,13 @@ lnpath() {
 mkwall() {
 	gowall convert --dir ~/pictures/adjustee -t "${1:-mydark}" --output ~/pictures/wallpapers
 }
+
+fp() {
+    ps aux | grep "$1"
+}
+
+# systemctl powerprofiles
+# No args needed, but function is cleaner for systemctl commands
+ppp() { powerprofilesctl set performance; }
+pps() { powerprofilesctl set power-saver; }
+ppls() { powerprofilesctl list; }
