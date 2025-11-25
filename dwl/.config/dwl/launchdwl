@@ -1,6 +1,6 @@
 #!/bin/sh
 
-_ps="dwlb swww-daemon hypridle aslstatus dunst kitty"
+_ps="dwlb swww-daemon hypridle aslstatus dunst mako kitty"
 for _prs in $_ps; do
     if [ "$(pidof "${_prs}")" ]; then
          killall -9 "${_prs}"
@@ -17,7 +17,7 @@ else
     tmcmd="${TMUXNEW[@]:0:6}"
 fi
 
-dunst &
+mako &
 
 systemd-inhibit --what=handle-lid-switch sleep infinity &
 
