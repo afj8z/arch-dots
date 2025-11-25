@@ -4,7 +4,8 @@ cdl() {
   if [[ -d "$1" ]]; then
     builtin cd "$1" && ls -a --group-directories-first --color=auto
   else
-    echo "Usage: cd <directory>"
+    echo "Usage: cdl <directory>" 
+    return 1
   fi
 }
 
@@ -15,19 +16,28 @@ gpa() {
   git push
 }
 
+
+
 #help function
 alias bathelp='bat --plain --language=help'
 help() {
+    if ! command -v "$1" >/dev/null 2>&1; then
+        echo "Command not found: $1"
+        return 1
+    fi
     "$@" --help 2>&1 | bathelp
 }
 
 # Open current dir in yazi
 finder() {
-    yazi .
+	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")"
+	yazi . --cwd-file="$tmp"
+	if cwd="$(cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
+		builtin cd -- "$cwd"
+	fi
+	rm -f -- "$tmp"
 }
 
-zle -N finder
-bindkey '^e' finder
 
 # mkdir and cd into it
 mcd() {
@@ -49,22 +59,40 @@ mvd() {
   echo "Bound MVD to: $MVD"
 }
 
+# move a folder into stow managed "~/dotfile" folder and link it back
 mvdot() {
-	dotpath="$HOME/dotfiles/$1"
-	newdots="$(echo $PWD/$1 | sed "s|^$HOME/||")"
-	fullpath="$dotpath/$newdots"
-	mkdir -p $fullpath
-	mv $1 $fullpath
-	(cd $HOME/dotfiles;/usr/bin/stow $1)
-	echo "$1 moved to dotfiles in $fullpath \n\
-		linked back to $PWD/$1 with stow."
+    local file="$1"
+    if [[ -z "$file" ]]; then echo "Usage: mvdot <file>"; return 1; fi
+
+    local dotpath="$HOME/dotfiles"
+    local rel_path="${$(realpath "$file")#$HOME/}"
+    local target_fullpath="$dotpath/$rel_path"
+
+    mkdir -p "$(dirname "$target_fullpath")"
+
+    mv "$file" "$target_fullpath"
+
+    (cd "$dotpath" && /usr/bin/stow .)
+    
+    echo "Moved $file to $target_fullpath and restowed."
 }
 
+# cd into the root dir of tmux session
 cdr() {
-  local dir=$(tmux run "echo '#{session_path}'")
+  if [[ -z "$TMUX" ]]; then
+    echo "Error: Not inside a tmux session."
+    return 1
+  fi
+  
+  local dir
+  dir=$(tmux run "echo '#{session_path}'")
+  if [[ $dir == "~" ]]; then
+	  dir="$HOME" # cant find direcotry named "~"
+  fi
   builtin cd "$dir"
 }
 
+# assign perms and link to path a file
 lnpath() {
   if [ -z "$1" ]; then
     echo "Usage: lnpath <file>"
@@ -113,12 +141,20 @@ mkwall() {
 	gowall convert --dir ~/pictures/adjustee -t "${1:-mydark}" --output ~/pictures/wallpapers
 }
 
+# show relevant process info omitting VSZ, RSS, TTY
 fp() {
-    ps aux | grep "$1"
+    ps aux -o user,pid,%cpu,%mem,stat,start,time,command | grep -E "^USER|$1"
 }
 
+# Oneliners
 # systemctl powerprofiles
-# No args needed, but function is cleaner for systemctl commands
+# no args needed, but function is cleaner for systemctl commands
 ppp() { powerprofilesctl set performance; }
 pps() { powerprofilesctl set power-saver; }
 ppls() { powerprofilesctl list; }
+# git commit optional message
+gc() { git commit -m "${1:-NoMsg}" }
+
+# Bindings
+zle -N finder
+bindkey '^e' finder

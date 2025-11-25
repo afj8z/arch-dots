@@ -19,6 +19,10 @@ _core_aliases=(
 _git_aliases=(
     g       "git"
 	ga 		"git add"
+	gb 		"git branch"
+	gm 		"git merge"
+	gpu 	"git push"
+	gch 	"git checkout"
     gs      "git status"
     gpl     "git pull"
 )
