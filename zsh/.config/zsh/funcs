@@ -155,6 +155,16 @@ ppls() { powerprofilesctl list; }
 # git commit optional message
 gc() { git commit -m "${1:-NoMsg}" }
 
+vpndis() {
+	local vpn_pid="/run/openconnect_vpn.pid"
+	if [ -e "$vpn_pid" ]; then
+		sudo kill $(cat /run/openconnect_vpn.pid)
+		echo "VPN Connection severed."
+	else
+		echo "Error: No pid for VPN found."
+	fi
+}
+
 # Bindings
 zle -N finder
 bindkey '^e' finder

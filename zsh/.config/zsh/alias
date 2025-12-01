@@ -1,5 +1,5 @@
 # seperate
-typeset -A _core_aliases _git_aliases _app_aliases
+typeset -A _core_aliases _git_aliases _app_aliases _script_paths
 
 _core_aliases=(
     q       'exit'
@@ -40,8 +40,12 @@ _app_aliases=(
     poet    '$(poetry env activate)' 
 )
 
+_script_paths=(
+	vpn "$HOME/.local/scripts/util/vpn-login.sh"
+)
+
 # "${(@kv)VAR}" expands the Key and Value of the array.
-for key val in "${(@kv)_core_aliases}" "${(@kv)_git_aliases}" "${(@kv)_app_aliases}"; do
+for key val in "${(@kv)_core_aliases}" "${(@kv)_git_aliases}" "${(@kv)_app_aliases}" "${(@kv)_script_paths}"; do
     alias "$key=$val"
 done
 
