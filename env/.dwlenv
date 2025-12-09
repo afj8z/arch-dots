@@ -1,3 +1,9 @@
+if [ -f "$HOME/.config/zsh/shell-theme.sh" ]; then
+    . "$HOME/.config/zsh/shell-theme.sh"
+else
+	echo "Theme file $HOME/.config/zsh/shell-theme.sh not found."
+fi
+
 export GDK_SCALE=1.5
 export QT_QPA_PLATFORM=wayland
 export QT_STYLE_OVERRIDE=kvantum
@@ -9,19 +15,19 @@ export OZONE_PLATFORM=wayland
 export XDG_CURRENT_DESKTOP=wlroots
 export XDG_SESSION_TYPE=wayland
 export XDG_SESSION_DESKTOP=wlroots
-export BEMENU_OPTS="--tb '#8A7FA3'\
- --tf '#DBD0C6'\
- --fb '#111012'\
- --ff '#DBD0C6'\
- --nb '#111012'\
- --nf '#8A7FA3'\
- --hb '#8A7FA3'\
- --hf '#DBD0C6'\
- --sb '#8A7FA3'\
- --sf '#DBD0C6'\
- --scb '#111012'\
- --scf '#8A7FA3'\
- --bdr '#8A7FA3'\
+export BEMENU_OPTS="--tb '$COLOR_ACCENT'\
+ --tf '$COLOR_FG'\
+ --fb '$COLOR_BG'\
+ --ff '$COLOR_FG'\
+ --nb '$COLOR_BG'\
+ --nf '$COLOR_ACCENT'\
+ --hb '$COLOR_ACCENT'\
+ --hf '$COLOR_FG'\
+ --sb '$COLOR_ACCENT'\
+ --sf '$COLOR_FG'\
+ --scb '$COLOR_BG'\
+ --scf '$COLOR_ACCENT'\
+ --bdr '$COLOR_ACCENT'\
  --fn 'FiraMono Nerd Font Mono 19'\
  -i --hp 5\
  -B 1"

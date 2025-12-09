@@ -1,0 +1,28 @@
+:root {{
+  --background: {background};
+  --foreground: {foreground};
+  --cursor: {foreground};
+  --myblack: {background};
+  --myblacktrans: {myblacktrans};
+  --mysurface: {background};
+  --mysurfacedim: {mysurfacedim};
+  --mysurfaceacc: {mysurfaceacc};
+  --mytextdim: {mytextdim};
+  --mytextmid: {mytextmid};
+  --mytext: {mytext};
+  --mytextacc: {mytextacc};
+  --myfrontacc: {myfrontacc};
+  --myfront: {foreground};
+  --myvisual: {myvisual};
+  --myselect: {myselect};
+  --myaccent: {myaccent};
+  --myaccentdim: {myaccentdim};
+  --myerror: {myerror};
+  --keyword: {color1};
+  --function: {color12}; 
+  --conditional: {color5};
+  --field: {color14};
+  --operator: {color13};
+  --string: {color2};
+  --variable: {foreground};
+}}

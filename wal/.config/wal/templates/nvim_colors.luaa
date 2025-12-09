@@ -1,0 +1,14 @@
+return {{
+    black = "{{{{custom.myblack}}}}",
+    bg = "{{{{custom.myblack}}}}",
+    float = "{{{{custom.mysurfacedim}}}}",
+    comment = "{{{{custom.mytext}}}}",
+    fg = "{{{{custom.myfront}}}}",
+    accent = "{{{{custom.myaccent}}}}",
+    diag = {{
+        error = "{{{{custom.myerror}}}}",
+        hint = "{{{{custom.color2}}}}",
+        info = "{{{{custom.myaccent}}}}",
+        warn = "{{{{custom.myaccentdim}}}}",
+    }},
+}}

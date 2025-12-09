@@ -1,6 +1,6 @@
 [config]
 [config.custom_keywords]
-monofont = "Lilex Nerd Font Mono"
+monofont = "FiraMono Nerd Font Mono"
 color0 = "{color0}"
 color8 = "{color8}"
 color1 = "{color1}"
@@ -73,6 +73,18 @@ output_path = "~/dev/nvim-tundra/lua/nvim-tundra/palette/custom.lua"
 input_path = "~/.cache/wal/hyprlock.conf"
 output_path = "~/.config/hypr/hyprlock.conf"
 
+[templates.shell]
+input_path = "~/.cache/wal/shell-theme.sh"
+output_path = "~/.config/zsh/shell-theme.sh"
+
 [templates.firefox]
 input_path = "~/.cache/wal/firefox.css"
 output_path = "~/.mozilla/firefox/f1jryfvt.default-release/chrome/root.css"
+
+[templates.firefox_theme]
+input_path = "~/.cache/wal/firefox_theme.css"
+output_path = "~/.mozilla/firefox/f1jryfvt.default-release/chrome/theme/mygruv.css"
+
+[templates.nvim_colors]
+input_path = "~/.cache/wal/nvim_colors.luaa"
+output_path = "~/.nvim/nvim/.config/nvim/lua/ajf/colors.lua"
