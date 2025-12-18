@@ -28,6 +28,6 @@ export BEMENU_OPTS="--tb '$COLOR_ACCENT'\
  --scb '$COLOR_BG'\
  --scf '$COLOR_ACCENT'\
  --bdr '$COLOR_ACCENT'\
- --fn 'FiraMono Nerd Font Mono 19'\
+ --fn 'FiraMono Nerd Font Mono 18'\
  -i --hp 5\
  -B 1"
