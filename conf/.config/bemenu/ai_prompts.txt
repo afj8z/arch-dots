@@ -1,0 +1,12 @@
+::Summarize Text
+Summarize the following text, focusing on the key conclusions:
+
+::Explain Code
+Explain this code snippet, line by line, as if I'm a beginner:
+
+::Write a commit message
+Write a concise git commit message in the conventional commit format (e.g., "feat: ...") for the following changes:
+
+::Rewrite as an email
+Rewrite the following points into a polite and professional email:
+

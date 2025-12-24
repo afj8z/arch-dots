@@ -1,0 +1,46 @@
+  @define-color bga rgba(17, 16, 18, 0.96);
+  @define-color b00 #111012;
+  @define-color b01 #25212B;
+  @define-color b02 #3D3845;
+  @define-color b03 #514A59;
+  @define-color b04 #595466;
+  @define-color b05 #756D85;        /* Base 06 (using main foreground) */
+  @define-color b06 #756D85;         /* Base 07 */
+  @define-color b07 #C76B6B;              /* Base 08 */
+  @define-color b08 #b4d4cf;           /* Base 09 */
+  @define-color b09 #F7B982;             /* Base 0A (mapped from teal) */
+  @define-color b0A #8A7FA3;            /* Base 0B */
+  @define-color b0B #e0a363;             /* Base 0C */
+  @define-color b0C #9bb4bc;             /* Base 0D */
+  @define-color b0D #C4B7AB;          /* Base 0E */
+  @define-color b0E #99453D;           /* Base 0F (using orange as fallback) */
+  @define-color b0F #C4B7AB;
+
+  /*@define-color -- Core UI (aliased from Base16) --- */
+  @define-color background @b00;
+  @define-color foreground @b05;
+
+  /*@define-color -- Syntax (aliased from Base16 --- */
+  @define-color keyword @b0E;
+  @define-color string @b0B;
+  @define-color number @b09;
+  @define-color function_name @b0D;
+  @define-color type @b0A;
+  @define-color variable @b05;
+  @define-color comment @b03;
+  @define-color tag @b08;
+  @define-color property @b0C;
+
+  /*@define-color -- UI States (aliased from Base16 --- */
+  @define-color error @b08;
+  @define-color warning @b09;
+  @define-color success @b0B;
+  @define-color info @b0D;
+  @define-color accent #8A7FA3;
+  @define-color accent_alt #F7B982;
+
+  /*@define-color -- UI Surfaces (aliased from Base16 --- */
+  @define-color menu_bg @b01;
+  @define-color selection_bg @b02;
+  @define-color gutter_fg @b04;
+

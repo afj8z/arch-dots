@@ -1,0 +1,84 @@
+// Lightness -15.0
+@define-color surface_container_lowest_l15 {{colors.surface_container_lowest.default.hex | set_lightness: -15.0}};
+@define-color background_l15 {{colors.background.default.hex | set_lightness: -15.0}};
+@define-color surface_l15 {{colors.surface.default.hex | set_lightness: -15.0}};
+@define-color surface_dim_l15 {{colors.surface_dim.default.hex | set_lightness: -15.0}};
+@define-color surface_container_low_l15 {{colors.surface_container_low.default.hex | set_lightness: -15.0}};
+@define-color surface_container_l15 {{colors.surface_container.default.hex | set_lightness: -15.0}};
+@define-color surface_container_high_l15 {{colors.surface_container_high.default.hex | set_lightness: 15.0}};
+@define-color surface_container_highest_l15 {{colors.surface_container_highest.default.hex | set_lightness: 15.0}};
+@define-color surface_bright_l15 {{colors.surface_bright.default.hex | set_lightness: 15.0}};
+@define-color surface_variant_l15 {{colors.surface_variant.default.hex | set_lightness: 15.0}};
+
+
+// Lightness -5.0
+@define-color surface_container_lowest_l5 {{colors.surface_container_lowest.default.hex | set_lightness: -5.0}};
+@define-color background_l5 {{colors.background.default.hex | set_lightness: -5.0}};
+@define-color surface_l5 {{colors.surface.default.hex | set_lightness: -5.0}};
+@define-color surface_dim_l5 {{colors.surface_dim.default.hex | set_lightness: -5.0}};
+@define-color surface_container_low_l5 {{colors.surface_container_low.default.hex | set_lightness: -5.0}};
+@define-color surface_container_l5 {{colors.surface_container.default.hex | set_lightness: -5.0}};
+@define-color surface_container_high_l5 {{colors.surface_container_high.default.hex | set_lightness: -5.0}};
+@define-color surface_container_highest_l5 {{colors.surface_container_highest.default.hex | set_lightness: 5.0}};
+@define-color surface_bright_l5 {{colors.surface_bright.default.hex | set_lightness: 5.0}};
+@define-color surface_variant_l5 {{colors.surface_variant.default.hex | set_lightness: 5.0}};
+
+// Lightness 5.0
+@define-color surface_container_lowest_l5 {{colors.surface_container_lowest.default.hex | set_lightness: 5.0}};
+@define-color background_l5 {{colors.background.default.hex | set_lightness: 5.0}};
+@define-color surface_l5 {{colors.surface.default.hex | set_lightness: 5.0}};
+@define-color surface_dim_l5 {{colors.surface_dim.default.hex | set_lightness: 5.0}};
+@define-color surface_container_low_l5 {{colors.surface_container_low.default.hex | set_lightness: 5.0}};
+@define-color surface_container_l5 {{colors.surface_container.default.hex | set_lightness: 5.0}};
+@define-color surface_container_high_l5 {{colors.surface_container_high.default.hex | set_lightness: 5.0}};
+@define-color surface_container_highest_l5 {{colors.surface_container_highest.default.hex | set_lightness: 5.0}};
+@define-color surface_bright_l5 {{colors.surface_bright.default.hex | set_lightness: 5.0}};
+@define-color surface_variant_l5 {{colors.surface_variant.default.hex | set_lightness: 5.0}};
+
+// Lightness 10.0
+@define-color surface_container_lowest_l10 {{colors.surface_container_lowest.default.hex | set_lightness: 10.0}};
+@define-color background_l10 {{colors.background.default.hex | set_lightness: 10.0}};
+@define-color surface_l10 {{colors.surface.default.hex | set_lightness: 10.0}};
+@define-color surface_dim_l10 {{colors.surface_dim.default.hex | set_lightness: 10.0}};
+@define-color surface_container_low_l10 {{colors.surface_container_low.default.hex | set_lightness: 10.0}};
+@define-color surface_container_l10 {{colors.surface_container.default.hex | set_lightness: 10.0}};
+@define-color surface_container_high_l10 {{colors.surface_container_high.default.hex | set_lightness: 10.0}};
+@define-color surface_container_highest_l10 {{colors.surface_container_highest.default.hex | set_lightness: 10.0}};
+@define-color surface_bright_l10 {{colors.surface_bright.default.hex | set_lightness: 10.0}};
+@define-color surface_variant_l10 {{colors.surface_variant.default.hex | set_lightness: 10.0}};
+
+// Lightness 15.0
+@define-color surface_container_lowest_l15 {{colors.surface_container_lowest.default.hex | set_lightness: 15.0}};
+@define-color background_l15 {{colors.background.default.hex | set_lightness: 15.0}};
+@define-color surface_l15 {{colors.surface.default.hex | set_lightness: 15.0}};
+@define-color surface_dim_l15 {{colors.surface_dim.default.hex | set_lightness: 15.0}};
+@define-color surface_container_low_l15 {{colors.surface_container_low.default.hex | set_lightness: 15.0}};
+@define-color surface_container_l15 {{colors.surface_container.default.hex | set_lightness: 15.0}};
+@define-color surface_container_high_l15 {{colors.surface_container_high.default.hex | set_lightness: 15.0}};
+@define-color surface_container_highest_l15 {{colors.surface_container_highest.default.hex | set_lightness: 15.0}};
+@define-color surface_bright_l15 {{colors.surface_bright.default.hex | set_lightness: 15.0}};
+@define-color surface_variant_l15 {{colors.surface_variant.default.hex | set_lightness: 15.0}};
+
+// Lightness 20.0
+@define-color surface_container_lowest_l20 {{colors.surface_container_lowest.default.hex | set_lightness: 20.0}};
+@define-color background_l20 {{colors.background.default.hex | set_lightness: 20.0}};
+@define-color surface_l20 {{colors.surface.default.hex | set_lightness: 20.0}};
+@define-color surface_dim_l20 {{colors.surface_dim.default.hex | set_lightness: 20.0}};
+@define-color surface_container_low_l20 {{colors.surface_container_low.default.hex | set_lightness: 20.0}};
+@define-color surface_container_l20 {{colors.surface_container.default.hex | set_lightness: 20.0}};
+@define-color surface_container_high_l20 {{colors.surface_container_high.default.hex | set_lightness: 20.0}};
+@define-color surface_container_highest_l20 {{colors.surface_container_highest.default.hex | set_lightness: 20.0}};
+@define-color surface_bright_l20 {{colors.surface_bright.default.hex | set_lightness: 20.0}};
+@define-color surface_variant_l20 {{colors.surface_variant.default.hex | set_lightness: 20.0}};
+
+// Lightness 25.0
+@define-color surface_container_lowest_l25 {{colors.surface_container_lowest.default.hex | set_lightness: 25.0}};
+@define-color background_l25 {{colors.background.default.hex | set_lightness: 25.0}};
+@define-color surface_l25 {{colors.surface.default.hex | set_lightness: 25.0}};
+@define-color surface_dim_l25 {{colors.surface_dim.default.hex | set_lightness: 25.0}};
+@define-color surface_container_low_l25 {{colors.surface_container_low.default.hex | set_lightness: 25.0}};
+@define-color surface_container_l25 {{colors.surface_container.default.hex | set_lightness: 25.0}};
+@define-color surface_container_high_l25 {{colors.surface_container_high.default.hex | set_lightness: 25.0}};
+@define-color surface_container_highest_l25 {{colors.surface_container_highest.default.hex | set_lightness: 25.0}};
+@define-color surface_bright_l25 {{colors.surface_bright.default.hex | set_lightness: 25.0}};
+@define-color surface_variant_l25 {{colors.surface_variant.default.hex | set_lightness: 25.0}};

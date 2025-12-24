@@ -1,0 +1,4 @@
+[config]
+
+[templates]
+shades = { input_path = "~/.config/matugen/templates/grays", output_path = "~/.config/matugen/cache/grays.txt" }

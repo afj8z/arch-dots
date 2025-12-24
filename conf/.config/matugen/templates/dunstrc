@@ -1,0 +1,76 @@
+[global]
+    monitor = 0
+    follow = keyboard
+    width = (250, 500)
+    height = (0, 750)
+    offset = (17, 26)
+    padding = 5
+    horizontal_padding = 5
+    gap_size = 3
+    transparency = 35
+    frame_width = 1
+    frame_color = "{{colors.surface.default.hex | set_lightness: 5.0}}"
+    font = Lilex Nerd Font Mono 12
+    corner_radius = 5
+    min_icon_size = 32
+    max_icon_size = 32
+    format = "<b>%s</b>\n%b"
+
+# Experimental features that may or may not work correctly. Do not expect them
+# to have a consistent behaviour across releases.
+[experimental]
+    # Calculate the dpi to use on a per-monitor basis.
+    # If this setting is enabled the Xft.dpi value will be ignored and instead
+    # dunst will attempt to calculate an appropriate dpi value for each monitor
+    # using the resolution and physical size. This might be useful in setups
+    # where there are multiple screens with very different dpi values.
+    per_monitor_dpi = false
+
+
+[urgency_low]
+    background = "{{colors.primary.default.hex}}"
+    foreground = "{{colors.surface.default.hex | set_lightness: 5.0}}"
+    frame_color = "{{colors.primary.default.hex}}"
+    timeout = 1000
+
+[urgency_normal]
+    background = "{{colors.primary.default.hex}}"
+    foreground = "{{colors.surface.default.hex | set_lightness: 5.0}}"
+    frame_color = "{{colors.primary.default.hex}}"
+    timeout = 1000
+
+[urgency_critical]
+    background = "{{colors.error.default.hex}}"
+    foreground = "{{colors.surface.default.hex | set_lightness: 5.0}}"
+    frame_color = "{{colors.error.default.hex}}"
+    timeout = 0
+
+[media-base]
+    appname = notify-media
+    history_ignore = yes
+    format = "%s"
+    timeout = 1000
+
+[media-volume]
+    appname = notify-media
+    stack_tag = audio
+    background = "{{colors.primary.default.hex}}"
+    foreground = "{{colors.surface.default.hex | set_lightness: 5.0}}"
+    frame_color = "{{colors.primary.default.hex}}"
+    urgency = normal
+
+[media-brightness]
+    appname = notify-media
+    stack_tag = brightness
+    background = "{{colors.primary.default.hex}}"
+    foreground = "{{colors.surface.default.hex | set_lightness: 5.0}}"
+    frame_color = "{{colors.primary.default.hex}}"
+    urgency = low
+
+[media-mic]
+    appname = notify-media
+    stack_tag = mic
+    background = "{{colors.primary.default.hex}}"
+    foreground = "{{colors.surface.default.hex | set_lightness: 5.0}}"
+    frame_color = "{{colors.primary.default.hex}}"
+    urgency = normal

@@ -1,0 +1,5 @@
+@define-color {{name}}_l5 {{value.default.hex | set_lightness: 5}};
+    @define-color {{name}}_l10 {{value.default.hex | set_lightness: 10}};
+    @define-color {{name}}_l15 {{value.default.hex | set_lightness: 15}};
+    @define-color {{name}}_l20 {{value.default.hex | set_lightness: 20}};
+    @define-color {{name}}_l25 {{value.default.hex | set_lightness: 25}};
