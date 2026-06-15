@@ -1,41 +1,51 @@
-#!/bin/sh
+#!/usr/bin/env bash
 
-_ps="dwlb swww-daemon hypridle aslstatus dunst mako kitty"
-for _prs in $_ps; do
-    if [ "$(pidof "${_prs}")" ]; then
-         killall -9 "${_prs}"
-    fi
- done
-
-systemctl --user stop move-pdf.path &
-
-TMUXNEW=("tmux" "new" "-s" "_home" "-c" "~")
-TMUXARGS=("tmux" "a")
-if   pidof -x tmux 2> /dev/null;  then
-    tmcmd="${TMUXARGS[@]:0:2}"
+THEME_FILE="${XDG_CONFIG_HOME:-$HOME/.config}/zsh/shell-theme.sh"
+if [ -f "$THEME_FILE" ]; then
+    source "$THEME_FILE"
 else
-    tmcmd="${TMUXNEW[@]:0:6}"
+    echo "Error: Theme file not found at $THEME_FILE"
+    exit 1
 fi
 
-mako &
+_ps="swww-daemon swayidle mako foot somebar someblocks"
+for _prs in $_ps; do
+    if pidof "${_prs}" > /dev/null 2>&1; then
+         killall -9 "${_prs}"
+    fi
+done
 
-systemd-inhibit --what=handle-lid-switch sleep infinity &
+systemctl --user import-environment WAYLAND_DISPLAY XDG_RUNTIME_DIR DISPLAY BEMENU_OPTS
+dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=wlroots
 
-systemctl --user start move-pdf.path &
+# Silence background services to prevent FD pollution
+mako >/dev/null 2>&1 &
+systemd-inhibit --what=handle-lid-switch sleep infinity >/dev/null 2>&1 &
+swaybg -i ~/Pictures/gowall/edwin.jpg -m fill >/dev/null 2>&1 &
+wl-paste --type image --watch cliphist store >/dev/null 2>&1 &
+wl-paste --type text --watch cliphist store >/dev/null 2>&1 &
+easyeffects --gapplication-service >/dev/null 2>&1 &
+swayidle >/dev/null 2>&1 &
+someblocks -s /tmp/mybar &
 
-swww-daemon &
+# Services & Daemons
+systemctl --user restart kanata
+foot --server --config="${XDG_CONFIG_HOME:-$HOME/.config}/foot/foot-launcher.ini" >/dev/null 2>&1 &
+dwlctl reload-colors
 
-wl-paste --type image --watch cliphist store &
-wl-paste --type text --watch cliphist store &
+# tmux variables
+TMUXNEW=("tmux" "new" "-s" "home" "-c" "~")
+TMUXARGS=("tmux" "a")
 
-(sleep 0.2; easyeffects --gapplication-service) &
+if pidof -x tmux > /dev/null 2>&1; then
+    tmcmd="${TMUXARGS[@]}"
+else
+    tmcmd="${TMUXNEW[@]}"
+fi
 
-hypridle &
+sleep 0.2
 
-(dwlb -ipc -scale 2; sleep 0.2) &
+# use separate foot process/ footclient only for launchers/menus
+setsid foot ${tmcmd} >/dev/null 2>&1 &
 
-aslstatus -s | dwlb -status-stdin all  &
-
-kitty -e $tmcmd
-
-exec dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=wlroots
+exec somebar -s /tmp/mybar

@@ -1,0 +1,6 @@
+rootcolor = {{ background | shade.01 }}ff
+bordercolor = {{ state.active_background | shade.03 }}ff
+focuscolor = {{ accent }}ff
+urgentcolor = {{ diagnostic.error | syntax.error | color9 }}ff
+fullscreen_bg = {{ background | shade.01 }}ff
+flash_color = {{ diagnostic.warning | color3 }}ff

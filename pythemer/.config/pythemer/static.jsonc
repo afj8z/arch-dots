@@ -1,0 +1,34 @@
+{
+    "meta": {
+        "theme": "StaticSignal"
+    },
+    "background": "#222526",
+    "foreground": "#CED4D4",
+    "accent": "#8DA3A3",
+    "color0": "#2B2E2F",
+    "color1": "#A88A8A",
+    "color2": "#8AA894",
+    "color3": "#A8A88A",
+    "color4": "#8A94A8",
+    "color5": "#9B8AA8",
+    "color6": "#8AA8A8",
+    "color7": "#CED4D4",
+    "color8": "#5A6163",
+    "color9": "#B89C9C",
+    "color10": "#9CB8A6",
+    "color11": "#B8B89C",
+    "color12": "#9CA6B8",
+    "color13": "#AB9CB8",
+    "color14": "#9CB8B8",
+    "color15": "#E2E8E8",
+    "shade": {
+        "00": "#191B1C",
+        "01": "#222526",
+        "02": "#2C3031",
+        "03": "#383D3F",
+        "04": "#474D50",
+        "05": "#5D6569",
+        "06": "#B0B6B6",
+        "07": "#CED4D4"
+    }
+}

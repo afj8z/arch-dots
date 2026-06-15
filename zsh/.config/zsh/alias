@@ -1,4 +1,4 @@
-# seperate
+# vim: ft=zsh
 typeset -A _core_aliases _git_aliases _app_aliases _script_paths
 
 _core_aliases=(
@@ -14,6 +14,10 @@ _core_aliases=(
     md      "mkdir -p"
     df      "df -h" 
     du      "du -h -d 1" 
+	cat		"bat"
+	_cat	"cat"
+	ztime   "time ZSH_DEBUGRC=1 zsh -i -c exit"
+	fixcomp 'rm -f "$_comp_dump"; compinit -d "$_comp_dump"; zcompile "$_comp_dump"; echo "Completion cache rebuilt."'
 )
 
 _git_aliases=(
@@ -25,29 +29,31 @@ _git_aliases=(
 	gch 	"git checkout"
     gs      "git status"
     gpl     "git pull"
+	gcm		"git commit -m"
 )
 
 _app_aliases=(
     zv      "nvim $ZDOTDIR/.zshrc"
     vi      'nvim'
     v       'nvim'
-    ve      'nvim .'
+    ve      'nvim -c Oil'
     y       "yazi"
     gg      "bg kys"
     glry    'feh -g 640x480 -d --scale-down -S filename'
-    fz      'fzf  --preview "bat --color=always {}" --preview-window "~3"'
+    fz      'fzf  --preview "bat --style=numbers --color=always {}" --preview-window "~3"'
     freem   "free -h | bat -l cpuinfo -p"
     poet    '$(poetry env activate)' 
+	comp    'make clean && bear -- make all'
 )
 
 _script_paths=(
 	vpn "$HOME/.local/scripts/util/vpn-login.sh"
 )
 
-# "${(@kv)VAR}" expands the Key and Value of the array.
+# "${(@kv)VAR}" expands key, value of array
 for key val in "${(@kv)_core_aliases}" "${(@kv)_git_aliases}" "${(@kv)_app_aliases}" "${(@kv)_script_paths}"; do
     alias "$key=$val"
 done
 
-# Cleanup
+# cleanup
 unset _core_aliases _git_aliases _app_aliases key val

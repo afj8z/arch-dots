@@ -1,0 +1,28 @@
+sort=-time
+layer=overlay
+width=300
+height=110
+border-size=2
+border-radius=0
+icons=0
+max-icon-size=64
+default-timeout=5000
+ignore-timeout=1
+
+background-color={{ state.active_background | shade.03 }}
+border-color={{ foreground || shade.07 }}
+font={{ name.font_family }} {{ name.font_size }}
+
+[urgency=low]
+border-color={{ urgency.low_border | color8 }}
+
+[urgency=normal]
+border-color={{ urgency.normal_border | win.border | state.active_accent | accent }}
+
+[urgency=high]
+border-color={{ urgency.high_border | win.border | color9 }}
+default-timeout=0
+
+[category=mpd]
+default-timeout=2000
+group-by=category

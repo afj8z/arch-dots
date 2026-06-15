@@ -1,0 +1,29 @@
+:root {
+  --background: #222526;
+  --foreground: #CED4D4;
+  --cursor: #CED4D4;
+  --myblack: #222526;
+  --myblacktrans: rgba(34, 37, 38, 0.96);
+  --mysurface: #222526;
+  --mysurfacedim: #383D3F;
+  --mysurfaceacc: #474D50;
+  --mytextdim: #5A6163;
+  --mytextmid: #CED4D4;
+  --mytext: #CED4D4;
+  --mytextacc: #8AA894;;;
+  --myfrontacc: #5D6569;
+  --myfront: #8AA894;;
+  --myvisual: #3f5055;
+  --myselect: #3f5055;
+  --myaccent: #8DA3A3;
+  --myaccentdim: #A8A88A;
+  --myerror: #B89C9C;
+  --keyword: #A88A8A;
+  --function: #9CA6B8; 
+  --conditional: #9B8AA8;
+  --field: #738a8a;
+  --operator: #B8B89C;
+  --string: #8AA894;
+  --variable: #CED4D4;
+}
+

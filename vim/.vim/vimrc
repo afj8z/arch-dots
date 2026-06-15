@@ -6,7 +6,20 @@ map <leader>q :quit<cr>
 
 set relativenumber
 set laststatus=2
+set tabstop=2
 
 syntax on
 
 set viminfo+=n~/.vim/viminfo
+
+au! BufWritePost $MYVIMRC source %
+
+function! s:check_back_space() abort
+	let col = col('.') - 1
+	return !col || getline('.')[col - 1] =~# '\s'
+endfunction
+
+if exists('*complete_info')
+	inoremap <expr>	<cr> complete_info()["selected"] != "=1" ? "\<C-y>" :
+	"\<C-g>u\<CR>"
+else

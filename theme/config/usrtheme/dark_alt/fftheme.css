@@ -1,0 +1,29 @@
+:root {
+  --background: #12080B;
+  --foreground: #EDEDDA;
+  --cursor: #EDEDDA;
+  --myblack: #12080B;
+  --myblacktrans: rgba(36, 36, 34, 0.96);
+  --mysurface: #12080B;
+  --mysurfacedim: #383836;
+  --mysurfaceacc: #4e4e4a;
+  --mytextdim: #5E5E5A;
+  --mytextmid: #CCCCC0;
+  --mytext: #EDEDDA;
+  --mytextacc: #f00000;
+  --myfrontacc: #777770;
+  --myfront: #f00000;
+  --myvisual: #446063;
+  --myselect: #446063;
+  --myaccent: #98c379;
+  --myaccentdim: #EBCB8B;
+  --myerror: #e06c75;
+  --keyword: #BF616A;
+  --function: #83A4A6; 
+  --conditional: #B48EAD;
+  --field: #DBC7A6;
+  --operator: #D08770;
+  --string: #A3BE8C;
+  --variable: #EDEDDA;
+}
+

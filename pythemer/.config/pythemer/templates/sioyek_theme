@@ -1,0 +1,16 @@
+custom_background_color {{ background | shade.01 }}
+custom_text_color {{ foreground || shade.07 }}
+
+page_separator_color {{ win.float_background | shade.04 }}
+search_highlight_color {{ accent }}
+status_bar_color {{ state.active_background | shade.03 }}
+status_bar_text_color {{ foreground || shade.07 }}
+ui_text_color {{ foreground || shade.07 }}
+ui_selected_text_color {{ foreground || shade.07 }}
+ui_background_color {{ win.float_background | shade.04 }}
+ui_selected_background_color {{ state.active_background | shade.03 }}
+background_color {{ background | shade.01 }}
+visual_mark_color {{ accent @transparent(0.2) }} 
+text_highlight_color {{ state.selection_background | hl.selection_background }}
+link_highlight_color {{ win.active_border | state.active_accent | accent }}
+synctex_highlight_color {{ color3 }}

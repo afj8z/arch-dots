@@ -1,0 +1,9 @@
+#!/bin/sh
+export COLOR_BG="#1A0F12"
+export COLOR_FG="#E1DFED"
+export COLOR_ACCENT="#83A4A6"
+
+export COLOR_ACTIVE_FG="#1A0F12"
+export COLOR_ACTIVE_BG="#83A4A6"
+export COLOR_URGENT_FG="#E1DFED"
+export COLOR_URGENT_BG="#D18498"

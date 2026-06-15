@@ -1,0 +1,361 @@
+(defcfg
+  linux-dev-names-include (
+	"DuckyChannel International Co., Ltd. Ducky Keyboard"
+	"DuckyChannel International Co., Ltd. Ducky Keyboard Consumer Control")
+  danger-enable-cmd yes
+  concurrent-tap-hold yes
+  process-unmapped-keys yes
+  block-unmapped-keys yes
+  delegate-to-first-layer yes
+  log-layer-changes no
+  sequence-timeout 16000
+  ;; tap-hold-require-prior-idle 10
+  allow-hardware-repeat false)
+
+
+(defsrc
+	esc  f1   f2   f3   f4      f5   f6   f7   f8      f9   f10   f11   f12  
+
+	grv    2     3     4     5                        0     -     =     bspc
+
+	tab  q     w     e     r                        o     p     [     ]     \     del
+
+	caps  a     s     d     f                        l     ;     '     ret       
+	;;lsft rctl: config reload/cycle
+	lsft                 c     v             m     ,                   rsft
+	;;space: rhs thumb ralt: lhs thumb 
+								 spc                ralt 
+)
+
+(defvar
+	tap				0
+	hold			190
+	safe			300
+	timeout			300
+	leader			1000
+	oneshot			1000
+)
+
+;; The Linux tap-hold hardware repeat workaround
+(defvirtualkeys	
+  relnop6 (release-key nop6)
+  )
+
+(deftemplate tap-holdv2 (tap-t hold-t tap-a hold-a)
+  (multi nop6 (tap-hold $tap-t $hold-t $tap-a $hold-a) (macro 5 (on-press tap-vkey relnop6)))
+)
+
+(deftemplate withmsg (message action)
+	(multi (cmd bash -c (concat "notify-send -u normal -t 5000 "$message)) $action)
+)
+
+
+(defalias
+	safecr 			(tap-hold $tap $safe XX lrld)
+  	safecy 			(tap-hold $tap $safe (macro n o p e) (t! withmsg "'Kanata keyboard switched from ducky'" (lrld-num 1)))
+	spc				(t! tap-holdv2 $tap $hold spc spc)
+	sft				(t! tap-holdv2 $tap $hold lsft lsft)
+	ctl				(t! tap-holdv2 $tap $hold lctl lctl)
+	lhs				(tap-hold-press $tap $hold lmet (layer-toggle norden-numbers))
+	rhs				(tap-hold-press $tap $hold rmet (layer-toggle norden-symbols))
+	fst				(t! tap-holdv2 $tap $hold .	   /)
+	com 			(t! tap-holdv2 $tap $hold ,    S-;)
+	sls				(t! tap-holdv2 $tap $hold /    \)
+	z_bs			(t! tap-holdv2 $tap $hold z    bspc)
+	met_l           (multi lmet (layer-toggle norden))
+	ctl_l           (multi lctl (layer-toggle norden))
+	alt_l           (multi lalt (layer-toggle norden))
+	sft_l           (multi lsft (layer-toggle norden))
+	;; a				(tap-hold $tap $hold (chord seq-chords a) lsft)
+	;; r				(tap-hold $tap $hold (chord seq-chords r) lsft)
+	;; i               (tap-hold $tap $hold (t! seq-chord i a) (layer-toggle norden-symbols))
+	;; n               (tap-hold $tap $hold (t! seq-chord n r) (layer-toggle norden-symbols))
+	!				S-1
+	@				S-2
+	#				S-3
+	$				S-4
+	%				S-5
+	^				S-6
+	&				S-7
+	*				S-8
+	obr				S-9
+	cbr				S-0
+	_				S--
+	+				S-=
+	<				S-,
+	>				S-.
+	{				S-[
+	}				S-]
+	|				S-\
+	qut				S-'
+	?				S-/
+	~				S-grv
+	:				S-;
+)
+
+
+(deftemplate magic (trigger alternate)
+   ((key-history $trigger 1))  (macro $alternate) break
+)
+
+(deftemplate s-magic (trigger alternate)
+   ((key-history $trigger 1))  (macro $alternate) break
+)
+
+(deftemplate l-magic (trigger layer)
+   ((key-history $trigger 1))  (layer-switch $layer) break
+)
+
+(deftemplate magic-oss (trigger alternate)
+   ((key-history $trigger 1))  (one-shot 2000 $alternate) break
+)
+
+
+
+;; output aliases
+(defalias
+  os_sft (one-shot 2000 lsft)
+  lc_uma (unicode ä)
+  lc_umu (unicode ü)
+  lc_umo (unicode ö)
+  lc_szs (unicode ß)
+
+)
+
+
+(defalias
+;; magic for norden layer
+mag-tap (switch
+;; locale
+      (t! magic o (bspc @lc_umo))
+      (t! magic u (bspc @lc_umu))
+      (t! magic a (bspc @lc_uma))
+;; sf-bigrams
+      (t! magic s  c)
+      (t! magic y  s)
+      (t! magic c  y)
+      (t! magic p  h)
+      (t! magic x  y)
+      (t! magic g  s)
+      (t! magic z  a)
+      (t! magic e  o)
+;; Scissors       
+      (t! magic k  l)
+;; Words & Suffixes
+      (t! magic i ( o u s))
+      (t! magic j  (e d o c h))
+	  (t! magic f (u l l y))
+
+;; Special
+      (t! magic-oss spc lsft)
+      (t! magic-oss m (layer-toggle m-mag))
+	  (t! magic-oss x (layer-toggle sx-mag))
+	  (t! magic-oss , (layer-toggle sc-mag))
+	  (t! magic-oss . (layer-toggle sd-mag))
+   	  () (one-shot 1000 (layer-toggle s-mag-keys)) break
+   ;;   () (chord esc-ret 3) break
+    )
+sm-z (switch
+	(t! s-magic b (e z i e h u n g s w e i s e))
+	(t! s-magic t (r o t z d e m))
+	() _ break
+	)
+sm-u (switch
+	(t! s-magic f (bspc u n f o r t u n a t))
+	  (t! s-magic n (u n g))
+	() _ break
+	)
+sm-c (switch
+	(t! s-magic b (b e c a u s e))
+	  (t! s-magic n (u n g))
+
+	() _ break
+	)
+sm-f (switch
+(t! s-magic d  (e f i n i t e l y))
+(t! s-magic t  (h e r e f o r e))
+
+	() _ break
+)
+sm-h (switch
+(t! s-magic w (a h r s c h e i n l i c h))
+(t! s-magic d  (a h e r))
+
+	() _ break
+)
+sm-y (switch
+      ( t! s-magic t  (bspc y e s t e r d a y))
+
+	() _ break
+	  )
+sm-l (switch
+      (t! s-magic v  (i e l l e i c h t))
+	() _ break
+	  )
+sm-m (switch
+      ( t! s-magic t (o m o r r o w))
+	() _ break
+      ) 
+sm-n (switch
+      ( t! s-magic t (i o n))
+	() _ break
+      ) 
+sm-s (switch
+      ( t! s-magic n (e s s))
+	() _ break
+      ) 
+sm-t (switch
+      ( t! s-magic n (a t (unicode ü) r l i c h))
+      ( t! s-magic b (e t w e e n))
+      ( t! s-magic w (i t h o u t))
+	() _ break
+      ) 
+sm-d (switch
+      (t! s-magic t (o d a y))
+	() _ break
+      ) 
+sm-w (switch
+      (t! s-magic h (o w e v e r))
+	() _ break
+      ) 
+)
+
+
+(deflayer norden
+  	XX     XX   XX   XX   XX      XX   XX   XX   XX      XX   XX   XX   XX  
+	q      l     d     p     v                        c     o     u      z
+  ;; r   n     t     h     b                        w     s     e     i     a     esc
+	 r    n     t     h     b                        w     s     e     i    a     esc
+  ;;  x   j     m     f     k                        y     g     ,_:   ._/
+	  x   j     m     f     k                        y     g     ,     .
+	;;lsft rsft: config reload/cycle
+	
+	@safecr              @spc  @sft          @ctl  @mag-tap           @safecy
+	;;space: lhs thumb ralt: rhs thumb 
+								 @lhs               @rhs 
+)
+
+
+(deflayer norden-symbols
+;;  ~ ; : , .
+	XX     XX   XX   XX   XX      XX   XX   XX   XX      XX   XX   XX   XX  
+	
+	grv     @@    [     ]     @%                       @{    @}    @!   @? 
+
+	 =    @*    @+     @_    @^                       @$    @obr  @cbr  @qut   /  esc
+
+	  @|  -    @<    @>    @&                        @~      @:    ;   \                  
+	@safecr              @spc  @sft          @ctl  @mag-tap                @safecy
+								 @lhs               @rhs 
+
+)
+
+(deflayer norden-cmds
+  	XX     XX   XX   XX   XX      XX   XX   XX   XX      XX   XX   XX   XX  
+
+	q      l     d     p     v                        c     o     u     z
+
+	 XX @met_l @ctl_l @sft_l @alt_l                 @alt_l   @sft_l  @ctl_l @met_l  bspc  esc
+
+	  x   j     m     f     k                        y     g     @com  @fst         
+	@safecr              @spc  @sft          @ctl  @mag-tap                @safecy
+								 @lhs               @rhs 
+)
+
+
+(deflayer norden-numbers
+	XX     XX   XX   XX   XX      XX   XX   XX   XX      XX   XX   XX   XX  
+	
+	grv    @@    [     ]    @%                       7     8     9    , 
+
+	 =    @*   @+    @_    @^                       @$     1     2     3     0   esc
+
+	  @|   -    @<    @>    @&                       .    4     5     6
+	@safecr              @spc  @sft          @ctl  @mag-tap                @safecy
+								 @lhs               @rhs 
+
+)
+
+(deflayermap m-mag
+w (multi (macro bspc m e n t))
+_ (multi p _ )
+)
+
+(deflayer s-mag-keys
+
+  	XX     XX   XX   XX   XX      XX   XX   XX   XX      XX   XX   XX   XX  
+	_ @sm-l @sm-d _ _      @sm-c _ @sm-u @sm-z 
+	_ @sm-n @sm-t @sm-h _        @sm-w @sm-s _ _ _ esc
+	_ _ @sm-m @sm-f _            @sm-y _ _ _
+	@safecr              @spc  @sft          @ctl  @mag-tap           @safecy
+								 @lhs               @rhs 
+)
+
+(defalias 
+sx-v (macro bspc v g l .)
+sx-a (macro bspc u . a .)
+sx-g (macro bspc g g f .)
+sx-s (macro bspc s o g .)
+sx-e (macro bspc e . g . ,)
+sx-t (macro bspc w . r . t .)
+sx-q (macro bspc q . e . d .)
+sx-u (macro bspc u s w .)
+sx-d (macro bspc d . h .)
+sx-b (macro bspc z . S-b .)
+sx-i (macro bspc i . d . S-r .)
+)
+
+(deflayer sx-mag
+
+  	XX     XX   XX   XX   XX      XX   XX   XX   XX      XX   XX   XX   XX  
+    @sx-q  _ @sx-d _ @sx-v               _ _ @sx-u _
+
+	_ _ @sx-t _ @sx-b                   _ @sx-s @sx-e @sx-i    @sx-a     esc
+	_ _ _ _ _                           _ @sx-g _ _
+	@safecr              @spc  @sft          @ctl  @mag-tap           @safecy
+								 @lhs               @rhs 
+)
+
+(defalias
+sc-d (macro spc d a s s)
+sc-n (macro spc s o n d e r n)
+sc-r (macro spc a b e r)
+sc-w (macro spc w e i l)
+sc-a (macro spc a n d)
+sc-b (macro spc b e c a u s e)
+sc-s (macro spc s o d a s s)
+sc-i (macro spc i n b e s o n d e r e)
+sc-h (macro spc w h i c h)
+sc-e (macro spc e s p e c i a l l y)
+)
+
+(deflayer sc-mag 
+  	XX     XX   XX   XX   XX      XX   XX   XX   XX      XX   XX   XX   XX  
+	_     _     @sc-d     _   _              _  _     _      _
+	@sc-r @sc-n _ @sc-h @sc-b              @sc-w @sc-s @sc-e @sc-i    @sc-a     esc
+	_ _   _ _  _                              _ _ _ _
+	@safecr              @spc  @sft          @ctl  @mag-tap           @safecy
+								 @lhs               @rhs 
+)
+
+
+(defalias
+sd-d (macro spc S-d a h e r)
+sd-t (macro spc S-t h e r e f o r e)
+sd-h (macro spc S-h o w e v e r)
+sd-f (macro spc S-f o l g l i c h)
+sd-m (macro spc S-m o r e o v e r)
+sd-i (macro spc S-i n s b e s o n d e r)
+sd-a (macro spc S-a u (unicode ß) e r d e m)
+sd-z (macro spc S-z u s (unicode ä) t z l i c h)
+)
+
+(deflayer sd-mag
+  	XX     XX   XX   XX   XX      XX   XX   XX   XX      XX   XX   XX   XX  
+	_      _     @sd-d     _     _                        _     _     _      @sd-z
+	 _    _     @sd-t     @sd-h     _                        _     _     _     @sd-i    @sd-a     esc
+	  _   _     @sd-m     @sd-f     _                        _     _     _     _
+	@safecr              @spc  @sft          @ctl  @mag-tap           @safecy
+								 @lhs               @rhs 
+)
+

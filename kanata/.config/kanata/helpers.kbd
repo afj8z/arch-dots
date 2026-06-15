@@ -1,0 +1,102 @@
+(defvar
+	tap				0
+	hold			190
+	combo 			30
+	safe			300
+	timeout			300
+	leader			1000
+	oneshot			1000
+)
+
+(deftemplate ons-hold (mod)
+(concat ons- $mod) (tap-hold $tap $hold (one-shot 1000 $mod) $mod)
+)
+
+(deftemplate withmsg (message action)
+	(multi (cmd bash -c (concat "notify-send -u normal -t 5000 "$message)) $action)
+)
+
+
+(deftemplate run (action)
+	(cmd bash -c  $action)
+)
+
+(deftemplate or-mod (key mod)
+(concat $key - $mod)  (tap-dance-eager 150 ((tap-hold-opposite-hand-release $hold $key $mod (timeout hold) (neutral-keys spc tab esc ret) (neutral tap)) $key))
+)
+
+
+(deftemplate mag (trigger alternate)
+   ((key-history $trigger 1))  (macro $alternate) break
+)
+
+(deftemplate l-mag (trigger layer)
+   ((key-history $trigger 1))  (layer-switch $layer) break
+)
+
+(deftemplate o-mag (trigger alternate)
+   ((key-history $trigger 1))  (one-shot 1500 $alternate) break
+)
+
+(defalias
+  os_sft (one-shot 2000 lsft)
+  lc_uma (unicode ä)
+  lc_umu (unicode ü)
+  lc_umo (unicode ö)
+  lc_szs (unicode ß)
+)
+
+(defalias
+	!				S-1
+	@				S-2
+	#				S-3
+	$				S-4
+	%				S-5
+	^				S-6
+	&				S-7
+	*				S-8
+	obr				S-9
+	cbr				S-0
+	_				S--
+	+				S-=
+	<				S-,
+	>				S-.
+	{				S-[
+	}				S-]
+	|				S-\
+	dqut				S-'
+	?				S-/
+	~				S-grv
+	:				S-;
+)
+
+
+(defalias
+magic (switch
+;; locale
+      (t! mag o (bspc @lc_umo))
+      (t! mag u (bspc @lc_umu))
+      (t! mag a (bspc @lc_uma))
+
+
+      (t! mag g h)
+      (t! mag n l)
+      (t! mag e o)
+      (t! mag c t)
+      (t! mag h y)
+      (t! mag l n)
+      (t! mag t c)
+      (t! mag p h)
+      (t! mag d y)
+      (t! o-mag spc lsft)
+	  )
+mag  (multi @magic f21)
+)
+
+(defalias 
+wonk-trans-min (t! run "wonkeyctl transparency 0.1")
+wonk-trans-max (t! run "wonkeyctl transparency 0.9")
+wonk-toggle (t! run "wonkeyctl toggle")
+wonk-cfg (t! run "wonkeyctl reload")
+)
+

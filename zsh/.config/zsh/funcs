@@ -1,4 +1,5 @@
 # Functions
+# vim: ft=zsh
 # Enter a directory and list its contents
 cdl() {
   if [[ -d "$1" ]]; then
@@ -15,7 +16,6 @@ gpa() {
   git commit -m "${1:-NoMsg}"
   git push
 }
-
 
 
 #help function
@@ -146,12 +146,15 @@ fp() {
     ps aux -o user,pid,%cpu,%mem,stat,start,time,command | grep -E "^USER|$1"
 }
 
-# Oneliners
-# systemctl powerprofiles
-# no args needed, but function is cleaner for systemctl commands
-ppp() { powerprofilesctl set performance; }
-pps() { powerprofilesctl set power-saver; }
-ppls() { powerprofilesctl list; }
+# muh shell startup time
+npm() {
+    if ! builtin type -p npm > /dev/null; then
+        [ -s "$HOME/.config/nvm/nvm.sh" ] && \. "$HOME/.config/nvm/nvm.sh"
+    fi
+    
+    command npm "$@"
+}
+
 # git commit optional message
 gc() { git commit -m "${1:-NoMsg}" }
 
@@ -164,6 +167,73 @@ vpndis() {
 		echo "Error: No pid for VPN found."
 	fi
 }
+
+cpc() {
+    local smart_exclude=true
+    local excludes=()
+    local open_nvim=false
+
+    while [[ $# -gt 0 ]]; do
+        case "$1" in
+            --no-smart)
+                smart_exclude=false
+                shift
+                ;;
+            -e|--exclude)
+                excludes+=("-i" "$2")
+                shift 2
+                ;;
+            v|vi|nvim|vim)
+                open_nvim=true
+                shift
+                ;;
+            *)
+                shift
+                ;;
+        esac
+    done
+
+    if [[ "$smart_exclude" == true ]]; then
+        while IFS= read -r xml_file; do
+            local dir="${xml_file%/*}"
+            local base=$(basename "$xml_file" .xml)
+            
+            for file in "$dir"/"$base"*.{c,h}; do
+                if [[ -f "$file" ]]; then
+                    excludes+=("-i" "$file")
+                fi
+            done
+        done < <(find . -type f -name "*.xml" 2>/dev/null)
+    fi
+
+    cppcheck --project=compile_commands.json \
+        "${excludes[@]}" \
+        --enable=all --suppress=missingIncludeSystem \
+        --inline-suppr \
+		--suppressions-list=cppcheck_suppress.txt \
+        --check-level=exhaustive \
+        --template=gcc 2>&1 | tee cppcheck.log
+
+    if [[ "$open_nvim" == true ]]; then
+        nvim -q cppcheck.log
+    fi
+}
+
+argc() {
+	if [[ "$1" == (c|cpp) ]]; then
+		local ft="$1"
+else 
+	ft="c"
+	fi
+	echo $ft
+}
+
+jd () {
+	dt=$(date +%b_%d| tr '[:upper:]' '[:lower:]')
+	nvim "$dt".typ
+
+}
+
 
 # Bindings
 zle -N finder

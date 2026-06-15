@@ -1,22 +1,22 @@
 :root {
   /* --- Base16 Raw Definitions --- */
   /* These are mapped from the new semantic theme variables for compatibility. */
-  --b00: #111012;
-  --b01: #111012;
-  --b02: #25212B;
-  --b03: #3D3845;
-  --b04: #514A59;
-  --b05: #595466;
-  --b06: #756D85;        /* Base 06 (using main foreground) */
-  --b07: #756D85;         /* Base 07 */
-  --b08: #C76B6B;              /* Base 08 */
-  --b09: #b4d4cf;           /* Base 09 */
-  --b0A: #F7B982;             /* Base 0A (mapped from teal) */
-  --b0B: #8A7FA3;            /* Base 0B */
-  --b0C: #e0a363;             /* Base 0C */
-  --b0D: #9bb4bc;             /* Base 0D */
-  --b0E: #C4B7AB;          /* Base 0E */
-  --b0F: #99453D;           /* Base 0F (using orange as fallback) */
+  --b00: #242422;
+  --b01: #242422;
+  --b02: #302e2c;
+  --b03: #383836;
+  --b04: #383836;
+  --b05: #696964;
+  --b06: #F0F0E1;        /* Base 06 (using main foreground) */
+  --b07: #F0F0E1;         /* Base 07 */
+  --b08: #BF616A;              /* Base 08 */
+  --b09: #A3BE8C;           /* Base 09 */
+  --b0A: #EBCB8B;             /* Base 0A (mapped from teal) */
+  --b0B: #81A1C1;            /* Base 0B */
+  --b0C: #B48EAD;             /* Base 0C */
+  --b0D: #88C0D0;             /* Base 0D */
+  --b0E: #696964;          /* Base 0E */
+  --b0F: #BF616A;           /* Base 0F (using orange as fallback) */
 
   /* --- Core UI (aliased from Base16) --- */
   --background: var(--b00);
@@ -38,7 +38,7 @@
   --warning: var(--b09);
   --success: var(--b0B);
   --info: var(--b0D);
-  --accent: #8A7FA3;
+  --accent: #81A1C1;
 
   /* --- UI Surfaces (aliased from Base16) --- */
   --menu_bg: var(--b01);

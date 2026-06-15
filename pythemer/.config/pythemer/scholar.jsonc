@@ -1,0 +1,34 @@
+{
+    "meta": {
+        "theme": "Slate Scholar"
+    },
+    "background": "#16181D",
+    "foreground": "#D7D7C8",
+    "accent": "#8999A8",
+    "color0": "#1F2229",
+    "color1": "#C47575",
+    "color2": "#87A677",
+    "color3": "#C4A375",
+    "color4": "#7591C4",
+    "color5": "#A375C4",
+    "color6": "#75C4B9",
+    "color7": "#D7D7C8",
+    "color8": "#525866",
+    "color9": "#D98C8C",
+    "color10": "#9EBF8C",
+    "color11": "#D9B88C",
+    "color12": "#8CA6D9",
+    "color13": "#B88CD9",
+    "color14": "#8CD9CD",
+    "color15": "#E8E8DF",
+    "shade": {
+        "00": "#0D0F12",
+        "01": "#16181D",
+        "02": "#1E2229",
+        "03": "#2A2F38",
+        "04": "#3B424F",
+        "05": "#5C667A",
+        "06": "#A3A393",
+        "07": "#D7D7C8"
+    }
+}

@@ -1,0 +1,34 @@
+{
+    "meta": {
+        "theme": "VaporArcade"
+    },
+    "background": "#232126",
+    "foreground": "#D1CED4",
+    "accent": "#9BA8C8",
+    "color0": "#2B292E",
+    "color1": "#C79393",
+    "color2": "#94B394",
+    "color3": "#D1B894",
+    "color4": "#94A9C7",
+    "color5": "#B394B3",
+    "color6": "#94B3B3",
+    "color7": "#D1CED4",
+    "color8": "#5C5861",
+    "color9": "#D9A9A9",
+    "color10": "#A9C9A9",
+    "color11": "#E6CCAA",
+    "color12": "#A9BDE0",
+    "color13": "#C9A9C9",
+    "color14": "#A9C9C9",
+    "color15": "#E2DFE6",
+    "shade": {
+        "00": "#1A181C",
+        "01": "#232126",
+        "02": "#2C2A30",
+        "03": "#38353D",
+        "04": "#47434D",
+        "05": "#5E5966",
+        "06": "#B0ACB5",
+        "07": "#D1CED4"
+    }
+}

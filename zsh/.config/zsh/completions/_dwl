@@ -1,0 +1,23 @@
+#compdef dwl
+
+_dwl() {
+    # Required locals for state transitions
+    local context state state_descr line
+    typeset -A opt_args
+
+    _arguments \
+        '-s[startup script]:script:->startup' \
+        '-v[version]' \
+        '-d[full wlroots logging]'
+
+    case $state in
+        startup)
+            _alternative \
+                'preferred:preferred script:((launchdwl\:"main startup script"))' \
+                'commands:executable:_path_commands' \
+                'files:file:_files'
+            ;;
+    esac
+}
+
+_dwl "$@"

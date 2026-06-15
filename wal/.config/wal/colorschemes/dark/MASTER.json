@@ -1,0 +1,11 @@
+{
+	"background": "#242422",
+	"foreground": "#F0F0E1", // cursor, text
+	"myblack": "#242422",
+	"myblacktrans": "rgba(36, 36, 34, 0.96)",
+	"mysurface": "#242422",
+	"mysurfacedim": "#302e2c",
+	"mysurfaceacc": "#383836",
+	"mytextdim": "#383836",
+	"mytextmid": "#696964"
+}

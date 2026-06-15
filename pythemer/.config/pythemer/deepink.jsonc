@@ -1,0 +1,34 @@
+{
+    "meta": {
+        "theme": "Final Ink Carbon"
+    },
+    "background": "#1D1F21",
+    "foreground": "#DEDCD3",
+    "accent": "#6A779C",
+    "color0": "#1D1F21",
+    "color1": "#C46767", 
+    "color2": "#86A672", 
+    "color3": "#C2A36B", 
+    "color4": "#6B8EAD", 
+    "color5": "#A375A3", 
+    "color6": "#6BA39C", 
+    "color7": "#99978F", 
+    "color8": "#454A4F", 
+    "color9": "#E09696", 
+    "color10": "#AFCF9B",
+    "color11": "#E3C78B", 
+    "color12": "#93B5D1",
+    "color13": "#C9A2C9",
+    "color14": "#94CDC5",
+    "color15": "#DEDCD3",
+    "shade": {
+        "00": "#141617",
+        "01": "#1D1F21",
+        "02": "#272A2D",
+        "03": "#33373B",
+        "04": "#454A4F",
+        "05": "#616059",
+        "06": "#99978F",
+        "07": "#DEDCD3" 
+    }
+}

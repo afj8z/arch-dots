@@ -14,7 +14,8 @@ Environment=PATH=/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/home/aidanfleming
 # IOSchedulingClass=realtime
 # Nice=-20
 Type=simple
-ExecStart=/usr/bin/sh -c 'exec /home/aidanfleming/.cargo/bin/kanata --cfg $${HOME}/.config/kanata/kanata.kbd'
+; ExecStart=/usr/bin/sh -c 'exec /home/aidanfleming/.cargo/bin/kanata -c $${HOME}/.config/kanata/kanata.kbd -c $${HOME}/.config/kanata/laptop.kbd -c $${HOME}/.config/kanata/ducky.kbd --port 7777 -q -n'
+ExecStart=/usr/bin/sh -c 'exec /home/aidanfleming/.cargo/bin/kanata -c $${HOME}/.config/kanata/kanata.kbd -c $${HOME}/.config/kanata/hp.kbd --port 7777 -q -n'
 Restart=no
 
 [Install]

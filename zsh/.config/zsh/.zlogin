@@ -1,4 +1,4 @@
-BAT_LEVEL="$(cat /sys/class/power_supply/BAT1/capacity)"
+BAT_LEVEL="$(cat /sys/class/power_supply/BAT0/capacity)"
 
 echo "... login success!"
 echo "Welcome $USER"

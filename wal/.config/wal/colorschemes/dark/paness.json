@@ -1,0 +1,28 @@
+{
+  "checksum": "283f9a6030348a89171387f5eb61153e",
+  "wallpaper": "/home/aidanfleming/Downloads/collage_blackbw.png",
+  "alpha": "100",
+  "special": {
+    "background": "#12080b",
+    "foreground": "#c3c1c2",
+    "cursor": "#c3c1c2"
+  },
+  "colors": {
+    "color0": "#12080b",
+    "color1": "#A88C74",
+    "color2": "#3E5E84",
+    "color3": "#5D6D8C",
+    "color4": "#7986A3",
+    "color5": "#99979A",
+    "color6": "#BCC4C8",
+    "color7": "#c3c1c2",
+    "color8": "#6a575d",
+    "color9": "#A88C74",
+    "color10": "#3E5E84",
+    "color11": "#5D6D8C",
+    "color12": "#7986A3",
+    "color13": "#99979A",
+    "color14": "#BCC4C8",
+    "color15": "#c3c1c2"
+  }
+}

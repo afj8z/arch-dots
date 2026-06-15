@@ -1,0 +1,187 @@
+{
+	"primary": {
+		"background": "#242422", // background main window
+		"foreground": "#EDEDDA", // cursor, text
+		"backgroundtrans": "rgba(36, 36, 34, 0.96)", // transparent bakground
+		"mysurfacedim": "#302e2c", // unfocused, inactive window (statusline)
+		"mysurfaceacc": "#383836", // focused, inactive window (statusline)
+		"mytextdim": "#383836", // ghost text in main window
+		"focusfloat": "#4e4e4a", // temp-floats, unfocused float
+		"mytextmid": "#5E5E5A", // comments
+		"punctuation": "#CCCCC0", // non-special punctuation 
+		"mytextacc": "#EDE3CA", // slightly accented text
+		"perm_button": "#EBCB8B", // active, unfocused, but variable button (current active line number) | A secondary accent, warning
+		"selection": "#446063", // active text in selection
+		"highlighted": "#383836", // inactive area in an active range (cursorline, text between matching brackets)
+		"selected": "#98c379", // text that has been selected (yanked), cursor on button, active button (active tab)| A primary accent
+	},
+	"syntax": {
+		"term_color0": "#302e2c", // darkest non-background color
+		"keyword": "#BF616A", // keywords, return, except
+		"string": "#A3BE8C", // string
+		"function": "#83A4A6", // functions
+		"conditional": "#B48EAD", // conditional, repeat
+		"info": "#88C0D0", // builtin func, info
+		"comments": "#5E5E5A", // comments
+		"escape": "#e06c75", // errors, escape
+		"modules": "#d19a66", // builtin vars, namespace, module
+		"numbers": "#D18498", // Numbers, Boolean
+		"fields": "#81A1C1", // fields
+		"constants": "#ebdbb2" // Constants
+	}
+}
+
+
+local c = {
+    -- Base
+    bg       = "#111012", -- Background
+    fg       = "#DBD0C6", -- Foreground (Text, Identifiers, Punctuation)
+    grey     = "#756D85", -- Comment, @comment
+
+    -- Errors & Warnings
+    red      = "#E46876", -- Error, @error, @text.danger
+    yellow   = "#F7B982", -- Todo (bg), Warning, @text.warning, @text.todo
+
+    -- Literals (Data)
+    green    = "#98BB6C", -- String, @string
+    lime     = "#A6E3A1", -- Regex, Escapes, @string.regex, @string.escape
+    cyan     = "#89DCEB", -- Number, Float, @number, @float, @text.math
+    orange   = "#F9929B", -- Boolean, @boolean
+    pink     = "#F5C2E7", -- Constant, Builtin Var, @constant, @variable.builtin, @const.builtin
+
+    -- Functions & Methods
+    blue     = "#8AADF4", -- Function, Method, @function, @method
+    sapphire = "#7DC4E4", -- Constructor, @constructor (Special function)
+
+    -- Keywords & Control Flow
+    purple   = "#C6A0F6", -- Keyword, Conditional, Repeat, @keyword, @repeat
+    maroon   = "#EBA0AC", -- Exception, Return, @exception, @keyword.return
+
+    -- Types & Variables
+    teal     = "#94E2D5", -- Type, Structure, Class, @type, @structure
+    lavender = "#B4BEFE", -- Parameter, Field, Property, @parameter, @field, @property
+    indigo   = "#89B4FA", -- StorageClass, Qualifier, @storageclass, @type.qualifier
+
+    -- Metaprogramming & Special
+    magenta  = "#D27E99", -- PreProc, Include, Macro, @preproc, @include, @function.macro
+    gold     = "#F9E2AF", -- Special, Debug, Tag, @debug, @tag, @text.uri
+}
+    overrides = {
+        -- Window separator: thin gray line between splits (consistent with gruvbox style)
+        WinSeparator = { fg = "#504945", bg = "NONE"
+	},
+        SignColumn = { bg = "#282828"
+	},
+        NvimTreeCutHL = { fg = "#fb4934", bg = "#282828"
+	},
+        NvimTreeCopiedHL = { fg = "#b8bb26", bg = "#282828"
+	},
+        DiagnosticSignError = { fg = "#fb4934", bg = "#282828"
+	},
+        DiagnosticSignWarn = { fg = "#fabd2f", bg = "#282828"
+	},
+        DiagnosticSignHint = { fg = "#8ec07c", bg = "#282828"
+	},
+        DiagnosticSignInfo = { fg = "#d3869b", bg = "#282828"
+	},
+        DiffText = { fg = "#ebdbb2", bg = "#3c3836"
+	},
+        DiffAdd = { fg = "#ebdbb2", bg = "#32361a"
+	},
+        -- Markdown comment highlighting (muted)
+        htmlComment = { fg = "#928374", italic = true
+	},
+        htmlCommentPart = { fg = "#928374", italic = true
+	},
+        markdownHtmlComment = { fg = "#928374", italic = true
+	},
+        RenderMarkdownHtmlComment = { fg = "#928374", italic = true
+	},
+}
+  bright_green = "#b8bb26",
+  bright_aqua = "#8ec07c",
+
+local c = {
+    -- UI & Base
+    bg          = "#242422", -- background main window
+    bg_trans    = "rgba(36, 36, 34, 0.96)",
+    fg          = "#EDEDDA", -- cursor, text
+    cursorline  = "#383836", -- highlighted
+    selection   = "#446063", -- selection
+    float       = "#4e4e4a", -- focusfloat
+    
+    -- Text accents
+    comment     = "#5E5E5A", -- comments
+    punct       = "#CCCCC0", -- punctuation
+    accent      = "#98c379", -- selected/yanked (Greenish accent)
+    
+    -- Syntax Colors
+    red         = "#BF616A", -- keyword
+    green       = "#A3BE8C", -- string
+    teal        = "#83A4A6", -- function
+    purple      = "#B48EAD", -- conditional
+    cyan        = "#88C0D0", -- info/builtin
+    orange      = "#d19a66", -- modules
+    pink        = "#D18498", -- numbers/boolean
+    blue        = "#81A1C1", -- fields
+    beige       = "#ebdbb2", -- constants
+    error_red   = "#e06c75", -- escape/errors
+    warning     = "#EBCB8B", -- perm_button (Used for Warnings)
+}
+
+local c = {
+    -- =========================================================================
+    -- UI & BASE (Existing)
+    -- =========================================================================
+    bg          = "#242422",
+    bg_trans    = "rgba(36, 36, 34, 0.96)",
+    fg          = "#EDEDDA",
+    cursorline  = "#383836",
+    selection   = "#446063",
+    float       = "#4e4e4a",
+    
+    -- =========================================================================
+    -- TEXT ACCENTS (Existing)
+    -- =========================================================================
+    comment     = "#5E5E5A",
+    punct       = "#CCCCC0",
+    accent      = "#98c379", -- Greenish accent (Selected text)
+
+    -- =========================================================================
+    -- SYNTAX COLORS (Refined & Extended)
+    -- =========================================================================
+    -- Reds & Pinks
+    red         = "#BF616A", -- Keyword, Return
+    error_red   = "#e06c75", -- Errors, Escapes
+    pink        = "#D18498", -- Numbers, Booleans
+    maroon      = "#C75C6A", -- [NEW
+	] Exception, Delete, Critical Tags
+
+    -- Oranges & Yellows
+    orange      = "#d19a66", -- Modules, Namespaces
+    coral       = "#D08770", -- [NEW
+	] Operators, Storage Class
+    warning     = "#EBCB8B", -- Warnings, Todo Background
+    gold        = "#E5C07B", -- [NEW
+	] Special, Debug, Type definitions
+
+    -- Greens
+    green       = "#A3BE8C", -- Strings
+    lime        = "#B5C985", -- [NEW
+	] Regex, Special Characters
+
+    -- Blues & Teals
+    teal        = "#83A4A6", -- Functions
+    cyan        = "#88C0D0", -- Builtins, Info
+    blue        = "#81A1C1", -- Fields, Properties
+    indigo      = "#5E81AC", -- [NEW
+	] Constants, Preprocessors (Deep Blue)
+    
+    -- Purples
+    purple      = "#B48EAD", -- Conditionals, Repeats
+    lavender    = "#B9C0E5", -- [NEW
+	] Parameters, Arguments (Soft Purple)
+    
+    -- Neutrals
+    beige       = "#ebdbb2", -- Constants, Literals
+}

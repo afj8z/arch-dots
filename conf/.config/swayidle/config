@@ -1,0 +1,4 @@
+timeout 150 'brightnessctl set 5%' resume 'brightnessctl set 80%'
+timeout 300 'swaylock -f'
+timeout 600 'swaymsg "output * power off"' resume 'swaymsg "output * power on"'
+before-sleep 'swaylock -f'

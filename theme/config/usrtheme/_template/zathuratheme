@@ -1,0 +1,27 @@
+set default-bg {{ background | shade.01 @rgb @transparent(0.8) }}
+set default-fg "{{ foreground || shade.07 }}"
+
+set statusbar-fg "{{ foreground || shade.07 }}"
+set statusbar-bg "{{ state.active_background | shade.03 }}"
+
+set inputbar-bg "{{ state.active_background | shade.03 }}"
+set inputbar-fg "{{ foreground || shade.07 }}"
+
+set notification-error-bg "{{ color9 }}"
+set notification-error-fg "{{ background | shade.01 }}"
+
+set notification-warning-bg "{{ color3 }}"
+set notification-warning-fg "{{ background | shade.01 }}"
+
+set highlight-color "{{ state.selection_background | hl.selection_background }}"
+set highlight-active-color "{{ win.active_border | state.active_accent | accent }}"
+
+set completion-highlight-fg "{{ background | shade.01 }}"
+set completion-highlight-bg "{{ win.active_border | state.active_accent | accent }}"
+
+set completion-bg "{{ state.active_background | shade.03 }}"
+set completion-fg "{{ foreground || shade.07 }}"
+
+set recolor "true"
+set recolor-lightcolor "{{ background | shade.01 }}"
+set recolor-darkcolor "{{ foreground || shade.07 }}"

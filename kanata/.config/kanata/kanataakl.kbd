@@ -1,0 +1,99 @@
+(defcfg
+	  	danger-enable-cmd yes
+		concurrent-tap-hold yes
+		process-unmapped-keys yes
+	    delegate-to-first-layer yes
+  	    chords-v2-min-idle 250
+  		log-layer-changes no
+		sequence-timeout 16000
+)
+
+
+(defsrc
+  grv  1    2    3    4    5    6    7    8    9    0    -    =    bspc home
+  tab  q    w    e    r    t    y    u    i    o    p    [    ]    \    pgup
+  caps a    s    d    f    g    h    j    k    l    ;    '    ret       pgdn
+  lsft z    x    c    v    b    n    m    ,    .    /    rsft
+  lctl lmet lalt           spc            ralt rmet rctl
+)
+
+
+;; The actually used keys
+;;(defsrc
+;;grv  1    2    3    4                             0    -    =    bspc home
+;;tab  q    w    e    r                        o    p    [    ]    \    pgup
+;;caps a    s    d                             l    ;    '    ret       pgdn
+;;     z    x    c    v              m    ,    .    /    
+;;          lalt           spc            ralt 
+;;)
+
+
+
+(defvirtualkeys	
+  relnop6 (release-key nop6)
+  )
+
+;; The Linux tap-hold hardware repeat workaround
+(deftemplate fix (action)
+  (multi nop6 $action (macro 5 (on-press tap-vkey relnop6)))
+)
+
+(include vars.kbd)
+(include magic.kbd)
+
+(defalias
+nav (switch 
+(w) (cmd bash -c wonkeyctl toggle) break 
+() _ break
+)
+
+met (multi met @nav)
+)
+;; ==========================================
+;; Shifted QWERTY Layer
+;; ==========================================
+;; TODO: Need tab 
+(deflayer qwerty
+  q    w    e    r    t    XX   XX   XX   XX   y    u    i    o    p    tab
+  a    s    d    f    g    XX   XX   XX   XX   h    j    k    l    S-;  esc
+  z    x    c    v    b	   XX   XX   XX   XX   n    m    ,    .         XX
+  XX   @cus ctl  rpt  spc  XX   XX   bspc spc  @mag  @met  @confn
+  lrld    XX   @sym          ret        @nums   XX   XX
+)
+
+
+(deflayer symbols 
+  grv  S-,  S-.  S-2  S-3  XX   XX   XX   XX   XX   S-[  S-]  S-4  \    XX
+  S-\  S-8  /    =    S-5  XX   XX   XX   XX   S-`  S-9  S-0  '    ;    XX
+  S--  -    S-=  S-6  XX   XX   XX   XX   XX   S-1  [    ]    S-/       XX
+  XX   XX   ctl  rpt  spc  XX   XX   bspc spc  @mag-s met  XX
+  lrld    XX   @sym          ret        @nums   XX   XX
+)
+
+(deflayer nums
+  XX   XX   XX   XX   XX   XX   XX   XX   XX   XX   7    8    9    -    XX
+  XX   met  XX   XX   XX   XX   XX   XX   XX   =    1    2    3    S-=  XX
+  XX   XX   XX   XX   XX   XX   XX   XX   XX   S-8  4    5    6         XX   
+  XX   XX   ctl  0    spc  XX   XX   bspc spc  @mag-n met  XX
+  lrld    XX   @sym          ret        @nums   XX   XX
+)
+
+(deflayer nums-home
+  XX   XX   XX   XX   XX   XX   XX   XX   XX   XX   XX   XX   XX   XX   XX
+  1    2    3    4    5    XX   XX   XX   XX   6    7    8    9    0    XX
+  XX   XX   XX   XX   XX   XX   XX   XX   XX   XX   XX   XX   XX        XX
+  XX   XX   @cus rpt  spc  XX   XX   bspc spc  @mag-s ret  XX
+  XX   XX   XX   XX   XX   XX   XX
+)
+
+;; ==========================================
+;; Custom Base Layer
+;; ==========================================
+(deflayer magic-norden
+  q    l    d    p    v    _    _    _    _    y    c    o    u    z    esc
+  r    n    t    h    b    _    _    _    w    s    e    i    a    ;    XX
+  j    m    f    k    XX   _    _    XX   XX   x    g    ,    .         XX
+  _    @qwy ctl  lsft spc  _    _    bspc spc  @mag-m met @confn 
+  lrld    _    _              _              _    _    _
+)
+

@@ -45,13 +45,13 @@ output_path = "~/.config/matugen/cache/colors.css"
 input_path = "~/.cache/wal/kitty-colors.conf"
 output_path = "~/.config/matugen/cache/kitty-colors.conf"
 
-[templates.rofi]
-input_path = "~/.cache/wal/rofi.conf"
-output_path = "~/.config/matugen/cache/theme.conf"
-
-[templates.dunst]
-input_path = "~/.config/matugen/templates/dunstrc"
-output_path = "~/.config/dunst/dunstrc"
+# [templates.rofi]
+# input_path = "~/.cache/wal/rofi.conf"
+# output_path = "~/.config/matugen/cache/theme.conf"
+#
+# [templates.dunst]
+# input_path = "~/.config/matugen/templates/dunstrc"
+# output_path = "~/.config/dunst/dunstrc"
 
 [templates.gtk]
 input_path = "~/.cache/wal/rootgtk.css"
@@ -61,17 +61,17 @@ output_path = "~/.config/matugen/cache/root.gtk.css"
 input_path = "~/.cache/wal/base"
 output_path = "~/.config/matugen/cache/root.css"
 
-[templates.hypr]
-input_path = "~/.config/matugen/templates/hypr.conf"
-output_path = "~/.config/matugen/cache/hypr.conf"
+# [templates.hypr]
+# input_path = "~/.config/matugen/templates/hypr.conf"
+# output_path = "~/.config/matugen/cache/hypr.conf"
 
 [templates.vi]
 input_path = "~/.cache/wal/shades.lua"
-output_path = "~/dev/nvim-tundra/lua/nvim-tundra/palette/custom.lua"
+output_path = "~/dev/jome.nvim/lua/nvim-tundra/palette/custom.lua"
 
-[templates.lock]
-input_path = "~/.cache/wal/hyprlock.conf"
-output_path = "~/.config/hypr/hyprlock.conf"
+# [templates.lock]
+# input_path = "~/.cache/wal/hyprlock.conf"
+# output_path = "~/.config/hypr/hyprlock.conf"
 
 [templates.shell]
 input_path = "~/.cache/wal/shell-theme.sh"
@@ -79,12 +79,12 @@ output_path = "~/.config/zsh/shell-theme.sh"
 
 [templates.firefox]
 input_path = "~/.cache/wal/firefox.css"
-output_path = "~/.mozilla/firefox/f1jryfvt.default-release/chrome/root.css"
+output_path = "~/.mozilla/firefox/qb4ziph3.default-release/chrome/root.css"
 
 [templates.firefox_theme]
 input_path = "~/.cache/wal/firefox_theme.css"
-output_path = "~/.mozilla/firefox/f1jryfvt.default-release/chrome/theme/mygruv.css"
+output_path = "~/.mozilla/firefox/qb4ziph3.default-release/chrome/theme/fftheme.css"
 
 [templates.nvim_colors]
 input_path = "~/.cache/wal/nvim_colors.luaa"
-output_path = "~/.nvim/nvim/.config/nvim/lua/ajf/colors.lua"
+output_path = "~/nvim/nvim/.config/nvim/lua/ajf/colors.lua"

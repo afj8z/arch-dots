@@ -1,12 +1,10 @@
 #!/bin/env bash
 
-random_quote=$(random_quote.sh)
+random_quote=$(~/.local/scripts/util/random_quote.sh)
 
 anims=(
-	"slide --merge"
 	"slide"
 	"rain"
-	"binarypath"
 	"bouncyballs"
 	"bubbles"
 	)
@@ -15,10 +13,12 @@ selectedanim=${anims[ $RANDOM % ${#anims[@]} ]}
 
 if [ -n "$random_quote" ]; then
     IFS='|' read -r quote author <<< "$random_quote"
+    quote="${quote% }"
+    author="${author# }"
 
     mapfile -t quote_lines < <(echo "$quote" | fmt -w 50)
     
-    author_line="— $author"
+    author_line="~ $author"
 
     max_width=0
     for line in "${quote_lines[@]}"; do
@@ -28,28 +28,31 @@ if [ -n "$random_quote" ]; then
     (( ${#author_line} > max_width )) && max_width=${#author_line}
 
     art_output=$({
-        printf '╭%*s╮\n' "$((max_width + 2))" '' | tr ' ' '-'
+		printf '╭'; printf '%.0s─' $(seq 1 $((max_width + 2))); printf '╮\n'
 
-        for line in "${quote_lines[@]}"; do
-            printf "│ %-*s │\n" "$max_width" "$line"
-        done
+       for line in "${quote_lines[@]}"; do
+           pad_len=$(( max_width - ${#line} ))
+           printf "│ %s%*s │\n" "$line" "$pad_len" ""
+       done
 
         printf '│%*s│\n' "$((max_width + 2))" ''
 
-        printf "│ %*s │\n" "$((max_width + 2))" "$author_line"
+        pad_len=$(( max_width - ${#author_line} ))
+        printf "│ %*s%s │\n" "$pad_len" "" "$author_line"
 
-        printf '╰%*s╯\n' "$((max_width + 2))" '' | tr ' ' '-'
+		printf '╰'; printf '%.0s─' $(seq 1 $((max_width + 2))); printf '╯\n'
         
         echo "      \ "
         echo "       \ "
         echo "         .--. "
         echo "        |o_o |"
-        echo "        |:_/ |"
-        echo "       //    \ \\ "
-        echo "      (|      | )"
-        echo "     /'\\_  _/\`\\ "
+        echo "        ||_/ |"
+        echo "       //   \ \ "
+        echo "      (|     | )"
+        echo "     /'\\_  _/' \ "
         echo "     \\___)=(___/ "
     })
     # --- Pipe the captured output to tte for animation ---
-    echo "$art_output" | tte  --frame-rate 480 "$selectedanim"
+    echo "$art_output" | tte  --frame-rate 980 --xterm-colors "$selectedanim"
+    # echo "$art_output"
 fi

@@ -1,0 +1,233 @@
+(defcfg
+  danger-enable-cmd yes
+  concurrent-tap-hold yes
+  process-unmapped-keys yes
+  block-unmapped-keys yes
+  delegate-to-first-layer yes
+  log-layer-changes no
+  sequence-timeout 16000
+  ;; tap-hold-require-prior-idle 10
+  allow-hardware-repeat false)
+
+(defvar
+	tap				0
+	hold			190
+	combo 			30
+	safe			300
+	timeout			300
+	leader			1000
+	oneshot			1000
+)
+
+(defoverridesv2
+(nop2) (lsft 9) () ()
+(nop3) (lsft 0) () ()
+(nop2) (lsft ,) () (base-layer)
+(nop3) (lsft .) () (base-layer)
+(lsft .) (lsft ;) () ()
+(lsft ,) (;) () () 
+)
+
+(defchordsv2
+    (0 -) [ $combo all-released () ;; [c|u] + [o|i] => [
+    (- =) ] $combo all-released () ;; [o|i] + [u|o] => [
+    (o p) S-9 $combo all-released ()  ;; [s|j] + [e|k] => (
+    (p [) S-0 $combo all-released ()  ;; [e|k] + [i|l] => )
+    (o -) S-[ $combo all-released ()  ;; [s|j] + [o|i] => {
+    (- [) S-] $combo all-released ()  ;; [o|i] + [i|l] => }
+    (; ') - $combo all-released ()  ;; [g|m] + [,|,] => -
+    (' ret) S-= $combo all-released ()  ;; [,|,] + [.|.] => +
+	)
+
+(defsrc
+	esc  
+                                                  ;;0[p   -][+
+	grv    2     3     4     5                   0     -     =     bspc
+	                                               ;;p(0+
+	tab  q     w     e     r                        o     p     [     ]     \     
+														 
+	caps  a     s     d     f                   l     ;     '     ret       
+	;;lsft rctl: config reload/cycle
+	lsft            x     c     v             m     ,       .           rsft
+	;;space: rhs thumb ralt: lhs thumb 
+							lalt	       spc               
+)
+
+(defalias
+  os_sft (one-shot 2000 lsft)
+  lc_uma (unicode ä)
+  lc_umu (unicode ü)
+  lc_umo (unicode ö)
+  lc_szs (unicode ß)
+)
+
+(defalias
+;; magic for qwerty layer
+qw-mag (switch
+;; locale
+      (t! magic o (bspc @lc_umo))
+      (t! magic u (bspc @lc_umu))
+      (t! magic a (bspc @lc_uma))
+      (t! magic s (bspc @lc_szs))
+      ((key-history bspc 1)) (macro-repeat bspc 50) break
+	  ((key-history bspc 1)) (macro-repeat f 50) break
+	)
+mag-lsft  (tap-hold $tap $hold @qw-mag lsft)
+	
+)
+
+(defchords mods 50
+(e) esc
+(t) tab
+(r) ret
+(b) bspc
+)
+
+(deftemplate kormod (key mod)
+(concat $key or $mod) (tap-hold $tap $hold $key $mod)
+)
+
+(deftemplate onshold (mod)
+(concat ons $mod) (tap-hold $tap $hold (one-shot 1000 $mod) $mod)
+)
+
+(defalias
+	safecr 			(tap-hold $tap $safe XX lrld)
+  	safecy 			(tap-hold $tap $safe (macro n o p e) (t! withmsg "'Kanata keyboard switched from laptop'" lrld-next))
+	to-norden       (tap-hold $tap $safe XX (t! withmsg "'Active layer: Norden KB'" (layer-switch norden)))
+	to-qwerty       (tap-hold $tap $safe XX (t! withmsg "'Active layer: Qwerty KB'" (layer-switch base-layer)))
+	lhs				(tap-hold-press $tap $hold lmet (layer-toggle norden-numbers))
+	rhs				(tap-hold-press $tap $hold rmet (layer-toggle norden-symbols))
+	spc-mod         (tap-hold-release $tap $safe spc lmet)
+	!				S-1
+	@				S-2
+	#				S-3
+	$				S-4
+	%				S-5
+	^				S-6
+	&				S-7
+	*				S-8
+	obr				S-9
+	cbr				S-0
+	_				S--
+	+				S-=
+	<				S-,
+	>				S-.
+	{				S-[
+	}				S-]
+	|				S-\
+	qut				S-'
+	?				S-/
+	~				S-grv
+	:				S-;
+	(t! kormod z lctl)
+	(t! kormod . lctl)
+	(t! onshold lsft)
+	)
+
+;; The Linux tap-hold hardware repeat workaround
+(defvirtualkeys	
+  relnop6 (release-key nop6)
+  )
+
+(deftemplate tap-holdv2 (tap-t hold-t tap-a hold-a)
+  (multi nop6 (tap-hold $tap-t $hold-t $tap-a $hold-a) (macro 5 (on-press tap-vkey relnop6)))
+)
+
+(deftemplate withmsg (message action)
+	(multi (cmd bash -c (concat "notify-send -u normal -t 5000 "$message)) $action)
+)
+
+(deftemplate magic (trigger alternate)
+   ((key-history $trigger 1))  (macro $alternate) break
+)
+
+(deftemplate s-magic (trigger alternate)
+   ((key-history $trigger 1))  (macro $alternate) break
+)
+
+(deftemplate l-magic (trigger layer)
+   ((key-history $trigger 1))  (layer-switch $layer) break
+)
+
+(deftemplate magic-oss (trigger alternate)
+   ((key-history $trigger 1))  (one-shot 2000 $alternate) break
+)
+
+(deflayer base-layer
+	esc
+
+	q      w     e     r       t              y   u   i   o 
+                                              
+	a      s     d     f       g              h    j   k  l  p
+;; z_ctl													._ctl
+	@zorlctl       x    c     v      b                n     m    ,  @.orlctl    
+	@safecr         @to-norden  @spc-mod   @onslsft      tab    @mag-lsft XX     @safecy
+								@lhs    @rhs
+	)
+
+(include magicv2.kbd)
+
+(deflayer norden
+  esc	
+	q      l     d     p     v                      c     o     u      z
+  ;; r   n     t     h     b                        w     s     e     i     a    
+	 r    n     t     h     b                        w     s     e     i    a     
+  ;;  x   j     m     f     k                        y     g     ,_:   ._/
+	  x   j     m     f     k                        y     g     ,     .    
+	;;lsft rsft: config reload/cycle
+	@safecr    @to-qwerty    spc  lsft          lctl  @mag-tap   XX        @safecy
+	;;space: lhs thumb ralt: rhs thumb 
+								 @lhs               @rhs 
+)
+
+
+(deflayer norden-symbols
+;;  ~ ; : , .
+	esc
+	
+	grv     @@    [     ]     @%                      @{    @}    @!   @? 
+
+	 =    @*    @+     @_    @^                       @$    @obr  @cbr  @qut   / 
+
+	  @|  -    @<    @>    @&                        @~      @:    ;   \  
+	@safecr    XX        spc  lsft          lctl  @mag-tap        XX        @safecy
+								 @lhs               @rhs 
+
+)
+
+
+(deflayer norden-numbers
+	esc
+	
+	grv    @@    [     ]    @%                      7     8     9    , 
+
+	 =    @*   @+    @_    @^                       @$     1     2     3     0   
+
+	  @|   -    @<    @>    @&                       .    4     5     6
+	@safecr    XX        spc  lsft          lctl  @mag-tap        XX        @safecy
+								 @lhs               @rhs 
+
+)
+
+
+(defalias 
+mod-esc (chord mods e)
+mod-tab (chord mods t)
+mod-ret (chord mods r)
+mod-bspc (chord mods b)
+)
+
+
+(deflayer norden-mods
+	esc
+
+	q      w     e     r       t              y   u   i   o  
+
+	@mod-esc   @mod-bspc  @mod-ret    @mod-tab     g   h    @mod-tab  @mod-ret   @mod-bspc     @mod-esc
+
+	z       x    c     v      b                n     m    ,  .   
+	@safecr         @to-norden  spc   lsft      lctl    @mag-lsft   XX     @safecy
+								@lhs    @rhs
+
+	)

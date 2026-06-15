@@ -1,0 +1,29 @@
+:root {
+  --background: {{ background | shade.01 }};
+  --foreground: {{ foreground || shade.07 }};
+  --cursor: {{ foreground || shade.07 }};
+  --myblack: {{ background | shade.01 }};
+  --myblacktrans: {{ background | shade.01 @rgb @transparent(0.96) }};
+  --mysurface: {{ background | shade.01 }};
+  --mysurfacedim: {{ state.active_background | shade.03 }};
+  --mysurfaceacc: {{ win.float_background | shade.04 }};
+  --mytextdim: {{ color8 }};
+  --mytextmid: {{ color7 }};
+  --mytext: {{ foreground || shade.07 }};
+  --mytextacc: {{ named.green || color03 }};;;
+  --myfrontacc: {{ shade.05 }};
+  --myfront: {{ named.green || color03 }};;
+  --myvisual: {{ state.selection_background | hl.selection_background }};
+  --myselect: {{ state.selection_background | hl.selection_background }};
+  --myaccent: {{ win.active_border | state.active_accent | accent }};
+  --myaccentdim: {{ color3 }};
+  --myerror: {{ color9 }};
+  --keyword: {{ color1 }};
+  --function: {{ color12 }}; 
+  --conditional: {{ color5 }};
+  --field: {{ syntax.field | color12 }};
+  --operator: {{ syntax.operator | color11 }};
+  --string: {{ color2 }};
+  --variable: {{ foreground || shade.07 }};
+}
+

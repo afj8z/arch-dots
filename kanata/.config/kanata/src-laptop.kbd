@@ -1,0 +1,50 @@
+;;
+;; (defsrc
+;; All physical keys. Caps have german labels. Right side column with extra keys (pgup/dn, home, end ...)
+;; Arrow keys included for unmapped non-src keys.
+;; The F Keys are not all registered in kernel. hp hardware ftw
+;; 	esc  XX  XX  XX  XX  XX  XX  XX  XX  XX  XX  XX  XX  XX  XX  XX
+
+;; 	grv  1     2     3     4     5     6     7     8     9     0     -           bspc
+
+;; 	tab     q     w     e     r     t     y     u     i     o     p     [     ]     \     
+
+;; 	caps     a     s     d     f     g     h     j     k     l     ;     '        ret       
+
+;; 	lsft        z     x     c     v     b     n     m     ,     .     /          rsft
+;;        fn no kernel                                               fingerprint
+;; 	lctl  XX    lmet  lalt     spc  ------------------  spc     altgr    XX    arrows
+;; )
+
+
+;; 	00   0     X     1     2     3     3     X     6     6     7     8             9
+
+;; 	00      0     1     2     3     3     XX    XX    6     6     7     8     9   99
+
+;; 	00       0     1     2     3     3     XX    XX    6     6     7     8        99
+
+;; 	00        z     x     c     4     44    XX      55    5     XX    XX            XX
+
+;; 	XX    XX    XX    XX      XX   ------------------    XX     XX       XX       XX
+
+
+
+(defhands
+  (left grv tab caps 1 3 4 5 6 q w e r t a s d f g v b)
+  (right bspc \ ret 8 9 0 - = i o p [ ] k l ; ' m ,)
+  )
+
+
+
+(defsrc
+	grv  1           3     4     5     6           8     9     0    -            bspc
+
+	tab     q     w     e     r     t                 i     o     p     [     ]     \     
+
+	caps     a     s     d     f     g                 k     l     ;     '        ret       
+
+	lsft                          v     b           m     ,                      rsft
+
+	lctl                      
+	up down lft rght
+)

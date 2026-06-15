@@ -1,0 +1,13 @@
+gowall
+libfprint-elanmoc2-git
+librespot-auth
+nbfc-linux
+nbfc-qt
+noinputs-git
+scenefx-0.2
+spotatui
+spotify-qt
+ttf-spline-sans-mono
+ttfautohint
+yay
+yay-debug

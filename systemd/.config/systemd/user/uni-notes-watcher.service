@@ -1,0 +1,9 @@
+[Unit]
+Description=Watch University Typst notes for metadata changes
+
+[Service]
+ExecStart=%h/.local/bin/uni_watcher.sh
+Restart=always
+
+[Install]
+WantedBy=default.target

@@ -1,0 +1,32 @@
+{
+  "default_template_dir": "${XDG_CONFIG_HOME}/pythemer/templates",
+  "install_mapping": {
+    "ffroot.css": "~/.mozilla/firefox/qb4ziph3.default-release/chrome/root.css",
+    "fftheme.css": [
+      "~/.mozilla/firefox/qb4ziph3.default-release/chrome/theme/fftheme.css",
+      "~/.mozilla/firefox/fplt1o53.previewer/chrome/theme/fftheme.css"
+    ],
+    "colors.lua": "${XDG_CONFIG_HOME}/nvim/lua/ajf/colors.lua",
+    "customss.lua": "~/dev/jome.nvim/lua/nvim-tundra/stylesheet/custom.lua",
+    "custom.lua": "~/dev/jome.nvim/lua/nvim-tundra/palette/custom.lua",
+    "kitty-colors.conf": "${XDG_CONFIG_HOME}/kitty/kitty-theme.conf",
+    "shell-theme.sh": "${XDG_CONFIG_HOME}/zsh/shell-theme.sh",
+    "config": "${XDG_CONFIG_HOME}/mako/config",
+    "zathuratheme": "${XDG_CONFIG_HOME}/zathura/zathuratheme",
+    "tmux-theme.conf": "${XDG_CONFIG_HOME}/tmux/tmux-theme.conf",
+    "theme.typ": "~/lib/typst/local/test/0.1.0/__theme.typ",
+    "foottheme.ini": "${XDG_CONFIG_HOME}/foot/foottheme.ini",
+    "sioyek_theme": "${XDG_CONFIG_HOME}/sioyek/sioyek_theme",
+    "dwlbar.sh": "~/.local/bin/reload-dwlb.sh",
+    "wlcolors": "~/.wlcolors"
+  },
+  "reload_commands": [
+    ["killall", "-SIGUSR2", "mako"],
+    ["pkill", "-SIGUSR1", "kitty"],
+    ["tmux", "source", "~/.tmux.conf"],
+    ["chmod", "+x", "~/.local/bin/reload-dwlb.sh"],
+    ["touch", "~/.config/sioyek/prefs_user.config"],
+    ["reload-dwlb.sh"],
+    ["dwlctl", "reload-colors"]
+  ]
+}

@@ -1,0 +1,18 @@
+;; layer toggles
+(defalias
+  qwy (layer-switch qwerty)
+  cus (layer-switch magic-norden)
+  sym (layer-toggle symbols)
+  nums (layer-toggle nums)
+)
+
+;; output aliases
+(defalias
+
+  oss (one-shot 2000 lsft)
+  uma (unicode ä)
+  umu (unicode ü)
+  umo (unicode ö)
+  confn (multi (cmd bash -c "notify-send -u normal -t 5000 'LAYOUT CHANGED -- DEF'") lrld-next)
+
+)

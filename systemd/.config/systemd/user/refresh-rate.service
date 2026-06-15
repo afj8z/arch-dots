@@ -1,0 +1,9 @@
+[Unit]
+Description=Toggle Refresh Rate on Power Change
+
+[Service]
+Type=oneshot
+ExecStart=%h/.local/scripts/system/toggle-refresh.sh
+
+[Install]
+WantedBy=default.target

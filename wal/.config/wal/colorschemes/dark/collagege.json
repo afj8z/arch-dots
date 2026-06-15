@@ -1,0 +1,28 @@
+{
+    "checksum": "03a7f00d745f33d37b7fb56bca17e09c",
+    "wallpaper": "/home/aidanfleming/Downloads/panes.png",
+    "alpha": "100",
+    "special": {
+        "background": "#130c1b",
+        "foreground": "#c4c2c6",
+        "cursor": "#c4c2c6"
+    },
+    "colors": {
+        "color0": "#130c1b",
+        "color1": "#30618F",
+        "color2": "#6B6B8E",
+        "color3": "#8F7692",
+        "color4": "#AF8C85",
+        "color5": "#A18FA7",
+        "color6": "#D7ADB0",
+        "color7": "#c4c2c6",
+        "color8": "#645b6f",
+        "color9": "#30618F",
+        "color10": "#6B6B8E",
+        "color11": "#8F7692",
+        "color12": "#AF8C85",
+        "color13": "#A18FA7",
+        "color14": "#D7ADB0",
+        "color15": "#c4c2c6"
+    }
+}

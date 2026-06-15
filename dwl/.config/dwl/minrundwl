@@ -1,0 +1,75 @@
+#!/bin/sh
+
+THEME_FILE="${XDG_CONFIG_HOME:-$HOME/.config}/zsh/shell-theme.sh"
+if [ -f "$THEME_FILE" ]; then
+    . "$THEME_FILE"
+else
+    echo "Error: Theme file not found at $THEME_FILE"
+    exit 1
+fi
+
+# 2. Map the environment variables to your script's variables
+BG="$COLOR_BG_OP"
+FG="$COLOR_FG"
+ACTIVE_BG="$COLOR_ACTIVE_BG"
+ACTIVE_FG="$COLOR_ACTIVE_FG"
+URGENT_BG="$COLOR_URGENT_BG"
+URGENT_FG="$COLOR_URGENT_FG"
+
+_ps="dwlb swww-daemon swayidle aslstatus mako kitty"
+for _prs in $_ps; do
+    if [ "$(pidof "${_prs}")" ]; then
+         killall -9 "${_prs}"
+    fi
+ done
+
+# systemctl --user stop move-pdf.path &
+
+TMUXNEW=("tmux" "new" "-s" "_home" "-c" "~")
+TMUXARGS=("tmux" "a")
+if   pidof -x tmux 2> /dev/null;  then
+    tmcmd="${TMUXARGS[@]:0:2}"
+else
+    tmcmd="${TMUXNEW[@]:0:6}"
+fi
+
+mako &
+
+systemd-inhibit --what=handle-lid-switch sleep infinity &
+
+# systemctl --user start move-pdf.path &
+
+swww-daemon &
+
+wl-paste --type image --watch cliphist store &
+wl-paste --type text --watch cliphist store &
+
+(sleep 0.2; easyeffects --gapplication-service) &
+
+# swayidle &
+
+(dwlb -ipc -scale 2 \
+    -active-fg-color "$ACTIVE_FG" \
+    -active-bg-color "$ACTIVE_BG" \
+    -occupied-fg-color "$FG" \
+    -occupied-bg-color "$BG" \
+    -inactive-fg-color "$FG" \
+    -inactive-bg-color "$BG" \
+    -urgent-fg-color "$URGENT_FG" \
+    -urgent-bg-color "$URGENT_BG" \
+    -middle-bg-color "$BG" \
+    -middle-bg-color-selected "$BG"\
+	-font """$USR_FONT_MONO"":size=14"; sleep 0.2) &
+#
+# # Ensure ASL_HARDCODED_COLOR is defined somewhere, or remove the sed if not needed
+# aslstatus -s \
+#     | sed -u "s/${ASL_HARDCODED_COLOR:-#FF00FF}/${ACTIVE_FG}/g" \
+#     | dwlb -status-stdin all &
+
+
+systemctl --user import-environment WAYLAND_DISPLAY XDG_RUNTIME_DIR DISPLAY BEMENU_OPTS
+dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=wlroots
+
+systemctl --user restart kanata
+
+kitty -e $tmcmd

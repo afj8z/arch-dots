@@ -1,0 +1,152 @@
+
+(defcfg
+  danger-enable-cmd yes
+  concurrent-tap-hold yes
+  process-unmapped-keys yes
+  block-unmapped-keys yes
+  delegate-to-first-layer yes
+  log-layer-changes no
+  ;; sequence-timeout 16000
+  ;; tap-hold-require-prior-idle 10
+  allow-hardware-repeat false)
+
+
+(defvar
+	tap				0
+	hold			190
+	combo 			30
+	safe			300
+	timeout			300
+	leader			1000
+	oneshot			1000
+)
+
+(defhands
+  (left grv tab caps 2 3 4 5 q w e r a s d f x c v spc)
+  (right bspc \ ret 0 - = o p [ ] l ; ' m , . ralt)
+  )
+
+;; TEMPLATES
+;; (deftemplate or-mod (key mod)
+;; (concat $key -or- $mod) (tap-hold $tap $hold $key $mod)
+;; )
+
+(deftemplate ons-hold (mod)
+(concat ons- $mod) (tap-hold $tap $hold (one-shot 1000 $mod) $mod)
+)
+
+(deftemplate withmsg (message action)
+	(multi (cmd bash -c (concat "notify-send -u normal -t 5000 "$message)) $action)
+)
+
+(deftemplate or-mod (key mod)
+(concat $key -or- $mod)  (tap-dance-eager 150 ((tap-hold-opposite-hand $hold $key $mod) $key))
+)
+
+(defsrc
+	esc  
+	grv    2     3     4     5                   0     -     =     bspc
+	tab  q     w     e     r                        o     p     [     ]     \     
+	caps  a     s     d     f                   l     ;     '     ret       
+	lsft                c     v             m     ,       .           rsft
+	lctl                      spc                                   rctl
+)
+
+(defalias 
+	safecr 			(tap-hold $tap $safe XX lrld)
+  	safecy 			(tap-hold $tap $safe (macro n o p e) (t! withmsg "'Kanata keyboard switched from laptop'" lrld-next))
+	to-norden       (tap-hold $tap $safe XX (t! withmsg "'Active layer: Norden KB'" (layer-switch norden)))
+	to-qwerty       (tap-hold $tap $safe XX (t! withmsg "'Active layer: Qwerty KB'" (layer-switch base-layer)))
+	sym             (layer-while-held sym)
+	num             (tap-hold-release $tap $safe esc (layer-while-held num))
+	!				S-1
+	@				S-2
+	#				S-3
+	$				S-4
+	%				S-5
+	^				S-6
+	&				S-7
+	*				S-8
+	obr				S-9
+	cbr				S-0
+	_				S--
+	+				S-=
+	<				S-,
+	>				S-.
+	{				S-[
+	}				S-]
+	|				S-\
+	dqut				S-'
+	?				S-/
+	~				S-grv
+	:				S-;
+	(t! ons-hold lsft)
+	(t! or-mod z lctl)
+	(t! or-mod . lctl)
+	(t! or-mod a lsft)
+	(t! or-mod p lsft)
+	(t! or-mod x lmet)
+	(t! or-mod , lmet)
+	;; NORDEN
+	(t! or-mod x lctl)
+	(t! or-mod r lsft)
+	(t! or-mod j lmet)
+
+
+tmuxl (tap-dance-eager 150 ((tap-hold-opposite-hand $hold / C-s) / ))
+tmuxr (tap-dance-eager 150 ((tap-hold-opposite-hand $hold @? C-s) @?))
+
+	)
+
+(deflayer base-layer
+	esc
+
+	q      w     e     r       t              y   u   i   o 
+                                              
+	@a-or-lsft  s     d     f       g              h    j   k  l  @p-or-lsft
+;; z_ctl													._ctl
+	@z-or-lctl   @x-or-lmet    c     v      b                n     m    @,-or-lmet  @.-or-lctl    
+
+	@safecr          @ons-lsft spc              tab @mag-tap @num             @safecy
+
+	@to-norden         		@sym									XX
+	)
+
+
+
+(deflayer norden
+	esc
+
+	q      l     d     p     v                      c     o     u      z
+                                              
+	@r-or-lsft  n     t     h       b              w    s   e  i  @a-or-lsft
+;; z_ctl													._ctl
+	@x-or-lctl   @j-or-lmet  m   f    k              y     g    @,-or-lmet  @.-or-lctl 
+
+	@safecr     spc lsft                    tab @mag-tap @num             @safecy
+
+	XX         @sym											@to-qwerty
+	)
+
+
+(deflayer num
+    esc
+    @| 9 8 7 @%         @{ @} @dqut ;
+    - 3 2 1 @+      @$ @obr @cbr ' @:
+	@tmuxl 6 5 4 @*    @~  @< @> @tmuxr
+    _     @_  0     / @^ @num _
+	XX    @sym                                  @to-qwerty
+)
+
+
+(deflayer sym
+    esc
+    @| @@ [ ] @%        @{ @} @dqut ;
+    - / =  @^ @+      @$ @obr @cbr ' @:
+	@tmuxl 6 5 4 @*   @~  @< @> @tmuxr
+    _     XX  XX     / @^ @num _
+	XX    @sym                                  @to-qwerty
+)
+
+
+(include magicv3.kbd)

@@ -37,7 +37,7 @@ count_copied = { fg = "white", bg = "green" }
 count_cut = { fg = "white", bg = "red" }
 count_selected = { fg = "white", bg = "yellow" }
 # Border
-border_symbol = "│"
+border_symbol = " "
 border_style = { fg = "gray" }
 # Highlighting
 syntect_theme = ""
@@ -68,6 +68,11 @@ unset_main = { bg = "red", bold = true }
 unset_alt = { fg = "red", bg = "gray" }
 
 # : }}}
+
+[indicator]
+padding = { open = "█", close = "█" }
+current = { bg = "gray", fg = "black"}
+parent = { bg = "darkgray", fg = "white"}
 
 # : Status bar {{{
 

@@ -1,0 +1,90 @@
+;; adaptive magic key (use with rarely typed key such as ;)
+(deftemplate adapt (trigger alternate)
+  ((and (key-history $trigger 1)
+        (key-timing 1 less-than 150))) $alternate break
+)
+
+;; traditional magic
+(deftemplate magic (trigger alternate)
+   ((key-history $trigger 1))  (macro $alternate) break
+)
+
+(deftemplate magic-oss (trigger alternate)
+   ((key-history $trigger 1))  (one-shot 2000 $alternate) break
+)
+
+(defseq 
+	mad (a)
+	mud (u)
+	mod (o)
+	med (e)
+	mid (i)
+)
+
+(defvirtualkeys
+	mad (macro a m )
+	mud (macro u m )
+	mod (macro o m )
+	med (macro e m )
+	mid (macro i m )
+)
+
+(defalias
+mag-tap (switch
+      (t! magic q u)
+      (t! magic o (bspc @umo))
+      (t! magic u (bspc @umu))
+      (t! magic a (bspc @uma))
+      (t! magic s p)
+      (t! magic y (o u))
+      (t! magic t (h e))
+      (t! magic-oss spc lsft)
+   	  () XX break
+   ;;   () (chord esc-ret 3) break
+    )
+
+mag (tap-hold 200 200 @mag-tap lsft)
+;; ==========================================
+;; symbol layer magic
+;; ==========================================
+mag-s (switch 
+      (t! magic grv /)
+      (t! magic 3 S-7)
+      (t! magic - S-.)
+   	  () XX break
+    )
+mag-n (switch 
+      (t! magic grv /)
+      (t! magic 3 S-7)
+      (t! magic - S-.)
+   	  () XX break
+    )
+
+;; magic for norden layer
+mag-m-tap (switch
+;; sf-bigrams
+      (t! magic q u)
+      (t! magic s c)
+      (t! magic y s)
+      (t! magic x y)
+      (t! magic g s)
+      (t! magic z a)
+;; Scissors
+      (t! magic m p)
+      (t! magic k l)
+;; Words
+      (t! magic b ( e c a u s e))
+      (t! magic i ( o u s))
+      (t! magic d sldr)
+;; Special
+      (t! magic o ( bspc @umo))
+      (t! magic u ( bspc @umu))
+      (t! magic a ( bspc @uma))
+      (t! magic-oss spc lsft)
+   	  () lsft break
+   ;;   () (chord esc-ret 3) break
+    )
+
+mag-m (tap-hold 200 200 @mag-m-tap lsft)
+)
+	

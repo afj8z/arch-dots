@@ -1,0 +1,34 @@
+{
+    "meta": {
+        "theme": "CarbonInk"
+    },
+    "background": "#1F2121",
+    "foreground": "#BDBBB0",
+    "accent": "#8A918A",
+    "color0": "#292B2B",
+	"color1": "#D18282",
+    "color2": "#A1D182",
+    "color3": "#D1C082",
+    "color4": "#82A9D1",
+    "color5": "#B382D1",
+    "color6": "#82D1C9",
+    "color7": "#BDBBB0",
+    "color8": "#525757",
+	"color9": "#E69595",
+    "color10": "#B5E695",
+    "color11": "#E6D395",
+    "color12": "#95BCE6",
+    "color13": "#C595E6",
+    "color14": "#95E6DD",
+    "color15": "#DEDCD3",
+    "shade": {
+        "00": "#141515",
+        "01": "#1F2121",
+        "02": "#2A2E2E",
+        "03": "#353A3A",
+        "04": "#474E4E",
+        "05": "#626B6B",
+        "06": "#99978F",
+        "07": "#BDBBB0"
+    }
+}

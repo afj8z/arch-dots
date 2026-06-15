@@ -1,28 +1,28 @@
 {
-	"checksum": "a3d0c80f1e2b6d9b60216b0a7477f154",
-	"wallpaper": "/home/aidanfleming/pictures/col/new/gulls.jpg",
-	"alpha": "100",
-	"special": {
-		"background": "#181e2c",
-		"foreground": "#c5c7ca",
-		"cursor": "#c5c7ca"
-	},
-	"colors": {
-		"color0": "#181e2c",
-		"color1": "#5793AB",
-		"color2": "#939c96",
-		"color3": "#CF7E7E",
-		"color4": "#ab7e7e",
-		"color5": "#6b83a1",
-		"color6": "#837CA3",
-		"color7": "#a5a9be",
-		"color8": "#5e677f",
-		"color9": "#329AA6",
-		"color10": "#A8C2A7",
-		"color11": "#D9A286",
-		"color12": "#e0aead",
-		"color13": "#94afd2",
-		"color14": "#B5B1C7",
-		"color15": "#c5c7ca"
-	}
+  "checksum": "a3d0c80f1e2b6d9b60216b0a7477f154",
+  "wallpaper": "/home/aidanfleming/pictures/col/new/gulls.jpg",
+  "alpha": "100",
+  "special": {
+    "background": "#181e2c",
+    "foreground": "#c5c7ca",
+    "cursor": "#c5c7ca"
+  },
+  "colors": {
+    "color0": "#181e2c",
+    "color1": "#5793AB",
+    "color2": "#939c96",
+    "color3": "#CF7E7E",
+    "color4": "#ab7e7e",
+    "color5": "#6b83a1",
+    "color6": "#837CA3",
+    "color7": "#a5a9be",
+    "color8": "#5e677f",
+    "color9": "#329AA6",
+    "color10": "#A8C2A7",
+    "color11": "#D9A286",
+    "color12": "#e0aead",
+    "color13": "#94afd2",
+    "color14": "#B5B1C7",
+    "color15": "#c5c7ca"
+  }
 }

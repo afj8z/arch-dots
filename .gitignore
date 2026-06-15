@@ -2,3 +2,6 @@ git/.config/gh/hosts.yml
 
 zsh/.config/zsh/.bound_dir
 
+*.out
+
+**/**.out

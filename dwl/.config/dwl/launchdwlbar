@@ -1,0 +1,75 @@
+#!/bin/sh
+
+ASL_HARDCODED_COLOR="DBD0C6"
+
+OPTIONS="Dark\nLight\nGruvbox\nDracula"
+
+SELECTED=$(echo -e "$OPTIONS" | bemenu -p "Select Theme:" --tf "#ff0000" --hf "#ff0000")
+
+if [ -z "$SELECTED" ]; then
+    exit 0
+fi
+
+case "$SELECTED" in
+    "Dark")
+        BG="#222222"
+        FG="#bbbbbb"
+        ACTIVE_BG="#005577"
+        ACTIVE_FG="#eeeeee"
+        URGENT_BG="#990000"
+        URGENT_FG="#ffffff"
+        ;;
+    "Light")
+        BG="#eeeeee"
+        FG="#222222"
+        ACTIVE_BG="#005577"
+        ACTIVE_FG="#ffffff"
+        URGENT_BG="#ffcccc"
+        URGENT_FG="#aa0000"
+        ;;
+    "Gruvbox")
+        BG="#282828"
+        FG="#ebdbb2"
+        ACTIVE_BG="#458588"
+        ACTIVE_FG="#fbf1c7"
+        URGENT_BG="#cc241d"
+        URGENT_FG="#fbf1c7"
+        ;;
+    "Dracula")
+        BG="#282a36"
+        FG="#f8f8f2"
+        ACTIVE_BG="#bd93f9"
+        ACTIVE_FG="#ffffff"
+        URGENT_BG="#ff5555"
+        URGENT_FG="#f8f8f2"
+        ;;
+    *)
+        notify-send "Unknown theme selected"
+        exit 1
+        ;;
+esac
+
+_ps="dwlb aslstatus"
+for _prs in $_ps; do
+    if pidof "${_prs}" >/dev/null; then
+         killall -9 "${_prs}"
+    fi
+done
+
+(dwlb -ipc -scale 2 \
+    -active-fg-color "$ACTIVE_FG" \
+    -active-bg-color "$ACTIVE_BG" \
+    -occupied-fg-color "$FG" \
+    -occupied-bg-color "$BG" \
+    -inactive-fg-color "$FG" \
+    -inactive-bg-color "$BG" \
+    -urgent-fg-color "$URGENT_FG" \
+    -urgent-bg-color "$URGENT_BG" \
+    -middle-bg-color "$BG" \
+    -middle-bg-color-selected "$ACTIVE_BG"; sleep 0.2) &
+
+aslstatus -s \
+    | sed -u "s/${ASL_HARDCODED_COLOR}/${ACTIVE_FG}/g" \
+    | dwlb -status-stdin all &
+
+notify-send "Theme changed to $SELECTED"

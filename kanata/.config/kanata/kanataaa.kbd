@@ -1,0 +1,67 @@
+(defcfg
+		log-layer-changes yes
+	  	danger-enable-cmd yes
+		concurrent-tap-hold yes
+)
+
+(defsrc
+  grv  1    2    3    4    5    6    7    8    9    0    -    =    bspc
+  tab  q    w    e    r    t    y    u    i    o    p    [    ]    \
+  caps a    s    d    f    g    h    j    k    l    ;    '    ret
+  lsft z    x    c    v    b    n    m    ,    .    /    rsft
+  lctl lmet lalt           spc            ralt rmet rctl
+)
+
+(defalias
+  ;; Toggles
+  cus (layer-switch custom)
+  def (layer-switch default)
+
+  sym (layer-while-held sym)
+  oss (one-shot 2000 lsft)
+
+  uma (unicode ä)
+  umu (unicode ü)
+  umo (unicode ö)
+  
+  ;; Magic Key: Tap 1 = One-shot magic layer, Tap 2 = Left Shift
+  mag (switch
+		;; Alpha -> Umlaut: Backspace the preceding character and inject unicode
+		((key-history a 1)) (macro bspc @uma) break
+		((key-history o 1)) (macro bspc @umo) break
+		((key-history u 1)) (macro bspc @umu) break
+		
+		;; Space -> One-shot Shift
+		((key-history spc 1)) @oss break
+		
+		;; Fallback / Repeated: Standard Shift
+		() lsft break
+	  )
+
+)
+
+(deflayer default
+  grv  1    2    3    4    5    6    7    8    9    0    -    =    bspc
+  tab  q    w    e    r    t    y    u    i    o    p    [    ]    \
+  caps a    s    d    f    g    h    j    k    l    ;    '    ret
+  lsft z    x    c    v    b    n    m    ,    .    /    rsft
+  lctl lmet lalt           @cus           ralt rmet rctl
+)
+
+(deflayer custom
+  q    l    d    z    k    XX   XX   XX   XX   p    w    o    u    ,
+  r    n    t    h    f    XX   XX   XX   XX   y    c    e    i    a
+  x    j    m    b    v    XX   XX   XX   '    g    /    ;    .
+  XX   lctl lmet s    spc  XX   XX   spc  @mag @sym lalt XX
+  XX   XX   XX             @def           XX   XX   XX
+)
+
+(deflayer sym
+  ;; Numbers on top row, arbitrary symbols on alpha keys
+  1    2    3    4    5    XX   XX   XX   XX   6    7    8    9    0
+  S-1  S-2  S-3  S-4  S-5  XX   XX   XX   XX   S-6  S-7  S-8  S-9   S-0
+  S-`  `    -    _    +    XX   XX   XX   =    [    ]    {    }
+  XX   _    _    _    _    XX   XX   _    _    _    _    XX
+  _    _    _              _              _    _    _
+)
+

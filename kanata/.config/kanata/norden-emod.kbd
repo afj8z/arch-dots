@@ -1,0 +1,14 @@
+(deflayer norden
+
+	tab  q                 l        d        f        v                  y        p        o        u             bspc
+
+	esc    @r-lsft   n        t        h        b                           w        c        a        i   @s-lsft S-;
+
+	@tmx      @x-lctl     j      m        k        z                            @mag     g       @,-lmet  @.-lctl  ret
+
+	@safecr                                  @spc       lsft              @rpt    e                         @safecy
+
+	@to-qwerty
+
+	up down lft rght
+)

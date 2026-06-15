@@ -1,0 +1,178 @@
+{
+	"_internal_defaults": {
+		"red": "{{ named.red | @match_default('red') }}",
+		"green": "{{ named.green | @match_default('green') }}",
+		"yellow": "{{ named.yellow | @match_default('yellow') }}",
+		"blue": "{{ named.blue | @match_default('blue') }}",
+		"cyan": "{{ named.cyan | @match_default('cyan') }}",
+		"magenta": "{{ named.magenta | @match_default('magenta') }}",
+		"orange": "{{ named.orange | @match_default('orange') }}"
+	},
+	"meta": {
+		"theme": "Custom Theme",
+		"mode": "{{ background @getmode }}"
+	},
+	"font": {
+		"family": "{{ @getsys('font') }}",
+		"large": "24",
+		"size": "18",
+		"small": "14",
+		"mono": {
+			"family": "{{ @getsys('monofont') }}",
+			"large": "{{ font.large }}",
+			"size": "{{ font.size }}",
+			"small": "{{ font.small }}"
+		},
+		"sans": {
+			"family": "{{ @getsys('sansfont') }}",
+			"large": "{{ font.large }}",
+			"size": "{{ font.size }}",
+			"small": "{{ font.small }}"
+		},
+		"serif": {
+			"family": "{{ @getsys('seriffont') }}",
+			"large": "{{ font.large }}",
+			"size": "{{ font.size }}",
+			"small": "{{ font.small }}"
+		}
+	},
+	"highlight": "{{ accent @darken(0.3) @desaturate(0.1) }}",
+	"selection": "{{ background @lighten(0.2) @saturate(0.2) }}",
+	"shadow": "{{ background @rgb @transparent(0.2) }}",
+	"corner_radius": "0",
+	"cursor": {
+		"text": "{{ background }}",
+		"background": "{{ foreground }}"
+	},
+	"shade": {
+		"00": "{{ background @darken(0.1) }}",
+		"01": "{{ background }}",
+		"02": "{{ background @lighten(0.05) @desaturate(0.1) }}",
+		"03": "{{ shade.03 @lighten(0.05) @desaturate(0.1) }}",
+		"04": "{{ shade.03 @lighten(0.05) }}",
+		"05": "{{ shade.04 @lighten(0.05) }}",
+		"06": "{{ foreground @darken(0.15) }}",
+		"07": "{{ foreground }}"
+	},
+	"diagnostic": {
+		"success": "{{ green }}",
+		"error": "{{ red }}",
+		"fatal": "{{ red @darken(0.1) }}",
+		"critical": "{{ red @darken(0.2) }}",
+		"debug": "{{ blue }}",
+		"trace": "{{ blue @lighten(0.2) }}",
+		"warning": "{{ yellow }}",
+		"info": "{{ blue }}",
+		"hint": "{{ green }}",
+		"success_background": "{{ success @darken(0.8) @desaturate(0.5) }}",
+		"error_background": "{{ error @darken(0.8) @desaturate(0.5) }}",
+		"warning_background": "{{ warning @darken(0.8) @desaturate(0.5) }}",
+		"info_background": "{{ info @darken(0.8) @desaturate(0.5) }}",
+		"hint_background": "{{ hint @darken(0.8) @desaturate(0.5) }}"
+	},
+	"state": {
+		"active_background": "{{ shade.03 }}",
+		"active_foreground": "{{ foreground }}",
+		"inactive_background": "{{ shade.00 }}",
+		"inactive_foreground": "{{ shade.06 }}",
+		"selection_background": "{{ selection }}",
+		"selection_foreground": "{{ foreground }}",
+		"active_accent": "{{ accent }}",
+		"inactive_accent": "{{ accent @darken(0.2) @desaturate(0.2) }}"
+	},
+	"button": {
+		"background": "{{ shade.02 }}",
+		"foreground": "{{ foreground }}",
+		"hover_background": "{{ shade.03 }}",
+		"hover_foreground": "{{ foreground }}",
+		"active_background": "{{ shade.04 }}",
+		"active_foreground": "{{ foreground }}",
+		"border": "{{ shade.05 }}",
+		"hover_border": "{{ accent }}",
+		"active_border": "{{ accent }}"
+	},
+	"urgency": {
+		"low_border": "{{ shade.05 }}",
+		"low_background": "{{ background }}",
+		"low_foreground": "{{ foreground }}",
+		"normal_background": "{{ background }}",
+		"normal_foreground": "{{ foreground }}",
+		"normal_border": "{{ accent }}",
+		"high_border": "{{ diagnostic.error }}",
+		"high_background": "{{ diagnostic.error_background }}",
+		"high_foreground": "{{ foreground }}"
+	},
+	"win": {
+		"border": "{{ shade.05 }}",
+		"active_border": "{{ accent }}",
+		"float_background": "{{ shade.04 }}",
+		"float_border": "{{ shade.05 }}"
+	},
+	"hl": {
+		"selection_background": "{{ selection }}",
+		"selection_foreground": "{{ foreground }}",
+		"search_background": "{{ highlight }}",
+		"search_foreground": "{{ highlight @rotate(180) }}",
+		"current_line_background": "{{ shade.02 }}",
+		"current_line_foreground": "{{ foreground }}",
+		"matching_bracket_background": "{{ shade.03 }}",
+		"matching_bracket_foreground": "{{ foreground }}"
+	},
+	"named": {
+		"red": "{{ red }}",
+		"orange": "{{ orange }}",
+		"green": "{{ green }}",
+		"blue": "{{ blue }}",
+		"magenta": "{{ magenta }}",
+		"cyan": "{{ cyan }}",
+		"yellow": "{{ yellow }}"
+	},
+	"syntax": {
+		"keyword": "{{ color1 }}",
+		"string": "{{ color2 }}",
+		"comment": "{{ color8 }}",
+		"constant": "{{ color15 }}",
+		"special": "{{ color3 }}",
+		"punctuation": "{{ color7 }}",
+		"error": "{{ color9 }}",
+		"number": "{{ color13 }}",
+		"exception": "{{ color9 }}",
+		"module": "{{ color10 }}",
+		"operator": "{{ color11 }}",
+		"regex": "{{ color10 }}",
+		"char": "{{ color10 }}",
+		"function": "{{ color12 }}",
+		"preprocessor": "{{ color14 }}",
+		"builtin_constant": "{{ color14 }}",
+		"builtin_function": "{{ color6 }}",
+		"builtin_type": "{{ color3 }}",
+		"builtin_variable": "{{ foreground }}",
+		"conditional": "{{ color5 }}",
+		"type": "{{ color3 }}",
+		"variable": "{{ foreground }}",
+		"class": "{{ color3 }}",
+		"parameter": "{{ shade.07 }}",
+		"field": "{{ shade.05 }}"
+	},
+	"ui": {
+		"panel_background": "{{ shade.02 }}",
+		"panel_foreground": "{{ foreground }}",
+		"sidebar_background": "{{ shade.02 }}",
+		"sidebar_foreground": "{{ foreground }}",
+		"statusbar_background": "{{ shade.02 }}",
+		"statusbar_foreground": "{{ foreground }}",
+		"tab_active_background": "{{ shade.03 }}",
+		"tab_active_foreground": "{{ foreground }}",
+		"tab_inactive_background": "{{ shade.01 }}",
+		"tab_inactive_foreground": "{{ shade.06 }}",
+		"tooltip_background": "{{ shade.03 }}",
+		"tooltip_foreground": "{{ foreground }}",
+		"scrollbar_background": "{{ shade.02 }}",
+		"scrollbar_foreground": "{{ shade.06 }}",
+		"dialog_background": "{{ shade.03 }}",
+		"dialog_foreground": "{{ foreground }}",
+		"input_background": "{{ shade.02 }}",
+		"input_foreground": "{{ foreground }}"
+	},
+	"custom": {}
+}
