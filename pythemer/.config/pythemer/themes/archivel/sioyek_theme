@@ -11,6 +11,6 @@ ui_background_color #B8B39A
 ui_selected_background_color #DFDBC3
 background_color #F2F0E5
 visual_mark_color rgba(45, 79, 103, 0.2) 
-text_highlight_color #f6f3e7
+text_highlight_color #ded7ac
 link_highlight_color #2D4F67
 synctex_highlight_color #94631A

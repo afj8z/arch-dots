@@ -1,0 +1,27 @@
+set default-bg rgba(25, 23, 36, 0.8)
+set default-fg "#E0DEF4"
+
+set statusbar-fg "#E0DEF4"
+set statusbar-bg "#E0DEF4"
+
+set inputbar-bg "#E0DEF4"
+set inputbar-fg "#E0DEF4"
+
+set notification-error-bg "#D6817D"
+set notification-error-fg "#191724"
+
+set notification-warning-bg "#EA9D34"
+set notification-warning-fg "#191724"
+
+set highlight-color "#342e5a"
+set highlight-active-color "#907AA9"
+
+set completion-highlight-fg "#191724"
+set completion-highlight-bg "#907AA9"
+
+set completion-bg "#E0DEF4"
+set completion-fg "#E0DEF4"
+
+set recolor "true"
+set recolor-lightcolor "#191724"
+set recolor-darkcolor "#E0DEF4"

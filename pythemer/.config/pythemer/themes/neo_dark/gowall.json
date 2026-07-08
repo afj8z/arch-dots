@@ -1,0 +1,18 @@
+{
+  "name": "{{ meta.theme }}",
+  "colors": [
+    "{{ shade.01 }}",
+    "{{ shade.02 }}",
+    "{{ shade.03 }}",
+    "{{ shade.04 }}",
+    "{{ shade.05 }}",
+    "{{ shade.06 }}",
+    "{{ shade.07 }}",
+    "{{ accent }}",
+    "{{ accent @darken(0.2) @desaturate(0.2) }}",
+    "{{ red }}",
+    "{{ blue }}",
+    "{{ cyan }}",
+    "{{ accent }}"
+  ]
+}

@@ -1,0 +1,10 @@
+#pragma once
+
+#define color_fg "{{ foreground | shade.07 }}"
+#define color_bg "{{ background | shade.01 }}"
+#define color_muted "{{ syntax.comment | shade.05 | color8 }}"
+#define color_good "{{ green }}"
+#define color_info "{{ diagnostic.info | color6 }}"
+#define color_warn "{{ diagnostic.warning | color3 }}"
+#define color_bad "{{ color9 }}"
+#define color_accent "{{ accent }}"

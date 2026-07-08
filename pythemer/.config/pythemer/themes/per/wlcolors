@@ -1,0 +1,14 @@
+rootcolor = #e9dacaff
+textcolor = #3d353bff
+muted_textcolor = #cfb7a4ff
+bordercolor = #e9dacaff
+
+successcolor = #7DA291ff
+infocolor = #527E93ff
+warncolor = #D8A05Cff
+errorcolor = #C47379ff
+accentcolor = #A3839Eff
+focuscolor = #A3839Eff
+urgentcolor = #C47379ff
+fullscreen_bg = #e9dacaff
+flash_color = #D8A05Cff

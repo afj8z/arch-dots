@@ -1,0 +1,14 @@
+rootcolor = {{ background | shade.01 }}ff
+textcolor = {{ foreground | shade.07 }}ff
+muted_textcolor = {{ syntax.comment | shade.02 }}ff
+bordercolor = {{ background | shade.01 }}ff
+
+successcolor = {{ diagnostic.success }}ff
+infocolor = {{ diagnostic.info }}ff
+warncolor = {{ diagnostic.warning }}ff
+errorcolor = {{ color9 }}ff
+accentcolor = {{ accent }}ff
+focuscolor = {{ accent }}ff
+urgentcolor = {{ color9 }}ff
+fullscreen_bg = {{ background | shade.01 }}ff
+flash_color = {{ diagnostic.warning | color3 }}ff

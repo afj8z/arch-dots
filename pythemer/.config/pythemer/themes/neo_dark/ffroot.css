@@ -1,0 +1,8 @@
+:root {
+	--bghard: {{ background | shade.01 }};
+	--bg0: {{ background | shade.01 }}55;
+	--bg1: {{ color0 }};
+	--bg2: {{ color12 }};
+	--fg: {{ foreground || shade.07 }};
+	--acc: {{ accent }};
+}

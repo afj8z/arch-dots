@@ -1,0 +1,16 @@
+custom_background_color #f4f6f0
+custom_text_color #2c3328
+
+page_separator_color #8f9984
+search_highlight_color #5e8b54
+status_bar_color #b3bba9
+status_bar_text_color #2c3328
+ui_text_color #2c3328
+ui_selected_text_color #2c3328
+ui_background_color #8f9984
+ui_selected_background_color #b3bba9
+background_color #f4f6f0
+visual_mark_color rgba(94, 139, 84, 0.2) 
+text_highlight_color #d3debb
+link_highlight_color #5e8b54
+synctex_highlight_color #a07b32

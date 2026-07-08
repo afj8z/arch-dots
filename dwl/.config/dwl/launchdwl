@@ -15,13 +15,21 @@ for _prs in $_ps; do
     fi
 done
 
-systemctl --user import-environment WAYLAND_DISPLAY XDG_RUNTIME_DIR DISPLAY BEMENU_OPTS
-dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=wlroots
+
+_WAYLAND_VARS=(
+    WAYLAND_DISPLAY XDG_RUNTIME_DIR DISPLAY XDG_CURRENT_DESKTOP
+    XDG_SESSION_TYPE XDG_SESSION_DESKTOP GDK_SCALE QT_QPA_PLATFORM
+    QT_STYLE_OVERRIDE SDL_VIDEODRIVER MOZ_ENABLE_WAYLAND
+    ELECTRON_OZONE_PLATFORM_HINT OZONE_PLATFORM BEMENU_OPTS WALLPAPER
+)
+
+systemctl --user import-environment "${_WAYLAND_VARS[@]}"
+dbus-update-activation-environment --systemd "${_WAYLAND_VARS[@]}"
 
 # Silence background services to prevent FD pollution
 mako >/dev/null 2>&1 &
 systemd-inhibit --what=handle-lid-switch sleep infinity >/dev/null 2>&1 &
-swaybg -i ~/Pictures/gowall/edwin.jpg -m fill >/dev/null 2>&1 &
+swaybg -i "$WALLPAPER" -m fill >/dev/null 2>&1 &
 wl-paste --type image --watch cliphist store >/dev/null 2>&1 &
 wl-paste --type text --watch cliphist store >/dev/null 2>&1 &
 easyeffects --gapplication-service >/dev/null 2>&1 &

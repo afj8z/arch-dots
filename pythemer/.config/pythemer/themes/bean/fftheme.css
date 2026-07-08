@@ -1,0 +1,29 @@
+:root {
+  --background: #121212;
+  --foreground: #d5c9be;
+  --cursor: #d5c9be;
+  --myblack: #121212;
+  --myblacktrans: rgba(18, 18, 18, 0.96);
+  --mysurface: #121212;
+  --mysurfacedim: #3d3d3d;
+  --mysurfaceacc: #524c44;
+  --mytextdim: #524c44;
+  --mytextmid: #968b7a;
+  --mytext: #d5c9be;
+  --mytextacc: #47614B;;;
+  --myfrontacc: #746b5f;
+  --myfront: #47614B;;
+  --myvisual: #3e3232;
+  --myselect: #3e3232;
+  --myaccent: #67413f;
+  --myaccentdim: #bb8861;
+  --myerror: #852D36;
+  --keyword: #67413f;
+  --function: #66788f; 
+  --conditional: #453352;
+  --field: #637f78;
+  --operator: #746b5f;
+  --string: #38433a;
+  --variable: #d5c9be;
+}
+

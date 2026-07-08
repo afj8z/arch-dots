@@ -1,0 +1,10 @@
+#pragma once
+
+#define color_fg "#d9d4d0"
+#define color_bg "#201e20"
+#define color_muted "#706370"
+#define color_good "#8cb3a1"
+#define color_info "#b4d4cf"
+#define color_warn "#e2b68d"
+#define color_bad "#d3868c"
+#define color_accent "#b492af"

@@ -9,8 +9,6 @@
   chords-v2-min-idle 150
   )
 
-;; REQUIRED: Keys must be in defsrc for advanced switch logic to track them
-
 (defsrc)
 
 (defvar
@@ -24,49 +22,15 @@
 
   )
 
-
-(defvirtualkeys
-  
-  sendp (macro p)
-  
-  relnop6 (release-key nop6))
-
-
-;; linux tap-hold workaround
-(deftemplate fix (action)
-  (multi nop6 $action (macro 5 (on-press tap-vkey relnop6))))
-
-;; The new Active Output State Machine
-
-(deftemplate bi-layer-key (key my-nop other-nop target-layer)
-  (switch
-  ;; 1. On press: If the other key is ALREADY held (outputting its nop), switch instantly
-  ($other-nop) (layer-while-held $target-layer) break
-  
-  ;; 2. Otherwise, start tap-hold waiting state
-  () (t! fix (tap-hold 0 200 $key
-  (switch
-  ;; 3. On hold: Did the other key activate while we were waiting?
-  ($other-nop) (layer-while-held $target-layer) break
-  
-  ;; 4. Otherwise: Output my NOP directly so the other key can read it
-  () $my-nop break))) break))
-
-
-(deftemplate crd (key trigger)
-$key (switch ((input real $trigger)) (chord crd $key) break () $key break)  
-)
-
 (defoverridesv2
 (nop2) (lsft 9) () (shifted)
 (nop3) (lsft 0) () (shifted)
-
 (nop2) (lsft ,) () (base-layer)
 (nop3) (lsft .) () (base-layer)
-
 ;; (lsft .) (lsft ;) () ()
 ;; (lsft ,) (;) () () 
 )
+
 
 
 (deflayermap base-layer
@@ -78,31 +42,8 @@ $key (switch ((input real $trigger)) (chord crd $key) break () $key break)
   lctl lalt
   lmet (multi (layer-while-held super) lmet)
   ; S-;
-  ;; ; (macro (sequence 1000 visible-backspaced) ; )
 )
 
-;; (deftemplate snippet (trigger-key snippet-name trigger-output)
-;; (defseq $snippet-name ($leader $trigger-key))
-;; (defvirtualkeys $snippet-name (multi (macro $trigger-output 10 ;) (layer-switch safe-expansion)))
-;; )
-;;
-;; (t! snippet (c o) test (; c o) )
-;;
-;; (deflayermap safe-expansion
-;; ;; fix mappings?
-;; tab (layer-switch base-layer)
-;; )
-
-
-(defchordsv2
-    (j k) [ $combo all-released ()
-    (k l) ] $combo all-released ()
-    (u i) nop2 $combo all-released ()
-    (i o) nop3 $combo all-released ()
-	;; (u i) S-, $combo all-released (shifted)
-	;; (nop1 i o) S-. $combo all-released (shifted)
-	
-	)
 
 (deflayermap shifted
 	u (multi nop1 u)
@@ -111,28 +52,31 @@ $key (switch ((input real $trigger)) (chord crd $key) break () $key break)
   
   6 S-7
   7 S-6
-  ; (unmod ;))
+  ; (unmod ;)
+)
 
 (deflayermap super
-  n (cmd bash -c "/home/aidanfleming/.local/scripts/menu/dmenu-notes")
   d (cmd bash -c "footclient -a 'CLIENT_FLOAT' -o cursor.unfocused-style=none -W 60x12 /home/aidanfleming/dev/fzfmenu/menus/run_app")
   a (cmd bash -c "footclient -a 'CLIENT_FLOAT' -o cursor.unfocused-style=none -W 60x12 /home/aidanfleming/dev/fzfmenu/fzfmenu.sh")
-  v (cmd bash -c "cliphist list | bemenu -l 10 | cliphist decode | wl-copy")
-  r (cmd dwlctl toggle-opacity)
-  c (cmd bash -c "/home/aidanfleming/.local/scripts/util/snip.sh")
+  ret (cmd foot)
 
-  b (cmd bash -c "somebar -s /tmp/mybar -c toggle all")
-  x sldr
-  z (cmd hyprpicker)
-  lsft lctl
-  lctl lalt
-  lalt (multi (layer-while-held sups) lsft)
-  ; lrld)
-
-(deflayermap sups
-  
-  1 1 2 2 3 3 4 4 5 5 6 6 7 7 8 8 9 9
-  b (cmd bash -c "somebar -s /tmp/mybar -c bar -w 0")
-
+  lsft (multi (layer-while-held dwlcmd) lctl)
+  lctl (multi (layer-while-held sups) lalt)
+  ; lrld
   )
 
+(deflayermap sups
+  1 1 2 2 3 3 4 4 5 5 6 6 7 7 8 8 9 9
+  b (cmd dwlctl toggle-borderpx)
+  )
+
+(deflayermap dwlcmd
+  b (cmd bash -c "somebar -s /tmp/mybar -c toggle all")
+
+  c (cmd bash -c "/home/aidanfleming/.local/scripts/util/snip.sh")
+  n (cmd bash -c "/home/aidanfleming/.local/scripts/menu/dmenu-notes")
+  v (cmd bash -c "cliphist list | bemenu -l 10 | cliphist decode | wl-copy")
+  r (cmd dwlctl toggle-opacity)
+
+  z (cmd hyprpicker)
+)

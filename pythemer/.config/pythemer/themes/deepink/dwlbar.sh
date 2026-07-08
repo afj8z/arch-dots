@@ -1,10 +1,18 @@
 #!/usr/bin/env bash
-BG="#33373B"
-FG="#DEDCD3"
-ACTIVE_BG="#DEDCD3"
-ACTIVE_FG="#33373B"
-URGENT_BG="#3e3939"
-URGENT_FG="#DEDCD3"
+THEME_FILE="${XDG_CONFIG_HOME:-$HOME/.config}/zsh/shell-theme.sh"
+if [ -f "$THEME_FILE" ]; then
+    source "$THEME_FILE"
+else
+    echo "Error: Theme file not found at $THEME_FILE"
+    exit 1
+fi
+
+BG="$COLOR_AC_BG"
+FG="$COLOR_FG"
+ACTIVE_BG="$COLOR_ACCENT"
+ACTIVE_FG="$COLOR_ACTIVE_FG"
+URGENT_BG="$COLOR_URGENT_BG"
+URGENT_FG="$COLOR_URGENT_FG"
 
 _ps="dwlb aslstatus"
 for _prs in $_ps; do

@@ -1,0 +1,29 @@
+on-notify=exec notify-bar "$id"
+sort=-time
+layer=overlay
+width=300
+height=110
+border-size=2
+border-radius=0
+icons=0
+max-icon-size=64
+default-timeout=5000
+ignore-timeout=1
+
+background-color=#b3bba9
+border-color=#2c3328
+font= monospace 14
+
+[urgency=low]
+border-color=#6b7561
+
+[urgency=normal]
+border-color=#5e8b54
+
+[urgency=high]
+border-color=#ab4a4a
+default-timeout=0
+
+[category=mpd]
+default-timeout=2000
+group-by=category

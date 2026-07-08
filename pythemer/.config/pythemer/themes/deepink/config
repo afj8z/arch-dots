@@ -1,3 +1,4 @@
+on-notify=exec notify-bar "$id"
 sort=-time
 layer=overlay
 width=300
@@ -11,7 +12,7 @@ ignore-timeout=1
 
 background-color=#33373B
 border-color=#DEDCD3
-font={{ name.font_family }} {{ name.font_size }}
+font= monospace 14
 
 [urgency=low]
 border-color=#616059

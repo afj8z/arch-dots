@@ -1,0 +1,3 @@
+##### CORE KEYS ###############################################################
+unbind C-b
+set-option -g prefix C-SPACE

@@ -1,19 +1,4 @@
-# If the user's terminal is in dark mode, Yazi will load `theme-dark.toml` on startup; otherwise, `theme-light.toml`.
-# You can override any parts of them that are not related to the dark/light mode in your own `theme.toml`.
-
-# If you want to dynamically override their content based on dark/light mode, you can specify two different flavors
-# for dark and light modes under `[flavor]`, and do so in those flavors instead.
-"$schema" = "https://yazi-rs.github.io/schemas/theme.json"
-
 # vim:fileencoding=utf-8:foldmethod=marker
-
-# : Flavor {{{
-
-[flavor]
-dark = ""
-light = ""
-
-# : }}}
 
 # : Manager {{{
 
@@ -38,7 +23,7 @@ count_cut = { fg = "white", bg = "red" }
 count_selected = { fg = "white", bg = "yellow" }
 # Border
 border_symbol = " "
-border_style = { fg = "gray" }
+border_style = { hidden = true }
 # Highlighting
 syntect_theme = ""
 
@@ -71,15 +56,15 @@ unset_alt = { fg = "red", bg = "gray" }
 
 [indicator]
 padding = { open = "█", close = "█" }
-current = { bg = "gray", fg = "black"}
-parent = { bg = "darkgray", fg = "white"}
+current = { bg = "gray", fg = "black" }
+parent = { bg = "darkgray", fg = "white" }
 
 # : Status bar {{{
 
 [status]
 sep_left = { open = "", close = "" }
 sep_right = { open = "", close = "" }
-overall = {  }
+overall = {}
 # Permissions
 perm_sep = { fg = "darkgray" }
 perm_type = { fg = "green" }
@@ -111,10 +96,10 @@ separator_style = { fg = "darkgray" }
 [confirm]
 border = { fg = "blue" }
 title = { fg = "blue" }
-content = {  }
-list = {  }
+content = {}
+list = {}
 btn_yes = { reversed = true }
-btn_no = {  }
+btn_no = {}
 btn_labels = ["  [Y]es  ", "  (N)o  "]
 
 # : }}}
@@ -148,7 +133,7 @@ icon_error = "E!"
 [pick]
 border = { fg = "blue" }
 active = { fg = "magenta", bold = true }
-inactive = {  }
+inactive = {}
 
 # : }}}
 
@@ -156,8 +141,8 @@ inactive = {  }
 
 [input]
 border = { fg = "blue" }
-title = {  }
-value = {  }
+title = {}
+value = {}
 selected = { reversed = true }
 
 # : }}}
@@ -167,7 +152,7 @@ selected = { reversed = true }
 [cmp]
 border = { fg = "blue" }
 active = { reversed = true }
-inactive = {  }
+inactive = {}
 # Icons
 icon_file = ""
 icon_folder = ""
@@ -179,7 +164,7 @@ icon_command = ""
 
 [tasks]
 border = { fg = "blue" }
-title = {  }
+title = {}
 hovered = { fg = "magenta", underline = true }
 
 # : }}}
@@ -189,7 +174,7 @@ hovered = { fg = "magenta", underline = true }
 [help]
 on = { fg = "cyan" }
 run = { fg = "magenta" }
-desc = {  }
+desc = {}
 hovered = { reversed = true, bold = true }
 footer = { fg = "black", bg = "white" }
 
@@ -210,14 +195,14 @@ rules = [
   # Empty files
   # { mime = "inode/empty", fg = "red" },
   # Special files
-  { name = "*", is = "orphan", bg = "red" },
-  { name = "*", is = "exec", fg = "green" },
+  { url = "*", is = "orphan", bg = "red" },
+  { url = "*", is = "exec", fg = "green" },
   # Dummy files
-  { name = "*", is = "dummy", bg = "red" },
-  { name = "*/", is = "dummy", bg = "red" },
+  { url = "*", is = "dummy", bg = "red" },
+  { url = "*/", is = "dummy", bg = "red" },
   # Fallback
   # { name = "*", fg = "white" },
-  { name = "*/", fg = "blue" },
+  { url = "*/", fg = "blue" },
 ]
 
 # : }}}

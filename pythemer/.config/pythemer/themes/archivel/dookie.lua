@@ -5,7 +5,7 @@ config.colors = {
 	cursor_bg = "#1A1A1A",
 	cursor_fg = "#F2F0E5",
 	selection_fg = "#1A1A1A",
-	selection_bg = "#f6f3e7", -- selection
+	selection_bg = "#ded7ac", -- selection
 
 	ansi = {
 		"#DFDBC3", -- black (cursorline)

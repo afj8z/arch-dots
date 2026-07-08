@@ -13,7 +13,7 @@ set notification-error-fg "#F2F0E5"
 set notification-warning-bg "#94631A"
 set notification-warning-fg "#F2F0E5"
 
-set highlight-color "#f6f3e7"
+set highlight-color "#ded7ac"
 set highlight-active-color "#2D4F67"
 
 set completion-highlight-fg "#F2F0E5"

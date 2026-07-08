@@ -1,0 +1,75 @@
+{
+	"meta": {
+		"theme": "walkie-dark-calibrated"
+	},
+	"background": "#201e20",
+	"foreground": "#d9d4d0",
+	"accent": "#b492af",
+	"color0": "#201e20",
+	"color1": "#d3868c",
+	"color2": "#8cb3a1",
+	"color3": "#e2b071",
+	"color4": "#6891ac",
+	"color5": "#b492af",
+	"color6": "#7bb2b2",
+	"color7": "#706370",
+	"color8": "#403740",
+	"color9": "#aeaed1",
+	"color10": "#a1c27c",
+	"color11": "#e2b68d",
+	"color12": "#8b9bc4",
+	"color13": "#c783ab",
+	"color14": "#b4d4cf",
+	"color15": "#d9d4d0",
+	"shade": {
+		"00": "#201e20",
+		"01": "#2a262a",
+		"02": "#322c32",
+		"03": "#403740",
+		"04": "#706370",
+		"05": "#8e7f72", // darker + desat
+		"06": "#c2b5a8",
+		"07": "#d9d4d0"
+	},
+	"syntax": {
+		"keyword": "#d3868c",
+		"conditional": "#d3868c", // link keyword
+		"exception": "#d3868c", // link keyword
+		"preprocessor": "#d3868c", // var keyword
+		"module": "#d3868c", // link keyword
+		"regex": "#b492af", // var keyword
+		"string": "#8cb3a1",
+		"char": "#a1c27c", // bright string
+		"comment": "#706370",
+		"punctuation": "#c2b5a8", // bright comment
+		"identifier": "#d9d4d0",
+		"variable": "#d9d4d0", // link identifier
+		"constant": "#aeaed1", // var identifier
+		"special": "#c783ab", // var identifier
+		"field": "#aeaed1", // var identifier
+		"parameter": "#d9d4d0", // var+ identifier
+		"builtin_variable": "#b4d4cf",
+		"number": "#e2b071",
+		"bool": "#e2b071", // link number
+		"function": "#6891ac",
+		"builtin_function": "#6891ac", // var function
+		"operator": "#7bb2b2",
+		"type": "#b492af", // offset keyword
+		"builtin_type": "#b492af", // var type
+		"class": "#c783ab", // var type
+		"error": "#d17b62"
+	},
+	"diagnostic": {
+		"success": "#8cb3a1",
+		"error": "#d3868c",
+		"fatal": "#d17b62",
+		"critical": "#d17b62",
+		"warning": "#e2b68d",
+		"info": "#b4d4cf",
+		"hint": "#aeaed1"
+	},
+	"state": {
+		"active_background": "#322d32",
+		"selection_background": "#3f4f5b"
+	}
+}

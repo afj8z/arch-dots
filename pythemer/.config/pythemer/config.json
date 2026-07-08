@@ -1,9 +1,9 @@
 {
   "default_template_dir": "${XDG_CONFIG_HOME}/pythemer/templates",
   "install_mapping": {
-    "ffroot.css": "~/.mozilla/firefox/qb4ziph3.default-release/chrome/root.css",
+    "ffroot.css": "~/.mozilla/firefox/0u42zzwn.default-release-1782564747730/chrome/root.css",
     "fftheme.css": [
-      "~/.mozilla/firefox/qb4ziph3.default-release/chrome/theme/fftheme.css",
+      "~/.mozilla/firefox/0u42zzwn.default-release-1782564747730/chrome/theme/fftheme.css",
       "~/.mozilla/firefox/fplt1o53.previewer/chrome/theme/fftheme.css"
     ],
     "colors.lua": "${XDG_CONFIG_HOME}/nvim/lua/ajf/colors.lua",
@@ -18,15 +18,32 @@
     "foottheme.ini": "${XDG_CONFIG_HOME}/foot/foottheme.ini",
     "sioyek_theme": "${XDG_CONFIG_HOME}/sioyek/sioyek_theme",
     "dwlbar.sh": "~/.local/bin/reload-dwlb.sh",
-    "wlcolors": "~/.wlcolors"
+    "wlcolors": "~/.wlcolors",
+    "typst-theme": "~/lib/typst/local/util/0.1.0/lib/theme/system_theme.typ",
+    "gowall.json": "~/.config/gowall/gowall.json",
+    "themesh": "~/.config/themesh/shtheme.conf",
+    "gtktheme": "/tmp/gtktheme"
   },
   "reload_commands": [
     ["killall", "-SIGUSR2", "mako"],
     ["pkill", "-SIGUSR1", "kitty"],
     ["tmux", "source", "~/.tmux.conf"],
-    ["chmod", "+x", "~/.local/bin/reload-dwlb.sh"],
     ["touch", "~/.config/sioyek/prefs_user.config"],
-    ["reload-dwlb.sh"],
-    ["dwlctl", "reload-colors"]
+    ["dwlctl", "reload-colors"],
+    ["spicetify", "apply"],
+    ["someblocks", "-s /tmp/mybar", "-c"],
+    ["somebar", "-s", "/tmp/mybar", "-c", "reload"],
+    [
+      "gowall",
+      "convert",
+      "~/pictures/wallpapers/myjo.png",
+      "-t",
+      "~/.config/gowall/gowall.json",
+      "--output",
+      "${WALLPAPER}"
+    ],
+    ["theme.sh", "--add", "~/.config/themesh/shtheme.conf"],
+    ["theme.sh", "shtheme"],
+    ["bash", "/tmp/gtktheme"]
   ]
 }

@@ -1,5 +1,13 @@
 rootcolor = #F2F0E5ff
-bordercolor = #DFDBC3ff
+textcolor = #1A1A1Aff
+muted_textcolor = #666359ff
+bordercolor = #F2F0E5ff
+
+successcolor = #4D7A4Dff
+infocolor = #3B6685ff
+warncolor = #B37720ff
+errorcolor = #B33D41ff
+accentcolor = #2D4F67ff
 focuscolor = #2D4F67ff
 urgentcolor = #B33D41ff
 fullscreen_bg = #F2F0E5ff

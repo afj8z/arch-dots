@@ -34,54 +34,52 @@ stylesheet.bg = {
 
 stylesheet.syntax = {
 	comment = cp.comment, -- Comments.
-	conditional = cp.purple, -- Conditional keywords, e.g., `if`, `when`.
-	constant = cp.beige, -- Constants, e.g., upper-case variables in Python.
-	field = cp.wheat, -- [UPDATED] Object and struct fields.
-	func = cp.teal, -- Function definitions.
-	identifier = cp.fg, -- Identifiers (variable names).
-	keyword = cp.red, -- Keywords.
-	parameter = cp.stone, -- [UPDATED] Parameters (Treesitter specific).
-	number = cp.pink, -- Numbers and floats.
-	operator = cp.coral, -- Operators, e.g., `is`, `not`.
-	preprocessor = cp.indigo, -- Preprocessor #if, #else, etc.
+	conditional = cp.conditional, -- Conditional keywords, e.g., `if`, `when`.
+	constant = cp.constant, -- Constants, e.g., upper-case variables in Python.
+	field = cp.field, -- [UPDATED] Object and struct fields.
+	func = cp.func, -- Function definitions.
+	identifier = cp.identifier, -- Identifiers (variable names).
+	keyword = cp.keyword, -- Keywords.
+	parameter = cp.param, -- [UPDATED] Parameters (Treesitter specific).
+	number = cp.number, -- Numbers and floats.
+	operator = cp.operator, -- Operators, e.g., `is`, `not`.
+	preprocessor = cp.preproc, -- Preprocessor #if, #else, etc.
 	punctuation = cp.punct, -- Any punctuation, e.g., brackets and commas.
-	regex = cp.lime, -- Regular expressions.
-	string = cp.green, -- Strings.
-	type = cp.gold, -- Type (and class) definitions.
-	variable = cp.fg, -- Variables.
-	special = cp.gold, -- Special characters
-	namespace = cp.orange, -- [ADDED] Namespace color (fixing the gap mentioned previously)
+	regex = cp.char, -- Regular expressions.
+	string = cp.strings, -- Strings.
+	type = cp.type, -- Type (and class) definitions.
+	variable = cp.identifier, -- Variables.
+	special = cp.special, -- Special characters
+	namespace = cp.module, -- [ADDED] Namespace color (fixing the gap mentioned previously)
+	struct = cp.struct,
 }
 
 stylesheet.syntax.builtin = {
-	const = cp.indigo, -- Built-in constants, e.g., `nil` in Lua.
-	func = cp.cyan, -- Built-in functions, e.g., `print` in Lua.
-	type = cp.cyan, -- Built-in types, e.g., `i32` in Rust.
-	var = cp.coral, -- Language-defined variables, e.g., `self` in Python.
+	const = cp.constant, -- Built-in constants, e.g., `nil` in Lua.
+	func = cp.bi_func, -- Built-in functions, e.g., `print` in Lua.
+	type = cp.bi_type, -- Built-in types, e.g., `i32` in Rust.
+	var = cp.bi_var, -- Language-defined variables, e.g., `self` in Python.
 }
 
 stylesheet.diagnostics = {
-	error = cp.error_red,
+	error = cp.error,
 	warning = cp.warning,
-	information = cp.cyan,
-	hint = cp.green,
+	information = cp.info,
+	hint = cp.hint,
 	reference = cp.cursorline,
 }
 
 stylesheet.diff = {
-	add = cp.green,
-	change = cp.blue,
-	delete = {
-		fg = cp.maroon,
-		bg = cp.bg,
-	},
+	add = cp.dim_green,
+	change = cp.warning,
+	delete = cp.dim_red,
 	text = cp.fg,
 }
 
 stylesheet.git = {
-	added = cp.green,
-	changed = cp.orange,
-	removed = cp.maroon,
+	added = cp.dim_green,
+	changed = cp.warning,
+	removed = cp.dim_red,
 }
 
 return stylesheet

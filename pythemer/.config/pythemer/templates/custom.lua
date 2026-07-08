@@ -1,49 +1,50 @@
 local cp = {
-	-- UI & BASE
-	bg = "{{ background | shade.01 }}", -- background main window
+	bg = "{{ background | shade.00 }}", -- background main window
 	bg_trans = "{{ background | shade.01 @rgb @transparent(0.96) }}",
-	fg = "{{ foreground || shade.07 }}", -- cursor, text
-	bg_dim = "{{ state.inactive_background | shade.00 | color0 }}", -- inactive ui
-	cursorline = "{{ state.active_background | shade.03 }}", -- highlighted
+	fg = "{{ foreground | shade.07 }}", -- cursor, text
+	bg_dim = "{{  shade.01 }}", -- inactive ui
+	cursorline = "{{ state.active_background | shade.04 }}", -- highlighted
 	selection = "{{ state.selection_background | hl.selection_background }}", -- selection
-	float = "{{ win.float_background | shade.04 }}", -- focusfloat
-	-- TEXT ACCENTS
+	float = "{{  shade.02 }}", -- focusfloat
+
 	comment = "{{ syntax.comment | shade.05 | color8 }}", -- comments
 	punct = "{{ syntax.punctuation | color7 }}", -- punctuation
 	accent = "{{ accent }}", -- Greenish accent
-	transparent = "NONE",
+	transparent = "{{ background | shade.01 }}",
 
-	-- SYNTAX COLORS
-	-- Reds & Pinks
-	red = "{{ syntax.keyword | color1 | named.red }}", -- Keyword, Return
-	error_red = "{{ diagnostic.error | syntax.error | color9 }}", -- Errors, Escapes
-	pink = "{{ syntax.number | color13 | named.pink }}", -- Numbers, Booleans
-	maroon = "{{ syntax.exception | syntax.error | diagnostic.error | color1 }}", -- Exception, Delete, Critical Tags
+	keyword = "{{ syntax.keyword | color1 | named.red }}", -- Keyword, Return
+	number = "{{ syntax.number | color13 | named.pink }}", -- Numbers, Booleans
+	bool = "{{ syntax.bool | syntax.number | color13 }}", -- boolean
+	identifier = "{{ syntax.identifier | shade.07 }}", -- identifiers
+	bi_var = "{{ syntax.builtin_variable | syntax.class | color12 }}",
 
-	-- Oranges & Yellows
-	orange = "{{ syntax.module | color11 | named.orange }}", -- Modules, Namespaces
-	coral = "{{ syntax.operator | color11 }}", -- Operators, Storage Class
+	module = "{{ syntax.module | color11 | named.orange }}", -- Modules, Namespaces
+	operator = "{{ syntax.operator | color11 }}", -- Operators, Storage Class
+	special = "{{ syntax.special | color3 }}", -- Special, Debug, Type definitions
+
+	strings = "{{ syntax.string | color2 | named.green }}", -- Strings
+	char = "{{ syntax.char | color10 }}", -- Regex, Special Characters
+
+	func = "{{ syntax.function | color4 }}", -- Functions
+	bi_func = "{{ syntax.builtin_function | color12 }}", -- [UNUSED now, but kept for safety]
+	preproc = "{{ syntax.preprocessor | syntax.builtin_constant | color4 }}", -- Constants, Preprocessors
+
+	conditional = "{{ syntax.conditional | color5 }}", -- Conditionals, Repeats
+
+	constant = "{{ syntax.constant | color15 }}", -- Constants
+	param = "{{ syntax.parameter | color7 }}", -- Parameters
+	field = "{{ syntax.field | color12 }}", --  Fields
+	bi_type = "{{ syntax.builtin_type | syntax.type | color12 }}",
+	type = "{{ syntax.type | color12 }}", --  Fields
+	struct = "{{ syntax.class | color3 }}",
+
+	error = "{{ diagnostic.error | syntax.error | color9 }}", -- Errors, Escapes
 	warning = "{{ diagnostic.warning | color3 }}", -- Warnings, Todo Background
-	gold = "{{ syntax.special | color3 }}", -- Special, Debug, Type definitions
+	info = "{{ diagnostic.info | color6 }}", -- Builtins, Info
+	hint = "{{ diagnostic.hint | accent  }}", -- [UNUSED now, kept for safety]
 
-	-- Greens
-	green = "{{ syntax.string | color2 | named.green }}", -- Strings
-	lime = "{{ syntax.regex | syntax.char | color10 }}", -- Regex, Special Characters
-
-	-- Blues & Teals
-	teal = "{{ syntax.function | color12 }}", -- Functions
-	cyan = "{{ diagnostic.info | color6 }}", -- Builtins, Info
-	blue = "{{ color4 }}", -- [UNUSED now, but kept for safety]
-	indigo = "{{ syntax.preprocessor | syntax.builtin_constant | color4 }}", -- Constants, Preprocessors
-
-	-- Purples
-	purple = "{{ syntax.conditional | color5 }}", -- Conditionals, Repeats
-	lavender = "{{ color14 }}", -- [UNUSED now, kept for safety]
-
-	-- Neutrals / Data Family
-	beige = "{{ syntax.constant | color15 }}", -- Constants
-	stone = "{{ syntax.parameter | color7 }}", -- Parameters
-	wheat = "{{ syntax.field | color12 }}", --  Fields
+	dim_green = "#3F4F34",
+	dim_red = "#452727",
 }
 
 -- Overwrite `cp` with any user configuration colours.
